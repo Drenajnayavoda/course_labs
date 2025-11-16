@@ -96,3 +96,11 @@ gh repo view --web # Открыть репозитория в web браузер
 * 📘  Аннотационный материал:
     * <a href="https://github.com/geminishkv/course_labs/artifacts/ppt"> Лекция intro</a>
 * 📦 **Releases**:
+* ## Links
+    * [Google Sheets](https://www.google.ru/intl/ru/sheets/about/)
+    * [Google Docs](https://www.google.ru/intl/ru/docs/about/)
+    * [GitHub](https://github.com)
+    * [GitHub SSH Key](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
+    * [Markdown](https://stackedit.io)
+    * [Gist](https://gist.github.com)
+    * [GitHub Personal Token](https://github.com/settings/tokens/new)
