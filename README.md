@@ -135,3 +135,7 @@ git clean -df # Удалить неотслеживаемые файлы и ди
     * [Gist](https://gist.github.com)
     * [GitHub Personal Token](https://github.com/settings/tokens/new)
     * [GitHub CLI](https://cli.github.com)
+
+Copyright (c) 2025 Elijah S Shmakov
+
+![Logo](artifacts/logotype/logo.jpg)
