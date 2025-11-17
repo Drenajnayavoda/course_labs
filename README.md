@@ -6,9 +6,8 @@
 <a href="https://shields.io"><img src="https://img.shields.io/static/v1?logo=shieldsdotio&logoColor=fff&label=&message=Shields&color=36393f&style=flat" alt="Shields"></a>
 <a href="https://img.shields.io/badge/Risk_Analyze-2448a2"><img src="https://img.shields.io/badge/Course-Risk_Analyze-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/AppSec-2448a2" alt= "RA"></a><img src="https://img.shields.io/badge/Contributor-Шмаков_И._С.-8b9aff" alt="Contributor Badge"></a></div>
 
-### Описание
-
 ***
+### Описание
 
 <br>Салют :wave:, </br>
 Отмечу основные моменты, которые вам необходимы для успешной и качественной подготовки:
@@ -35,7 +34,7 @@
     
 1.  Порядок выполнения работ:
 
--  [ ] lab01 - <a href="https://github.com/geminishkv/course_labs/labs/lab01"> Лабораторная работа посвящена изучению систем обмена данными и подготовительными материалами для последующих работ</a>
+-  [ ] lab01 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab01"> Лабораторная работа посвящена изучению систем обмена данными и подготовительными материалами для последующих работ</a>
 -  [ ] **Обновление будет предоставлено позднее**
 
 ***
@@ -126,7 +125,7 @@ git clean -df # Удалить неотслеживаемые файлы и ди
 ### Ресурсы:
 
 * 📘  Аннотационный материал:
-    * <a href="https://github.com/geminishkv/course_labs/artifacts/ppt"> Лекция intro</a>
+    * <a href="https://github.com/geminishkv/course_labs/blob/develop/artifacts/ppt/"> Лекции</a>
 * 📦 **Releases**:
 * Links:
     * [Google Sheets](https://www.google.ru/intl/ru/sheets/about/)

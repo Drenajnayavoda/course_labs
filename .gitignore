@@ -1,8 +1,7 @@
-.idea/
-
 ### macOS ###
 # General
 .DS_Store
+.DC_Store
 .AppleDouble
 .LSOverride
 
@@ -28,3 +27,5 @@ Temporary Items
 ### macOS Patch ###
 # iCloud generated files
 *.icloud
+
+.idea/
