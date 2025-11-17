@@ -7,7 +7,6 @@
 <a href="https://img.shields.io/badge/Risk_Analyze-2448a2"><img src="https://img.shields.io/badge/Course-Risk_Analyze-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/AppSec-2448a2" alt= "RA"></a><img src="https://img.shields.io/badge/Contributor-Шмаков_И._С.-8b9aff" alt="Contributor Badge"></a></div>
 
 ***
-### Описание
 
 <br>Салют :wave:, </br>
 Отмечу основные моменты, которые вам необходимы для успешной и качественной подготовки:
