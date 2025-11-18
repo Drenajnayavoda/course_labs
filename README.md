@@ -60,7 +60,7 @@
 
 - gitscm
 
-```bash
+```sh
 $ git init # Инициализация пустого локального репозитория
 $ git remote add origin URL_link # Связывание удалённого репозитория с именем "origin" по ссылке "URL_link" с локальным
 $ git pull origin name_branch # Ветка из которой мы берем изменения для тестирования
