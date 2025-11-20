@@ -61,7 +61,7 @@ $ nmap -iL targets.txt # множествнные цели сканирован�
 
 <link rel="stylesheet" href="../../assets/style/style.css">
 <div class="compact-table">
-<table>
+<table width="100%">
   <thead>
     <tr><th>Scan type</th><th>nmap option</th></tr>
   </thead>
