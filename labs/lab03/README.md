@@ -63,10 +63,7 @@ $ nmap -iL targets.txt # множествнные цели сканирован�
 <div class="compact-table">
 <table>
   <thead>
-    <tr>
-      <th>Scan type</th>
-      <th>nmap option</th>
-    </tr>
+    <tr><th>Scan type</th><th>nmap option</th></tr>
   </thead>
   <tbody>
     <tr><td>TCP (connect)</td><td>-sT</td></tr>
@@ -78,7 +75,6 @@ $ nmap -iL targets.txt # множествнные цели сканирован�
     <tr><td>UDP</td><td>-sU</td></tr>
     <tr><td>OS</td><td>-A</td></tr>
   </tbody></table></div>
-
 
 - **Порты**
 
