@@ -4,6 +4,7 @@
 <a href="https://daringfireball.net/projects/markdown"><img src="https://img.shields.io/static/v1?logo=markdown&logoColor=fff&label=&message=Markdown&color=36393f&style=flat" alt="Markdown"></a> 
 <a href="https://symbl.cc/en/unicode-table"><img src="https://img.shields.io/static/v1?logo=unicode&logoColor=fff&label=&message=Unicode&color=36393f&style=flat" alt="Unicode"></a> 
 <a href="https://shields.io"><img src="https://img.shields.io/static/v1?logo=shieldsdotio&logoColor=fff&label=&message=Shields&color=36393f&style=flat" alt="Shields"></a>
+<a href="https://img.shields.io/badge/Risk_Analyze-2448a2"><img src="https://img.shields.io/badge/Course-Risk_Analysis-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/AppSec-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/Contributor-Шмаков_И._С.-8b9aff" alt="Contributor Badge"></a></div>
 <a href="https://img.shields.io/badge/Risk_Analyze-2448a2"><img src="https://img.shields.io/badge/Course-Risk_Analyze-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/AppSec-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/Contributor-Шмаков_И._С.-8b9aff" alt="Contributor Badge"></a></div>
 
 ***
@@ -33,6 +34,9 @@
     
 1.  Порядок выполнения работ:
 
+-  [ ] lab01 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab01/README.md">Лабораторная работа посвящена изучению систем обмена данными и подготовительными материалами для последующих работ</a>
+-  [ ] lab02 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab02/README.md">Лабораторная работа посвящена изучению работы *nix, контроле прав доступа, оперированию процессов</a>
+-  [ ] lab03 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab03/README.md">Лабораторная работа посвящена изучению nmap и анализа выявленных уязвимостей</a>
 -  [ ] lab01 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab01/README.md"> Лабораторная работа посвящена изучению систем обмена данными и подготовительными материалами для последующих работ</a>
 -  [ ] **Обновление будет предоставлено позднее**
 
@@ -60,7 +64,7 @@
 
 - gitscm
 
-```sh
+```bash
 $ git init # Инициализация пустого локального репозитория
 $ git remote add origin URL_link # Связывание удалённого репозитория с именем "origin" по ссылке "URL_link" с локальным
 $ git pull origin name_branch # Ветка из которой мы берем изменения для тестирования
@@ -154,7 +158,7 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
 - Ветка (`master`, `develop` etc.) — указатель на коммит. При добавлении коммита, указатель ветки перемещается с родительского коммита на новый.
 - Теги — простые указатели на коммиты. Не перемещаются.
 
- </p></details></div>
+ </p></details>
  
 <details><summary><strong>ENV</strong></summary><p>
 
@@ -164,7 +168,7 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
 - Глобальный (--global) - для пользователя, файл ~/.gitconfig
 - Системный (--system) - для всех пользователей /etc/gitconfig
 
- </p></details></div>
+ </p></details>
 
 <details><summary><strong>Unix commands</summary><p>
 
@@ -189,7 +193,7 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
 - [sed](https://en.wikipedia.org/wiki/Sed)
 - [touch](https://en.wikipedia.org/wiki/Touch_(Unix))
 
-</p></details></div>
+</p></details>
 
 <details><summary><strong>Package Managers</summary><p>
 
@@ -200,7 +204,19 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
 - [linuxbrew](http://linuxbrew.sh)
 - [npm](https://docs.npmjs.com)
 
-</p></details></div>
+</p></details>
+
+
+<details><summary><strong>Software</summary><p>
+
+- [curl](https://www.gitbook.com/book/bagder/everything-curl/details)
+- [wget](https://www.gnu.org/software/wget/manual/wget.pdf)
+- [openssl](https://www.openssl.org)
+- [nano](https://www.nano-editor.org)
+- [tree](https://linux.die.net/man/1/tree)
+- [vim](http://www.vim.org)
+
+</p></details>
 
 ***
 

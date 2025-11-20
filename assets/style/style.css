@@ -1,0 +1,12 @@
+  .compact-table {
+    font-size: 12px;
+  }
+  .compact-table table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .compact-table th, .compact-table td {
+    border: 1px solid #999;
+    padding: 4px;
+    text-align: left;
+  }
