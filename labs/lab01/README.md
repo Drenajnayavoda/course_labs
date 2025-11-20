@@ -148,4 +148,4 @@ if __name__ == "__main__":
 
 Copyright (c) 2025 Elijah S Shmakov
 
-![Logo](../../artifacts/logotype/logo.jpg)
+![Logo](../../assets/logotype/logo.jpg)

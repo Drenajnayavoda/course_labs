@@ -34,6 +34,7 @@
 1.  Порядок выполнения работ:
 
 -  [ ] lab01 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab01"> Лабораторная работа посвящена изучению систем обмена данными и подготовительными материалами для последующих работ</a>
+-  [ ] 
 -  [ ] **Обновление будет предоставлено позднее**
 
 ***
@@ -60,7 +61,7 @@
 
 - gitscm
 
-```sh
+```bash
 $ git init # Инициализация пустого локального репозитория
 $ git remote add origin URL_link # Связывание удалённого репозитория с именем "origin" по ссылке "URL_link" с локальным
 $ git pull origin name_branch # Ветка из которой мы берем изменения для тестирования
@@ -154,7 +155,7 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
 - Ветка (`master`, `develop` etc.) — указатель на коммит. При добавлении коммита, указатель ветки перемещается с родительского коммита на новый.
 - Теги — простые указатели на коммиты. Не перемещаются.
 
- </p></details></div>
+ </p></details>
  
 <details><summary><strong>ENV</strong></summary><p>
 
@@ -164,7 +165,7 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
 - Глобальный (--global) - для пользователя, файл ~/.gitconfig
 - Системный (--system) - для всех пользователей /etc/gitconfig
 
- </p></details></div>
+ </p></details>
 
 <details><summary><strong>Unix commands</summary><p>
 
@@ -189,7 +190,7 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
 - [sed](https://en.wikipedia.org/wiki/Sed)
 - [touch](https://en.wikipedia.org/wiki/Touch_(Unix))
 
-</p></details></div>
+</p></details>
 
 <details><summary><strong>Package Managers</summary><p>
 
@@ -200,7 +201,19 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
 - [linuxbrew](http://linuxbrew.sh)
 - [npm](https://docs.npmjs.com)
 
-</p></details></div>
+</p></details>
+
+
+<details><summary><strong>Software</summary><p>
+
+- [curl](https://www.gitbook.com/book/bagder/everything-curl/details)
+- [wget](https://www.gnu.org/software/wget/manual/wget.pdf)
+- [openssl](https://www.openssl.org)
+- [nano](https://www.nano-editor.org)
+- [tree](https://linux.die.net/man/1/tree)
+- [vim](http://www.vim.org)
+
+</p></details>
 
 ***
 
