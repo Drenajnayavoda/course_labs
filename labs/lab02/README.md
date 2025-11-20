@@ -241,9 +241,7 @@ $ getfacl nmapres.txt
 
 ## Links
 
-- [Markdown](https://stackedit.io)
 - [Gist](https://gist.github.com)
-- [GitHub Personal Token](https://github.com/settings/tokens/new)
 - [GitHub CLI](https://cli.github.com)
 - [cat](https://en.wikipedia.org/wiki/Cat_(Unix))
 - [cd](https://en.wikipedia.org/wiki/Cd_(command))
