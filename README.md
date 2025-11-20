@@ -5,6 +5,7 @@
 <a href="https://symbl.cc/en/unicode-table"><img src="https://img.shields.io/static/v1?logo=unicode&logoColor=fff&label=&message=Unicode&color=36393f&style=flat" alt="Unicode"></a> 
 <a href="https://shields.io"><img src="https://img.shields.io/static/v1?logo=shieldsdotio&logoColor=fff&label=&message=Shields&color=36393f&style=flat" alt="Shields"></a>
 <a href="https://img.shields.io/badge/Risk_Analyze-2448a2"><img src="https://img.shields.io/badge/Course-Risk_Analysis-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/AppSec-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/Contributor-Шмаков_И._С.-8b9aff" alt="Contributor Badge"></a></div>
+<a href="https://img.shields.io/badge/Risk_Analyze-2448a2"><img src="https://img.shields.io/badge/Course-Risk_Analyze-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/AppSec-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/Contributor-Шмаков_И._С.-8b9aff" alt="Contributor Badge"></a></div>
 
 ***
 
@@ -36,6 +37,7 @@
 -  [ ] lab01 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab01/README.md">Лабораторная работа посвящена изучению систем обмена данными и подготовительными материалами для последующих работ</a>
 -  [ ] lab02 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab02/README.md">Лабораторная работа посвящена изучению работы *nix, контроле прав доступа, оперированию процессов</a>
 -  [ ] lab03 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab03/README.md">Лабораторная работа посвящена изучению nmap и анализа выявленных уязвимостей</a>
+-  [ ] lab01 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab01/README.md"> Лабораторная работа посвящена изучению систем обмена данными и подготовительными материалами для последующих работ</a>
 -  [ ] **Обновление будет предоставлено позднее**
 
 ***
