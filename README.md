@@ -238,4 +238,5 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
 Copyright (c) 2025 Elijah S Shmakov
 
 
-![Logo](artifacts/logotype/logo.jpg)
+![Logo](assets/logotype/logo.jpg)
+
