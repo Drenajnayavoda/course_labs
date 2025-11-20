@@ -58,6 +58,7 @@ $ nmap -iL targets.txt # множествнные цели сканирован�
 ```
 
 -  **Типы сканирований и опции nmap**
+
 <link rel="stylesheet" href="../../assets/style/style.css">
 <div class="compact-table">
 <table>
