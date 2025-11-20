@@ -203,8 +203,8 @@ while True:
 pygame.display.flip() # Обновляем экран
 ```
 
-- [ ] Сделайте `commit` и `push` в свой репозиторий с изменениями в `master branch`. На следующих лабораторных работах мы вернемся к этому файлу.
-- [ ] Выведите на терминале и проанализируйте следующие команды консоли
+- [ ] 6. Сделайте `commit` и `push` в свой репозиторий с изменениями в `master branch`. На следующих лабораторных работах мы вернемся к этому файлу.
+- [ ] 7. Выведите на терминале и проанализируйте следующие команды консоли
 
 ```bash
 $ groups
@@ -221,36 +221,46 @@ $ chmod 666 screen
 ```
 
 
-- [ ] Выведите группу прав для `screen` и измените, что бы файл был доступен только для чтения созданному пользователю и выведите права этого польователя для измененного файла только используя `readgroup`.
-- [ ] все списки групп пользователей на вашей ОС
-- [ ] Выведите все права для файлов и директорий которые имеют различные пользователи
-- [ ] Измените права доступа для создаваемой любой группы на чтение и запись только в одну определенную директорию
-- [ ] 
+- [ ] 8. Выведите группу прав для `screen` и измените, что бы файл был доступен только для чтения созданному пользователю и выведите права этого польователя для измененного файла только используя `readgroup`.
+- [ ] 9. Используйте `POSIX ACL`. Выведите на терминале и проанализируйте следующие команды консоли
 
-- [ ] 11. Выполнить инструкцию учебного материала
-- [ ] 12. Оформить `README.md` по аналогии и использовать `shield`, etc.
-- [ ] 12. Составить `gist` отчет и отправить ссылку личным сообщением
+```bash
+$ touch nmapres.txt
+$ setfacl -m u:smallman:rw nmapres.txt
+$ setfacl -m g:readgroup:r nmapres.txt
+$ getfacl nmapres.txt
+```
 
-***
-
-## Дополнение
-
--  Подготовка пространства: установить [Oracle VMBox](https://www.virtualbox.org) и монтировать образ [Ubuntu](https://ubuntu.com/download), [Fedora](https://fedoraproject.org), [FreeBSD](https://www.freebsd.org), либо использовать личное устройство
-    -  [Помощь](https://wiki.merionet.ru/articles/ustanovka-ubuntu-linux-na-virtual-box?ysclid=mi2bbxscjo286504194) для корректной настройки образа виртуальной машины или используйте иной материал. Обратите внимание на расширение при установке, сайзинг, ограничение памяти, выделяемый ресурс от своей рабочей машины.
-
-
-- Подготовьте и опишите материалы в отчете:
-    1. 
+- [ ] 10. Сохраните файл внутри локального репозитория, так как следующая работа будет подразумевать запись в нее данных о nmap.
+- [ ] 11. Для закрепления выведите все списки групп пользователей на вашей ОС и права на верхнеуровневые каталоги.
+- [ ] 12. Выведите все права для файлов и директорий локального репозитория которые имеют различные пользователи  (без использования длинных путей)
+- [ ] 13. Оформить `README.md` по аналогии и использовать `shield`, etc.
+- [ ] 14. Составить `gist` отчет и отправить ссылку личным сообщением
 
 ***
 
 ## Links
 
-
 - [Markdown](https://stackedit.io)
 - [Gist](https://gist.github.com)
 - [GitHub Personal Token](https://github.com/settings/tokens/new)
 - [GitHub CLI](https://cli.github.com)
+- [cat](https://en.wikipedia.org/wiki/Cat_(Unix))
+- [cd](https://en.wikipedia.org/wiki/Cd_(command))
+- [cp](https://en.wikipedia.org/wiki/Cp_(Unix))
+- [echo](https://en.wikipedia.org/wiki/Echo_(command))
+- [env](https://en.wikipedia.org/wiki/Env_(shell))
+- [file](https://en.wikipedia.org/wiki/File_(command))
+- [ls](https://en.wikipedia.org/wiki/Ls)
+- [mkdir](https://en.wikipedia.org/wiki/Mkdir)
+- [mv](https://en.wikipedia.org/wiki/Mv)
+- [ps](https://en.wikipedia.org/wiki/Ps_(Unix))
+- [pwd](https://en.wikipedia.org/wiki/Pwd)
+- [rm](https://en.wikipedia.org/wiki/Rm_(Unix))
+- [touch](https://en.wikipedia.org/wiki/Touch_(Unix))
+- [apt](http://help.ubuntu.ru/wiki/apt)
+- [brew](https://brew.sh)
+- [npm](https://docs.npmjs.com)
 
 Copyright (c) 2025 Elijah S Shmakov
 
