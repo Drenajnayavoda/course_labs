@@ -36,7 +36,6 @@
 -  [ ] lab01 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab01/README.md">Лабораторная работа посвящена изучению систем обмена данными и подготовительными материалами для последующих работ</a>
 -  [ ] lab02 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab02/README.md">Лабораторная работа посвящена изучению работы *nix, контроле прав доступа, оперированию процессов</a>
 -  [ ] lab03 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab03/README.md">Лабораторная работа посвящена изучению nmap и анализа выявленных уязвимостей</a>
--  [ ] lab01 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab01/README.md"> Лабораторная работа посвящена изучению систем обмена данными и подготовительными материалами для последующих работ</a>
 -  [ ] **Обновление будет предоставлено позднее**
 
 ***
@@ -239,4 +238,5 @@ Copyright (c) 2025 Elijah S Shmakov
 
 
 ![Logo](assets/logotype/logo.jpg)
+
 
