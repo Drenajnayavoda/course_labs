@@ -37,6 +37,7 @@
 -  [ ] lab02 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab02/README.md">Лабораторная работа посвящена изучению работы *nix, контроле прав доступа, оперированию процессов</a>
 -  [ ] lab03 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab03/README.md">Лабораторная работа посвящена изучению nmap и анализа выявленных уязвимостей</a>
 -  [ ] lab04 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab04/README.md">Данная лабораторная работа посвещена практическому анализу и определению мер снижения рисков ИБ</a>
+-  [ ] lab05 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab05/README.md">Данная лабораторная работа посвещена изучению Docker и как с ним работать</a>
 -  [ ] **Обновление будет предоставлено позднее**
 
 ***
@@ -330,6 +331,7 @@ frontend/dist/
     * [GitHub Personal Token](https://github.com/settings/tokens/new)
     * [GitHub CLI](https://cli.github.com)
     * [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
+    * [Docker](https://docs.docker.com/)
     * [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager)
     * [Code of Conduct](https://www.contributor-covenant.org)
 
