@@ -145,6 +145,26 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
 .idea/
 ```
 
+- .dockerignore
+
+```
+.git/
+monitoring/
+node_modules/
+screenshots/
+test/
+build/reports/
+dist/
+vagrant/
+logs/
+Dockerfile
+.npmrc
+/bom.json
+/bom.xml
+frontend/node_modules/
+frontend/dist/
+```
+
 ***
 
 ### Приложение:
