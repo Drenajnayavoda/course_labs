@@ -155,6 +155,33 @@ docker container ls # все запущенные контейнера
 docker container ls -all # все контейнера
 docker run -d --privileged --name docker go:1.16 # привелегированный режим
 
+# Building & Rebuilding
+docker compose build	 
+docker compose build --no-cache # Создает образы без использования кэша
+docker compose build <service> # Создает только определенную службу
+docker compose up --build	# Создает изображения, а затем запускает контейнеры
+docker compose up --force-recreate	# Воссоздает контейнеры, даже если ничего не изменилось
+docker compose up --build --force-recreate # Полностью перестраивает и воссоздает контейнеры
+
+# Running Containers
+docker compose up	
+docker compose up -d	 # Запускает контейнеры в отсоединенном режиме в фоновом режиме
+docker compose start	 # Запускает уже созданные контейнеры (не перестраивает и не создает заново)
+
+# Stopping & Removing Containers
+docker compose stop	
+docker compose down	# Останавливает и удаляет контейнеры, сети и тома по умолчанию
+docker compose down --volumes	 # Удаляет контейнеры, сети и именованные/анонимные тома
+docker compose down --rmi all	 # Также удаляет все построенные изображения
+docker compose rm	 # Удаляет остановленные контейнеры служб (после остановки)
+docker compose kill # Принудительно останавливает запуск контейнеров
+
+# Useful Inspection & Debugging
+docker compose ps	# Списки запущенных служб и их состояние
+docker compose logs # Отображение журналов для всех служб
+docker compose logs -f	
+docker compose exec <service> sh # Открывает оболочку внутри работающего контейнера
+docker compose config
 ```
 
 - .dockerignore
