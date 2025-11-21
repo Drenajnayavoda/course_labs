@@ -33,11 +33,11 @@
     
 1.  Порядок выполнения работ:
 
--  [ ] lab01 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab01/README.md">Лабораторная работа посвящена изучению систем обмена данными и подготовительными материалами для последующих работ</a>
--  [ ] lab02 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab02/README.md">Лабораторная работа посвящена изучению работы *nix, контроле прав доступа, оперированию процессов</a>
--  [ ] lab03 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab03/README.md">Лабораторная работа посвящена изучению nmap и анализа выявленных уязвимостей</a>
--  [ ] lab04 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab04/README.md">Данная лабораторная работа посвещена практическому анализу и определению мер снижения рисков ИБ</a>
--  [ ] lab05 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab05/README.md">Данная лабораторная работа посвещена изучению Docker и как с ним работать</a>
+-  [ ] lab01 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab01/README.md">Лабораторная работа посвящена изучению **gitscm** и подготовительными материалами для последующих работ</a>
+-  [ ] lab02 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab02/README.md">Лабораторная работа посвящена изучению работы *nix, контролей прав доступа, оперированию процессов</a>
+-  [ ] lab03 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab03/README.md">Лабораторная работа посвящена изучению **nmap** и анализа выявленных уязвимостей</a>
+-  [ ] lab04 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab04/README.md">Данная лабораторная работа посвещена практическому **анализу и определению мер** снижения рисков ИБ</a>
+-  [ ] lab05 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab05/README.md">Данная лабораторная работа посвещена изучению **Docker** и как с ним работать</a>
 -  [ ] **Обновление будет предоставлено позднее**
 
 ***
@@ -145,6 +145,16 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
 *install*/
 *.swp
 .idea/
+```
+
+- Docke
+
+```bash
+docker image ls all # все образы
+docker container ls # все запущенные контейнера
+docker container ls -all # все контейнера
+docker run -d --privileged --name docker go:1.16 # привелегированный режим
+
 ```
 
 - .dockerignore
