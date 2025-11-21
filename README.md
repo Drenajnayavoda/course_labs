@@ -33,10 +33,11 @@
     
 1.  Порядок выполнения работ:
 
--  [ ] lab01 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab01/README.md">Лабораторная работа посвящена изучению систем обмена данными и подготовительными материалами для последующих работ</a>
--  [ ] lab02 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab02/README.md">Лабораторная работа посвящена изучению работы *nix, контроле прав доступа, оперированию процессов</a>
--  [ ] lab03 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab03/README.md">Лабораторная работа посвящена изучению nmap и анализа выявленных уязвимостей</a>
--  [ ] lab04 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab04/README.md">Данная лабораторная работа посвещена практическому анализу и определению мер снижения рисков ИБ</a>
+-  [ ] lab01 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab01/README.md">Лабораторная работа посвящена изучению **gitscm** и подготовительными материалами для последующих работ</a>
+-  [ ] lab02 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab02/README.md">Лабораторная работа посвящена изучению работы *nix, контролей прав доступа, оперированию процессов</a>
+-  [ ] lab03 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab03/README.md">Лабораторная работа посвящена изучению **nmap** и анализа выявленных уязвимостей</a>
+-  [ ] lab04 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab04/README.md">Данная лабораторная работа посвещена практическому **анализу и определению мер** снижения рисков ИБ</a>
+-  [ ] lab05 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab05/README.md">Данная лабораторная работа посвещена изучению **Docker** и как с ним работать</a>
 -  [ ] **Обновление будет предоставлено позднее**
 
 ***
@@ -144,6 +145,43 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
 *install*/
 *.swp
 .idea/
+```
+
+- Docke
+
+```bash
+docker image ls all # все образы
+docker container ls # все запущенные контейнера
+docker container ls -all # все контейнера
+docker run -d --privileged --name docker go:1.16 # привелегированный режим
+
+# Building & Rebuilding
+docker compose build	 
+docker compose build --no-cache # Создает образы без использования кэша
+docker compose build <service> # Создает только определенную службу
+docker compose up --build	# Создает изображения, а затем запускает контейнеры
+docker compose up --force-recreate	# Воссоздает контейнеры, даже если ничего не изменилось
+docker compose up --build --force-recreate # Полностью перестраивает и воссоздает контейнеры
+
+# Running Containers
+docker compose up	
+docker compose up -d	 # Запускает контейнеры в отсоединенном режиме в фоновом режиме
+docker compose start	 # Запускает уже созданные контейнеры (не перестраивает и не создает заново)
+
+# Stopping & Removing Containers
+docker compose stop	
+docker compose down	# Останавливает и удаляет контейнеры, сети и тома по умолчанию
+docker compose down --volumes	 # Удаляет контейнеры, сети и именованные/анонимные тома
+docker compose down --rmi all	 # Также удаляет все построенные изображения
+docker compose rm	 # Удаляет остановленные контейнеры служб (после остановки)
+docker compose kill # Принудительно останавливает запуск контейнеров
+
+# Useful Inspection & Debugging
+docker compose ps	# Списки запущенных служб и их состояние
+docker compose logs # Отображение журналов для всех служб
+docker compose logs -f	
+docker compose exec <service> sh # Открывает оболочку внутри работающего контейнера
+docker compose config
 ```
 
 - .dockerignore
@@ -330,6 +368,7 @@ frontend/dist/
     * [GitHub Personal Token](https://github.com/settings/tokens/new)
     * [GitHub CLI](https://cli.github.com)
     * [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
+    * [Docker](https://docs.docker.com/)
     * [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager)
     * [Code of Conduct](https://www.contributor-covenant.org)
 
