@@ -60,6 +60,74 @@
 
 ***
 
+### Структура репозитория
+
+```
+├── artifacts
+│   ├── cheetsheet
+│   │   ├── Docker_Image_Security_Best_Practices.pdf
+│   │   └── gitscm.jpg
+│   ├── exmpls
+│   │   ├── Аналитический отчет по уязвимости PrintNightmare.pdf
+│   │   ├── Пример - Multisignature - Безопасности криптовалютных платежей.pdf
+│   │   └── Пример_аналитических_отчетов_по_задачам_ИБ.pdf
+│   ├── owasp
+│   │   ├── OWASP_Top_10_CICD_Risks.pdf
+│   │   ├── Авторизация (Authorization).pdf
+│   │   ├── Атаки на клиентов (Client-side Attacks).pdf
+│   │   ├── Аутентификация (Authentication).pdf
+│   │   ├── Выполнение кода (Command Execution).pdf
+│   │   ├── Логические атаки (Logical Attacks).pdf
+│   │   └── Разглашение информации (Information Disclosure).pdf
+│   └── ppt
+│       └── Лекция_Управление Рисками ИБ_intro.pdf
+├── assets
+│   ├── logotype
+│   │   └── logo.jpg
+│   └── style
+│       └── style.css
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── labs
+│   ├── lab01
+│   │   ├── README.md
+│   │   └── typersteel.py
+│   ├── lab02
+│   │   ├── exmpl_hello.py
+│   │   ├── pygamesteel.py
+│   │   └── README.md
+│   ├── lab03
+│   │   ├── exmp_targets.txt
+│   │   └── README.md
+│   ├── lab04
+│   │   └── README.md
+│   ├── lab05
+│   │   ├── client
+│   │   │   ├── client.py
+│   │   │   ├── Dockerfile
+│   │   │   └── requirements.txt
+│   │   ├── docker-compose.yml
+│   │   ├── README.md
+│   │   ├── server
+│   │   │   ├── app.py
+│   │   │   ├── Dockerfile
+│   │   │   └── requirements.txt
+│   │   └── source
+│   │       ├── Dockerfile
+│   │       ├── hello.py
+│   │       ├── image.tar
+│   │       └── requirements.txt
+│   └── lab06
+│       └── README.md
+├── LICENSE.md
+├── NOTICE.md
+├── README.md
+└── SECURITY.md
+
+```
+
+***
+
 ### Сопроводительыне материалы
 
 - gitscm
