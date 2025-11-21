@@ -215,7 +215,7 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
 .idea/
 ```
 
-- Docke
+- Docker
 
 ```bash
 $ docker image ls all # все образы
