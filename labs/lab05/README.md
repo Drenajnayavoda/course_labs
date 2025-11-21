@@ -46,7 +46,7 @@
 Необходимы для контрольных групп в изоляции, где предоставляется приложению только те ресурсы, которые указываем. Позволяют разделять ресурсы железа и устанавливать пределы, ограничения.
 
 ```bash
-docker container run d \
+$ docker container run d \
         —e NGINX_HOST otus.local \
         —p 8080:80 \
         –-v "$PWD/html" usr/share/nginx/html \
@@ -160,46 +160,46 @@ requests==2.28.1
 - [ ] 8. Выведите на терминале и проанализируйте следующие команды консоли
 
 ```bash
-docker login
-docker tag hello-appsec-world yourusername/hello-appsec-world
-docker push yourusername/hello-appsec-world
-docker inspect yourusername/hello-appsec-world
-docker container create --name first hello-appsec-world # выпишите id контейнера
+$ docker login
+$ docker tag hello-appsec-world yourusername/hello-appsec-world
+$ docker push yourusername/hello-appsec-world
+$ docker inspect yourusername/hello-appsec-world
+$ docker container create --name first hello-appsec-world # выпишите id контейнера
 
-docker image pull geminishkv/hello-appsec-world
-docker inspect geminishkvdev/hello-appsec-world
-docker container create --name second hello-appsec-world
+$ docker image pull geminishkv/hello-appsec-world
+$ docker inspect geminishkvdev/hello-appsec-world
+$ docker container create --name second hello-appsec-world
 
 ``` 
 
 - [ ] 9. Выведите на терминале и проанализируйте в консоли процессы, которые запущены, владельцев по пользователям
 
 ```bash 
- docker container run -it ubuntu /bin/bash
+ $ docker container run -it ubuntu /bin/bash
 ``` 
  
 - [ ] 10. Выведите оба контейнера first и second на терминал
 - [ ] 11. Перейдите в основной корень `lab05` и выведите на терминале, и проанализируйте
 
 ```bash 
-docker-compose up --build
+$ docker-compose up --build
 ``` 
 
 - [ ] 12. Откройте соседнее окно терминала и и выведите на терминале
 
 ```bash 
-open -a "Google Chrome" http://localhost:8000
+$ open -a "Google Chrome" http://localhost:8000
 ```
 
 - [ ] 13. Остановите работу `docker-compose`.
 
 ```bash 
-docker ps -a
-docker ps -q
-docker images
+$ docker ps -a
+$ docker ps -q
+$ docker images
 
-docker ps -q | xargs docker stop
-docker-compose down
+$ docker ps -q | xargs docker stop
+$ docker-compose down
 ```
 - [ ] 14. Доработайте `docker-compose` и скрипт, который вы подготовили ранее, что бы вы смогли воспроизвести шаги п.11 по п.13 с демонстрацией. Сделайте `commit`.
 - [ ] 15. Залейте изменения в свой удаленный репозиторий, проверьте историю `commit`.
