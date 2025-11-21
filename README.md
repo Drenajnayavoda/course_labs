@@ -315,7 +315,10 @@ frontend/dist/
 ### Ресурсы:
 
 * 📘  Аннотационный материал:
-    * <a href="https://github.com/geminishkv/course_labs/blob/develop/artifacts/ppt/"> Лекции</a>
+    * <a href="https://github.com/geminishkv/course_labs/blob/develop/artifacts/ppt/">Лекции</a>
+    * <a href="https://github.com/geminishkv/course_labs/blob/develop/artifacts/owasp/">OWASP TOP 10</a>
+    * <a href="https://github.com/geminishkv/course_labs/blob/develop/artifacts/cheetsheet/">cheetsheet</a>
+    * <a href="https://github.com/geminishkv/course_labs/blob/develop/artifacts/exmpls/">Примеры</a>
 * 📦 **Releases**:
 * Links:
     * [Google Sheets](https://www.google.ru/intl/ru/sheets/about/)
