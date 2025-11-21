@@ -204,6 +204,17 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
 
 </p></details>
 
+<details><summary><strong>Software</strong></summary><p>
+
+- [curl](https://www.gitbook.com/book/bagder/everything-curl/details)
+- [wget](https://www.gnu.org/software/wget/manual/wget.pdf)
+- [openssl](https://www.openssl.org)
+- [nano](https://www.nano-editor.org)
+- [tree](https://linux.die.net/man/1/tree)
+- [vim](http://www.vim.org)
+
+</p></details>
+
 <details><summary><strong>Политика безопасности проекта</strong></summary><p>
 
 Введение
@@ -265,14 +276,17 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
 
 </p></details>
 
-<details><summary><strong>Software</strong></summary><p>
+<details><summary><strong>Contributor Covenant</strong></summary><p>
 
-- [curl](https://www.gitbook.com/book/bagder/everything-curl/details)
-- [wget](https://www.gnu.org/software/wget/manual/wget.pdf)
-- [openssl](https://www.openssl.org)
-- [nano](https://www.nano-editor.org)
-- [tree](https://linux.die.net/man/1/tree)
-- [vim](http://www.vim.org)
+Это широко используемый кодекс поведения для участников открытых проектов. Его цель — создать приветливую, инклюзивную и свободную от домогательств среду для всех участников сообщества, включая представителей меньшинств и уязвимых групп.
+
+Кодекс определяет ожидаемые модели поведения, такие как уважение, конструктивное общение и ответственность за свои действия. В нем также чётко описано, какие формы поведения считаются неприемлемыми: домогательства, дискриминация, оскорбления, преследования и разглашение личной информации без согласия.
+
+Кроме того, Contributor Covenant устанавливает обязанности лидеров и сопровождающих проекта по обеспечению соблюдения этих правил, а также процесс реагирования на жалобы, включая конфиденциальное рассмотрение и принятие мер по устранению нарушений.
+
+Этот кодекс применяется не только в рамках технических площадок проекта, но и когда кто-то представляет сообщество публично, помогая поддерживать здоровую и продуктивную атмосферу для совместной работы и развития проектов.
+
+Широко принят в крупных open source проектах и организациях, таких как Linux Foundation, Python Software Foundation и многих других, Contributor Covenant способствует формированию уважительной и разнообразной среды разработки программного обеспечения.
 
 </p></details>
 
@@ -293,6 +307,7 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
     * [GitHub CLI](https://cli.github.com)
     * [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
     * [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager)
+    * [Code of Conduct](https://www.contributor-covenant.org)
 
 Copyright (c) 2025 Elijah S Shmakov
 
