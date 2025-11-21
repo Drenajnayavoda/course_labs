@@ -47,7 +47,7 @@
 
 ```bash
 $ docker container run d \
-        —e NGINX_HOST otus.local \
+        —e NGINX_HOST xxx.xxx \
         —p 8080:80 \
         –-v "$PWD/html" usr/share/nginx/html \
         —memory=50m \
