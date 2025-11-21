@@ -141,32 +141,43 @@ $ nmap -p localhost
 $ nmap -O localhost
 
 $ nmap -p 80 localhost
-$ nmap -sV -p 22,8080 localhost
 $ nmap -p 443 localhost
 $ nmap -p 8443 localhost
+$ nmap -p "*" localhost
+$ nmap -sV -p 22,8080 localhost
+
+$ nmap -sP 192.168.1.0/24
+$ nmap --open 192.168.1.1
+$ nmap --packet-trace 192.168.1.1
+$ nmap --packet-trace scanme.nmap.org 
+$ nmap --iflist
+
+$ nmap -iL scanme.nmap.org 
+$ nmap -A -iL scanme.nmap.org 
+$ nmap -sA scanme.nmap.org
+$ nmap -PN scanme.nmap.org 
 
 $ nmap --script=vuln IP_addr -vv
 $ nmap -sV --script vuln -oN nmapres_new.txt localhost
-$ cat nmapres_new.txt
+$ cat > ./nmapres_new.txt # сделать подобный пример файлу exmp_targets.txt
 $ grep "VULNERABLE" nmapres_new.txt
 
 $ mkdir -p ~/project/reports
 $ nmap -sV -p 8080 --script vuln -oN ~/project/reports/nmapres_new.txt -oX ~/project/reports/nmapres_new.xml localhost
 $ xsltproc ~/project/reports/nmapres_new.xml -o ~/project/reports/nmapres_new.html
-
-$ ls -l ~/project/reports
 ```
 
-- [ ] 3. Найдите IP сетевой карты Ethernet, которая соответствует вашей виртуальной машине используя ifconfig и выполните команду
+- [ ] 3. Используйте команду `tree` и выведите все вложенные файлы по директориям.
+- [ ] 4.Найдите IP сетевой карты `Ethernet`, которая соответствует вашей виртуальной машине используя `ifconfig` и выполните команду
 
 ```bash
 nmap -sP inet_addr
 ```
 
-- [ ] 4. Определите ОС, данные ssh, telnet  с помощью `nmap` и выведитео них информацию.
-- [ ] 5. Результаты из `nmapres_new.txt` надо перенести в `nmapres.txt` и оставить оба файла рядом в локальном репозитории. Желательно использовать `cp` в консоли через редактор.
-- [ ] 6. Оформить `README.md` по аналогии и использовать `shield`, etc.
-- [ ] 7. Составить `gist` отчет и отправить ссылку личным сообщением
+- [ ] 5. Определите ОС, данные ssh, telnet  с помощью `nmap` и выведитео них информацию.
+- [ ] 6. Результаты из `nmapres_new.txt` надо перенести в `nmapres.txt` и оставить оба файла рядом в локальном репозитории. Желательно использовать `cp` в консоли через редактор.
+- [ ] 7. Оформить `README.md` по аналогии и использовать `shield`, etc.
+- [ ] 8. Составить `gist` отчет и отправить ссылку личным сообщением
 
 ***
 
