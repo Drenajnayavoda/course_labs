@@ -34,10 +34,14 @@
 1.  Порядок выполнения работ:
 
 -  [ ] lab01 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab01/README.md">Лабораторная работа посвящена изучению **gitscm** и подготовительными материалами для последующих работ</a>
+    -  Материалы для работы <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab01">тут</a>
 -  [ ] lab02 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab02/README.md">Лабораторная работа посвящена изучению работы *nix, контролей прав доступа, оперированию процессов</a>
+    -  Материалы для работы <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab02">тут</a>
 -  [ ] lab03 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab03/README.md">Лабораторная работа посвящена изучению **nmap** и анализа выявленных уязвимостей</a>
+    -  Материалы для работы <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab03">тут</a>
 -  [ ] lab04 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab04/README.md">Данная лабораторная работа посвещена практическому **анализу и определению мер** снижения рисков ИБ</a>
 -  [ ] lab05 - <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab05/README.md">Данная лабораторная работа посвещена изучению **Docker** и как с ним работать</a>
+    -  Материалы для работы <a href="https://github.com/geminishkv/course_labs/blob/develop/labs/lab05">тут</a>
 -  [ ] **Обновление будет предоставлено позднее**
 
 ***
