@@ -186,7 +186,11 @@ $ git fetch origin
 $ git branch -u origin/gpages gpages
 $ git remote set-head origin -a
 
-tree -I "katalog|katalog" # Вывод с исключением каталогов для дерева преокта
+$ tree -I "katalog|katalog" # Вывод с исключением каталогов для дерева преокта
+
+$ git fetch origin # Жесткая перезапись репозитория
+$ git reset --hard origin/<branch_name>
+
 ```
 
 - gh actions
