@@ -185,6 +185,8 @@ $ git branch -m master gpages
 $ git fetch origin
 $ git branch -u origin/gpages gpages
 $ git remote set-head origin -a
+
+tree -I "katalog|katalog" # Вывод с исключением каталогов для дерева преокта
 ```
 
 - gh actions
@@ -225,7 +227,7 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
 .idea/
 ```
 
-- Docke
+- Docker
 
 ```bash
 $ docker image ls all # все образы
