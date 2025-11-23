@@ -179,6 +179,12 @@ $ git branch -d name_branch # Удаление локального репо
 $ git reset HEAD file # Убирает файл из индекса
 $ git checkout -- file # Отменяет изменение
 $ git clean -fdn # Удаляет неотслеживаемые файлы и каталоги с предварительным просмотром
+
+# Установка новой master/main ветки
+$ git branch -m master gpages
+$ git fetch origin
+$ git branch -u origin/gpages gpages
+$ git remote set-head origin -a
 ```
 
 - gh actions
@@ -254,6 +260,11 @@ $ docker compose logs # Отображение журналов для всех 
 $ docker compose logs -f	
 $ docker compose exec <service> sh # Открывает оболочку внутри работающего контейнера
 $ docker compose config
+
+docker exec -it <container_name_or_id> <command> # выполнение команды
+            -i  # интерактивный режим (позволяет передать ввод)
+            -t  # выделяет псевдотерминал (tty) для взаимодействия.
+            <container_name_or_id>  # имя или ID контейнера.
 ```
 
 - .dockerignore
