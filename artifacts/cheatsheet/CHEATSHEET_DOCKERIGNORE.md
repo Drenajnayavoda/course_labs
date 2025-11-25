@@ -33,5 +33,5 @@ frontend/dist/
 Copyright (c) 2025 Elijah S Shmakov
 
 
-![Logo](../assets/logotype/logo.jpg)
+![Logo](../../assets/logotype/logo.jpg)
 

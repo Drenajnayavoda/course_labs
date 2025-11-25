@@ -39,5 +39,5 @@ $ gh repo view --web # Открыть репозитория в web
 Copyright (c) 2025 Elijah S Shmakov
 
 
-![Logo](../assets/logotype/logo.jpg)
+![Logo](../../assets/logotype/logo.jpg)
 

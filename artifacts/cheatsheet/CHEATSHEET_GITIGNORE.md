@@ -37,7 +37,7 @@ lib-cov
 
 # Node
 dist
-node_modules
+node_modules/
 /node_modules
 jspm_packages/
 .lock-wscript
@@ -111,5 +111,5 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 Copyright (c) 2025 Elijah S Shmakov
 
 
-![Logo](../assets/logotype/logo.jpg)
+![Logo](../../assets/logotype/logo.jpg)
 
