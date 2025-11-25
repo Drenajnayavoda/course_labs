@@ -57,9 +57,13 @@
 
 ### Сопроводительные материалы:
 
-* [CheatSheet](./CHEATSHEET.md)
-* [Приложение](./APPENDIX.md)
+* [Cheatsheet GitScm](cheatsheet/CHEATSHEET_GIT.md)
+* [Cheatsheet .gitignore](cheatsheet/CHEATSHEET_GITIGNORE.md)
+* [Cheatsheet GitHub CLI](cheatsheet/CHEATSHEET_GH_CLI.md)
+* [Cheatsheet Docker](cheatsheet/CHEATSHEET_DOCKER.md)
+* [Cheatsheet .dockerignore](cheatsheet/CHEATSHEET_DOCKERIGNORE.md)
 * [License Notice](./NOTICE.md)
+* [Приложение](./APPENDIX.md)
 
 ***
 
@@ -156,7 +160,13 @@
 * 📘  **Аннотационный материал:**
 
     * [OWASP TOP 10](artifacts/owasp/)
-    * [cheatsheet](artifacts/cheetsheet/)
+    * `gistup`
+
+```bash
+$ npm install -g gistup
+$ gh <command> <subcommand> --help
+$ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
+```
 
 * 📦 **Releases**:
 
