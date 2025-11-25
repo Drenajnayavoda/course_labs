@@ -30,8 +30,6 @@
 
 <div align="center"><h2>Stay tuned ;)</h3></div> 
 
-*** 
-
 ### Этапы
     
 1. Ознакомление с учебными материалами по [лекциям](artifacts/ppt/)
@@ -113,7 +111,12 @@
 │   │   └── logo2.jpg
 │   └── style
 │       └── style.css
-├── CHEATSHEET.md
+├── cheatsheet
+│   ├── CHEATSHEET_DOCKER.md
+│   ├── CHEATSHEET_DOCKERIGNORE.md
+│   ├── CHEATSHEET_GH_CLI.md
+│   ├── CHEATSHEET_GIT.md
+│   └── CHEATSHEET_GITIGNORE.md
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 ├── labs
