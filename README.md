@@ -55,11 +55,11 @@
 
 ### Сопроводительные материалы:
 
-* [Cheatsheet GitScm](cheatsheet/CHEATSHEET_GIT.md)
-* [Cheatsheet .gitignore](cheatsheet/CHEATSHEET_GITIGNORE.md)
-* [Cheatsheet GitHub CLI](cheatsheet/CHEATSHEET_GH_CLI.md)
-* [Cheatsheet Docker](cheatsheet/CHEATSHEET_DOCKER.md)
-* [Cheatsheet .dockerignore](cheatsheet/CHEATSHEET_DOCKERIGNORE.md)
+* [Cheatsheet GitScm](artifacts/cheatsheet/CHEATSHEET_GIT.md)
+* [Cheatsheet .gitignore](artifacts/cheatsheet/CHEATSHEET_GITIGNORE.md)
+* [Cheatsheet GitHub CLI](artifacts/cheatsheet/CHEATSHEET_GH_CLI.md)
+* [Cheatsheet Docker](artifacts/cheatsheet/CHEATSHEET_DOCKER.md)
+* [Cheatsheet .dockerignore](artifacts/cheatsheet/CHEATSHEET_DOCKERIGNORE.md)
 * [License Notice](./NOTICE.md)
 * [Приложение](./APPENDIX.md)
 
@@ -88,9 +88,15 @@
 ```
 ├── APPENDIX.md
 ├── artifacts
-│   ├── cheetsheet
+│   ├── art_cheatsheet
 │   │   ├── Docker_Image_Security_Best_Practices.pdf
 │   │   └── gitscm.jpg
+│   ├── cheatsheet
+│   │   ├── CHEATSHEET_DOCKER.md
+│   │   ├── CHEATSHEET_DOCKERIGNORE.md
+│   │   ├── CHEATSHEET_GH_CLI.md
+│   │   ├── CHEATSHEET_GIT.md
+│   │   └── CHEATSHEET_GITIGNORE.md
 │   ├── exmpls
 │   │   ├── Аналитический отчет по уязвимости PrintNightmare.pdf
 │   │   ├── Пример - Multisignature - Безопасности криптовалютных платежей.pdf
@@ -111,12 +117,6 @@
 │   │   └── logo2.jpg
 │   └── style
 │       └── style.css
-├── cheatsheet
-│   ├── CHEATSHEET_DOCKER.md
-│   ├── CHEATSHEET_DOCKERIGNORE.md
-│   ├── CHEATSHEET_GH_CLI.md
-│   ├── CHEATSHEET_GIT.md
-│   └── CHEATSHEET_GITIGNORE.md
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 ├── labs
