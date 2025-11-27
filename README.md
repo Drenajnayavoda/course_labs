@@ -7,7 +7,6 @@
 <a href="https://img.shields.io/badge/Risk_Analyze-2448a2"><img src="https://img.shields.io/badge/Course-Risk_Analysis-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/AppSec-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/Contributor-Шмаков_И._С.-8b9aff" alt="Contributor Badge"></a></div>
 
 <div align="center">
-<img src="https://img.shields.io/badge/Contributor-Шмаков_И._С.-8b9aff" alt="Contributor Badge"></a>
 <img src="https://img.shields.io/github/repo-size/geminishkv/course_labs" alt="repo size"></a>
 <img src="https://img.shields.io/github/last-commit/geminishkv/course_labs" alt="repo size"></a>
 <img src="https://img.shields.io/github/commit-activity/m/geminishkv/course_labs" alt="repo size"></a>
