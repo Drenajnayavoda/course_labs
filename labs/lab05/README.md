@@ -100,6 +100,8 @@ $ brew install docker
 ```bash
 $ docker buildx build -t hellow-appsec-world .
 $ docker run hello-appsec-world
+$ docker run --rm -it hello-appsec-world
+
 $ docker save -o hello.tar hello-appsec-world
 $ docker load -i hello.tar
 $ docker load -i image.tar
