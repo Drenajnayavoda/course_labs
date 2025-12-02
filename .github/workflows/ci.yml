@@ -90,6 +90,12 @@ jobs:
         run: |
           safety check -r requirements.txt || true
 
+      - name: Install hadolint
+        run: |
+          curl -sSL https://github.com/hadolint/hadolint/releases/latest/download/hadolint-Linux-x86_64 \
+            -o /usr/local/bin/hadolint
+          chmod +x /usr/local/bin/hadolint
+
       - name: Lint Dockerfiles with hadolint
         run: |
           find labs/lab05 -name 'Dockerfile' -print0 | xargs -0 -n1 hadolint
