@@ -1,3 +1,4 @@
+---
 name: ci
 
 on:
@@ -121,10 +122,11 @@ jobs:
           globs: |
             **/*.md
 
-      - name: Check links in Markdown
+      - name: Check links with lychee
         uses: lycheeverse/lychee-action@v1
         with:
-          args: "--verbose **/*.md"
+          args: >-
+            ./site/docs/**/*.html
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -227,7 +229,8 @@ jobs:
       - name: Check links with lychee
         uses: lycheeverse/lychee-action@v1
         with:
-          args: "./site/docs/**/*.html"
+          args: >-
+            ./site/docs/**/*.html
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -247,6 +250,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment: production
-          environment-url: ${{ steps.deployment.outputs.page_url }}
+          environment-url: >-
+            ${{ steps.deployment.outputs.page_url }}
           transient-environment: false
           production-environment: true
