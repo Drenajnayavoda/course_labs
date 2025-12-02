@@ -1,3 +1,3 @@
-#  Course materials
+# Course materials
 
 ![RA](artifacts/exmpls/RA.pdf){ type=application/pdf style="min-height:80vh;width:100%" }
