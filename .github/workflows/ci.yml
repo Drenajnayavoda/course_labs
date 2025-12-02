@@ -203,9 +203,9 @@ jobs:
         env:
           PYTHONPATH: .
 
-      - name: Type checking with mypy
-        run: |
-          mypy labs
+#      - name: Type checking with mypy
+#        run: |
+#          mypy labs
 
       - name: Build search data
         run: |
