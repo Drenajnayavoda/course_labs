@@ -92,6 +92,50 @@
 
 ***
 
+### Tutorial
+
+* Подготовка окружения
+
+```bash
+$ python3 -m venv .venv
+$ source .venv/bin/activate
+$ pip install -r requirements.txt
+$ pip install mkdocs mkdocs-material mkdocs-macros-plugin # must-have
+$ pip install pyyaml
+$ python scripts/build_search_data.py
+$ ruff format scripts/build_search_data.py
+# or
+$ ruff format .
+$ python -m mkdocs serve
+# or
+$ mkdocs serve -a 127.0.0.1:8001 # прямое обозначение адреса
+```
+
+* Очистка локального репозитория
+
+```bash
+$ rm -rf __pycache__ scripts/__pycache__ docs/assets/search/tools.json
+$ lsof -i :8000
+$ kill <PID>
+```
+
+* Release
+
+```bash
+$ git tag -a v1.0.0 -m “Основные изменения: …” 
+$ git push origin v1.0.0
+
+# Альтернатива для использования - это RELEASE_NOTES.md
+$ git tag -a v1.0.0 -m "v1.0.0"
+$ git add "Release Notes.md" && git commit -m "Update notes for v1.0.0" 
+
+# текущий релиз
+$ git tag -a v1.1.0 -m "v1.1.0"
+$ git push origin v1.1.0
+```
+
+***
+
 ### Структура репозитория
 
 ```
