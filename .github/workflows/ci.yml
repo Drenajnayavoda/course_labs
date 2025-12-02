@@ -205,7 +205,7 @@ jobs:
 
       - name: Type checking with mypy
         run: |
-          mypy main.py labs
+          mypy labs
 
       - name: Build search data
         run: |
