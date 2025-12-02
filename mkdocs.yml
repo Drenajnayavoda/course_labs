@@ -20,6 +20,16 @@ theme:
     - analytics
     - content.tables
 
+plugins:
+  - search
+  - macros
+  - mkdocs-pdf
+
+markdown_extensions:
+  - def_list
+  - md_in_html
+  - attr_list
+
 nav:
   - "Главная страница": index.md
   - "Лабораторные работы":
@@ -74,16 +84,6 @@ extra_css:
 
 extra_javascript:
   - javascripts/custom-title.js
-
-plugins:
-  - search
-  - macros
-  - mkdocs-pdf
-
-markdown_extensions:
-  - def_list
-  - md_in_html
-  - attr_list
 
 extra:
   social:

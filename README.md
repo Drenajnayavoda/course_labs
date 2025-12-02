@@ -90,6 +90,7 @@ $ source .venv/bin/activate
 $ pip install -r requirements.txt
 $ pip install mkdocs mkdocs-material mkdocs-macros-plugin # must-have
 $ pip install pyyaml
+$ pip install mkdocs-macros-plugin
 $ ruff format .
 $ mkdocs serve
 # or
@@ -124,39 +125,77 @@ $ git push origin v1.1.0
 ### Структура репозитория
 
 ```
-├── APPENDIX.md
-├── artifacts
-│   ├── art_cheatsheet
-│   │   ├── Docker_Image_Security_Best_Practices.pdf
-│   │   └── gitscm.jpg
-│   ├── cheatsheet
-│   │   ├── CHEATSHEET_DOCKER.md
-│   │   ├── CHEATSHEET_DOCKERIGNORE.md
-│   │   ├── CHEATSHEET_GH_CLI.md
-│   │   ├── CHEATSHEET_GIT.md
-│   │   └── CHEATSHEET_GITIGNORE.md
-│   ├── exmpls
-│   │   ├── Аналитический отчет по уязвимости PrintNightmare.pdf
-│   │   ├── Пример - Multisignature - Безопасности криптовалютных платежей.pdf
-│   │   └── Пример_аналитических_отчетов_по_задачам_ИБ.pdf
-│   ├── owasp
-│   │   ├── OWASP_Top_10_CICD_Risks.pdf
-│   │   ├── Авторизация (Authorization).pdf
-│   │   ├── Атаки на клиентов (Client-side Attacks).pdf
-│   │   ├── Аутентификация (Authentication).pdf
-│   │   ├── Выполнение кода (Command Execution).pdf
-│   │   ├── Логические атаки (Logical Attacks).pdf
-│   │   └── Разглашение информации (Information Disclosure).pdf
-│   └── ppt
-│       └── Лекция_Управление Рисками ИБ_intro.pdf
 ├── assets
-│   ├── logotype
-│   │   ├── logo.jpg
-│   │   └── logo2.jpg
-│   └── style
-│       └── style.css
+│   └── logotype
+│       ├── logo.jpg
+│       └── logo2.jpg
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
+├── docs
+│   ├── about.md
+│   ├── APPENDIX.md
+│   ├── appsec_tt.md
+│   ├── artifacts
+│   │   ├── assets
+│   │   │   ├── favicon.ico
+│   │   │   ├── logo.png
+│   │   │   └── logotypemd.jpg
+│   │   ├── cheatsheet
+│   │   │   ├── CHEATSHEET_DOCKER.md
+│   │   │   ├── CHEATSHEET_DOCKERIGNORE.md
+│   │   │   ├── CHEATSHEET_GH_CLI.md
+│   │   │   ├── CHEATSHEET_GIT.md
+│   │   │   └── CHEATSHEET_GITIGNORE.md
+│   │   ├── exmpls
+│   │   │   ├── exmpl.pdf
+│   │   │   ├── Multisignature.pdf
+│   │   │   ├── PrintNightmare.pdf
+│   │   │   └── RA.pdf
+│   │   ├── owasp
+│   │   │   ├── Authentication.pdf
+│   │   │   ├── Authorization.pdf
+│   │   │   ├── Client-side_Attacks.pdf
+│   │   │   ├── Command_Execution.pdf
+│   │   │   ├── Information_Disclosure.pdf
+│   │   │   ├── Logical_Attacks.pdf
+│   │   │   └── OWASP_Top_10_CICD_Risks.pdf
+│   │   └── ppt
+│   │       └── Лекция_Управление Рисками ИБ_intro.pdf
+│   ├── Authentication.md
+│   ├── Authorization.md
+│   ├── Client-side Attacks.md
+│   ├── Command Execution.md
+│   ├── Contributor Covenant.md
+│   ├── course.md
+│   ├── exmpl.md
+│   ├── index.md
+│   ├── Information Disclosure.md
+│   ├── javascripts
+│   │   └── custom-title.js
+│   ├── labs
+│   │   ├── lab01.md
+│   │   ├── lab02.md
+│   │   ├── lab03.md
+│   │   ├── lab04.md
+│   │   └── lab05.md
+│   ├── licenses.md
+│   ├── Logical Attacks.md
+│   ├── Multisignature.md
+│   ├── OWASP_Top_10_CICD_Risks.md
+│   ├── PrintNightmare.md
+│   ├── RA.md
+│   ├── Security.md
+│   └── stylesheets
+│       ├── burger.css
+│       ├── footer.css
+│       ├── header.css
+│       ├── menu.css
+│       ├── mobile-heder.css
+│       ├── mobile-logo.css
+│       ├── search.css
+│       ├── sidebar.css
+│       ├── tools-overlay.css
+│       └── typeset.css
 ├── labs
 │   ├── lab01
 │   │   ├── README.md
@@ -189,8 +228,12 @@ $ git push origin v1.1.0
 │   └── lab06
 │       └── README.md
 ├── LICENSE.md
+├── mkdocs.yml
+├── mypy.ini
 ├── NOTICE.md
 ├── README.md
+├── RELEASE_NOTES.md
+├── requirements.txt
 └── SECURITY.md
 ```
 
