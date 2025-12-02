@@ -207,10 +207,6 @@ jobs:
 #        run: |
 #          mypy labs
 
-      - name: Build search data
-        run: |
-          python scripts/build_search_data.py
-
       - name: Build MkDocs site
         run: |
           mkdocs build --strict
