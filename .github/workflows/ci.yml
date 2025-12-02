@@ -98,7 +98,7 @@ jobs:
 
       - name: Lint Dockerfiles with hadolint
         run: |
-          find labs/lab05 -name 'Dockerfile' -print0 | xargs -0 -n1 hadolint
+          find labs/lab05 -name 'Dockerfile' -print0 | xargs -0 -n1 hadolint --failure-threshold error
         shell: bash
 
       - name: Scan repository for secrets with gitleaks

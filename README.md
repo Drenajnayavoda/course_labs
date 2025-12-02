@@ -124,6 +124,12 @@ $ git add "Release Notes.md" && git commit -m "Update notes for v1.0.0" 
 # текущий релиз
 $ git tag -a v1.1.0 -m "v1.1.0"
 $ git push origin v1.1.0
+
+# удалить локальный тег
+$ git tag -d v0.1.0
+
+# удалить тот же тег на GitHub
+$ git push origin :refs/tags/v0.1.0
 ```
 
 ***
