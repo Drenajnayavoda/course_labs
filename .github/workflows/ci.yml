@@ -91,10 +91,9 @@ jobs:
           safety check -r requirements.txt || true
 
       - name: Lint Dockerfiles with hadolint
-        uses: hadolint/hadolint-action@v3.1.0
-        with:
-          dockerfile: labs/lab05
-          recursive: true
+        run: |
+          find labs/lab05 -name 'Dockerfile' -print0 | xargs -0 -n1 hadolint
+        shell: bash
 
       - name: Scan repository for secrets with gitleaks
         uses: gitleaks/gitleaks-action@v2
