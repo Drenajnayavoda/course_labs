@@ -195,8 +195,6 @@ $ git push origin v1.1.0
 │       ├── burger.css
 │       ├── footer.css
 │       ├── header.css
-│       ├── menu.css
-│       ├── mobile-heder.css
 │       ├── mobile-logo.css
 │       ├── search.css
 │       ├── sidebar.css
