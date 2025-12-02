@@ -1,18 +1,18 @@
 .md-header__button.md-icon[for="__drawer"] {
- width: 2.5rem;                    /* ширина кнопки */
- height: 2.5rem;                   /* высота кнопки */
- display: flex;                    /* делаем кнопку flex-контейнером */
- align-items: center;              /* выравниваем содержимое по вертикали по центру */
-  justify-content: center;          /* выравниваем содержимое по горизонтали по центру */
-  transition: background 0.2s ease, /* плавное изменение фона при hover/active */
-              transform 0.1s ease;  /* плавное изменение transform (сдвиг) */
+ width: 2.5rem;
+ height: 2.5rem;
+ display: flex;
+ align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease,
+              transform 0.1s ease;
 }
 
 .md-header__button.md-icon[for="__drawer"] svg {
-  width: 1.4rem;        /* ширина иконки внутри кружка */
-  height: 1.4rem;       /* высота иконки */
-  color: #ffffff;       /* цвет иконки */
-  fill: currentColor;   /* заливка берёт цвет из свойства color */
+  width: 1.4rem;
+  height: 1.4rem;
+  color: #ffffff;
+  fill: currentColor;
 }
 
 .md-header__button.md-icon[for="__drawer"]:hover {

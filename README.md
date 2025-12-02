@@ -87,12 +87,18 @@
 ```bash
 $ python3 -m venv .venv
 $ source .venv/bin/activate
+
 $ pip install -r requirements.txt
 $ pip install mkdocs mkdocs-material mkdocs-macros-plugin # must-have
 $ pip install pyyaml
 $ pip install mkdocs-macros-plugin
+
 $ ruff format .
-$ mkdocs serve
+
+$ pip show mkdocs-macros-plugin
+$ pip show mkdocs
+
+$ python -m mkdocs serve
 # or
 $ mkdocs serve -a 127.0.0.1:8001 # прямое обозначение адреса
 ```

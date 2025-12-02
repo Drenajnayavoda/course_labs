@@ -42,7 +42,6 @@ nav:
   - "Материалы":
       - "Лекции": course.md
       - "Примеры":
-          - "Лекции": course.md
           - "Аналитические кейсы": exmpl.md
           - "Использование MultiSiq": Multisignature.md
           - "PrintNightmare Vulnerability": PrintNightmare.md
@@ -73,14 +72,13 @@ nav:
 
 extra_css:
   - stylesheets/header.css
-  - stylesheets/menu.css
   - stylesheets/footer.css
   - stylesheets/search.css
   - stylesheets/sidebar.css
   - stylesheets/typeset.css
   - stylesheets/tools-overlay.css
   - stylesheets/burger.css
-  - stylesheets/mobile-heder.css
+  - stylesheets/mobile-logo.css
 
 extra_javascript:
   - javascripts/custom-title.js
