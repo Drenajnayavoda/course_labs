@@ -1,0 +1,45 @@
+.md-main__inner {
+  max-width: none !important;
+}
+
+.md-grid {
+  max-width: none !important;
+}
+
+html[data-md-page="research-notes"] .md-sidebar--secondary {
+  display: none;
+}
+
+html[data-md-page="research-notes"] .md-content {
+  max-width: 100%;
+}
+
+html[data-md-page="research-notes"] .md-typeset__table {
+  min-width: 100%;
+  overflow-x: auto;
+}
+
+html[data-md-page="research-notes"] .md-typeset table {
+  width: 100% !important;
+  table-layout: auto;
+  white-space: normal;
+}
+
+html[data-md-page="research-notes"] .md-typeset table th,
+html[data-md-page="research-notes"] .md-typeset table td {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+  vertical-align: top;
+}
+
+html[data-md-page="research-notes"] .md-typeset table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+a.show-tools-overlay {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}

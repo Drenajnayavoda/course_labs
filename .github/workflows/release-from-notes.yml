@@ -1,0 +1,95 @@
+name: Release from Release Notes
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  release:
+    name: Build site and create GitHub Release
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: pip-${{ runner.os }}-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: pip-${{ runner.os }}-
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build search data
+        run: |
+          python scripts/build_search_data.py
+
+      - name: Build MkDocs site
+        run: |
+          mkdocs build --strict
+        env:
+          PYTHONPATH: .
+
+      - name: Zip site
+        run: |
+          cd site
+          zip -r ../site-${{ github.ref_name }}.zip .
+
+      - name: Set TAG env
+        run: echo "TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
+
+      - name: Extract release notes for tag from Release Notes.md
+        id: notes
+        shell: bash
+        run: |
+          TAG="${TAG}"
+          FILE="RELEASE_NOTES.md"
+
+          if [ ! -f "$FILE" ]; then
+            echo "Release notes file '$FILE' not found"
+            exit 1
+          fi
+
+          CONTENT=$(awk -v tag="## ${TAG}" '
+            BEGIN {found=0}
+            $0 == tag {found=1; next}
+            /^## / && found {exit}
+            found {print}
+          ' "$FILE")
+
+          if [ -z "$CONTENT" ]; then
+            echo "No notes found for tag ${TAG} in ${FILE}"
+            exit 1
+          fi
+
+          {
+            echo 'body<<EOF'
+            echo "$CONTENT"
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.TAG }}
+          name: ${{ env.TAG }}
+          body: ${{ steps.notes.outputs.body }}
+          files: site-${{ github.ref_name }}.zip
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,17 +1,5 @@
 <div align="center">
-<h1><a id="intro"> Лабораторные работы <sup><kbd>Course</kbd></sup></a><br></h1>
-<a href="https://docs.github.com/en"><img src="https://img.shields.io/static/v1?logo=github&logoColor=fff&label=&message=Docs&color=36393f&style=flat" alt="GitHub Docs"></a>
-<a href="https://daringfireball.net/projects/markdown"><img src="https://img.shields.io/static/v1?logo=markdown&logoColor=fff&label=&message=Markdown&color=36393f&style=flat" alt="Markdown"></a> 
-<a href="https://symbl.cc/en/unicode-table"><img src="https://img.shields.io/static/v1?logo=unicode&logoColor=fff&label=&message=Unicode&color=36393f&style=flat" alt="Unicode"></a> 
-<a href="https://shields.io"><img src="https://img.shields.io/static/v1?logo=shieldsdotio&logoColor=fff&label=&message=Shields&color=36393f&style=flat" alt="Shields"></a>
-<a href="https://img.shields.io/badge/Risk_Analyze-2448a2"><img src="https://img.shields.io/badge/Course-Risk_Analysis-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/AppSec-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/Contributor-Шмаков_И._С.-8b9aff" alt="Contributor Badge"></a>
-</div>
-
-<div align="center">
-
-![Repo Size](https://img.shields.io/github/repo-size/geminishkv/course_labs)![License](https://img.shields.io/github/license/geminishkv/course_labs)![CI](https://img.shields.io/github/actions/workflow/status/geminishkv/course_labs/ci.yml?branch=master)![Status](https://img.shields.io/badge/status-active-success)![Release](https://img.shields.io/github/v/release/geminishkv/course_labs)![Contributor Badge](https://img.shields.io/badge/Contributor-%D0%A8%D0%BC%D0%B0%D0%BA%D0%BE%D0%B2_%D0%98._%D0%A1.-8b9aff?style=flat)![Contributors](https://img.shields.io/github/contributors/geminishkv/course_labs)![Open pull requests](https://img.shields.io/github/issues-pr/geminishkv/course_labs)![Commit Activity](https://img.shields.io/github/commit-activity/m/geminishkv/course_labs)![Last commit](https://img.shields.io/github/last-commit/geminishkv/course_labs)
-
-</div>
+<h1><a id="intro"> Лабораторные работы <sup><kbd>Course</kbd></sup></a><br></h1></div>
 
 <br>Салют :wave:,</br>
 Отмечу основные моменты:
@@ -24,7 +12,7 @@
 *  Для каждой лабораторной работы следует создавать собственный репозиторий (возможно использование `fork` с родительского), в котором необходимо разместить исходный код проекта, далее составить отчет к нему в формате `gistup`. 
 *  Все лабораторные работы должны быть выполнены в ветке develop и необходимо cделать [approve](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review) по `pull request` на [geminishkv](https://github.com/geminishkv), тем самым будет финально подтверждаться согласование изменений и правок, которые были внесены удаленно 
 
-![Logo](assets/logotype/logo2.jpg)
+***
 
 **Замечание:** 
 * Лабораторные работы - обязательны к прохождению, сдаче и итерационной разработке, при любом уровне подготовки
@@ -80,155 +68,7 @@
 
 ***
 
-### Tutorial
-
-* Подготовка окружения
-
-```bash
-$ python3 -m venv .venv
-$ source .venv/bin/activate
-$ pip install -r requirements.txt
-$ pip install mkdocs mkdocs-material mkdocs-macros-plugin # must-have
-$ pip install pyyaml
-$ python scripts/build_search_data.py
-$ ruff format scripts/build_search_data.py
-# or
-$ ruff format .
-$ python -m mkdocs serve
-# or
-$ mkdocs serve -a 127.0.0.1:8001 # прямое обозначение адреса
-```
-
-* Очистка локального репозитория
-
-```bash
-$ rm -rf __pycache__ scripts/__pycache__ docs/assets/search/tools.json
-$ lsof -i :8000
-$ kill <PID>
-```
-
-* Release
-
-```bash
-$ git tag -a v1.0.0 -m “Основные изменения: …” 
-$ git push origin v1.0.0
-
-# Альтернатива для использования - это RELEASE_NOTES.md
-$ git tag -a v1.0.0 -m "v1.0.0"
-$ git add "Release Notes.md" && git commit -m "Update notes for v1.0.0" 
-
-# текущий релиз
-$ git tag -a v1.1.0 -m "v1.1.0"
-$ git push origin v1.1.0
-```
-
-***
-
-### Структура репозитория
-
-```
-├── APPENDIX.md
-├── artifacts
-│   ├── art_cheatsheet
-│   │   ├── Docker_Image_Security_Best_Practices.pdf
-│   │   └── gitscm.jpg
-│   ├── cheatsheet
-│   │   ├── CHEATSHEET_DOCKER.md
-│   │   ├── CHEATSHEET_DOCKERIGNORE.md
-│   │   ├── CHEATSHEET_GH_CLI.md
-│   │   ├── CHEATSHEET_GIT.md
-│   │   └── CHEATSHEET_GITIGNORE.md
-│   ├── exmpls
-│   │   ├── Аналитический отчет по уязвимости PrintNightmare.pdf
-│   │   ├── Пример - Multisignature - Безопасности криптовалютных платежей.pdf
-│   │   └── Пример_аналитических_отчетов_по_задачам_ИБ.pdf
-│   ├── owasp
-│   │   ├── OWASP_Top_10_CICD_Risks.pdf
-│   │   ├── Авторизация (Authorization).pdf
-│   │   ├── Атаки на клиентов (Client-side Attacks).pdf
-│   │   ├── Аутентификация (Authentication).pdf
-│   │   ├── Выполнение кода (Command Execution).pdf
-│   │   ├── Логические атаки (Logical Attacks).pdf
-│   │   └── Разглашение информации (Information Disclosure).pdf
-│   └── ppt
-│       └── Лекция_Управление Рисками ИБ_intro.pdf
-├── assets
-│   ├── logotype
-│   │   ├── logo.jpg
-│   │   └── logo2.jpg
-│   └── style
-│       └── style.css
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
-├── labs
-│   ├── lab01
-│   │   ├── README.md
-│   │   └── typersteel.py
-│   ├── lab02
-│   │   ├── exmpl_hello.py
-│   │   ├── pygamesteel.py
-│   │   └── README.md
-│   ├── lab03
-│   │   ├── exmp_targets.txt
-│   │   └── README.md
-│   ├── lab04
-│   │   └── README.md
-│   ├── lab05
-│   │   ├── client
-│   │   │   ├── client.py
-│   │   │   ├── Dockerfile
-│   │   │   └── requirements.txt
-│   │   ├── docker-compose.yml
-│   │   ├── README.md
-│   │   ├── server
-│   │   │   ├── app.py
-│   │   │   ├── Dockerfile
-│   │   │   └── requirements.txt
-│   │   └── source
-│   │       ├── Dockerfile
-│   │       ├── hello.py
-│   │       ├── image.tar
-│   │       └── requirements.txt
-│   └── lab06
-│       └── README.md
-├── LICENSE.md
-├── NOTICE.md
-├── README.md
-└── SECURITY.md
-```
-
-***
-
-### Ресурсы:
-
-* 📘  **Аннотационный материал:**
-
-    * [OWASP TOP 10](artifacts/owasp/)
-    * `gistup`
-
-```bash
-$ npm install -g gistup
-$ gh <command> <subcommand> --help
-$ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
-```
-
-* 📦 **Releases**:
-
-* **Links:**
-    * [Google Sheets](https://www.google.ru/intl/ru/sheets/about/)
-    * [Google Docs](https://www.google.ru/intl/ru/docs/about/)
-    * [GitHub SSH Key](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
-    * [Markdown](https://stackedit.io)
-    * [Gist](https://gist.github.com)
-    * [GitHub Personal Token](https://github.com/settings/tokens/new)
-    * [GitHub CLI](https://cli.github.com)
-    * [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
-    * [Docker](https://docs.docker.com/)
-    * [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager)
-    * [Code of Conduct](https://www.contributor-covenant.org)
-
 Copyright (c) 2025 Elijah S Shmakov
 
-
-![Logo](assets/logotype/logo.jpg)
+![Logo](artifacts/assets/logotypemd.jpg)
 
