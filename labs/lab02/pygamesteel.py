@@ -23,4 +23,4 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             quit()
-pygame.display.flip() # Обновляем экран
+pygame.display.flip()  # Обновляем экран

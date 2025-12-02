@@ -1,10 +1,12 @@
-
 import typer
+
 
 def main(
     name: str,
     lastname: str = typer.Option("", help="Фамилия пользователя."),
-    formal: bool = typer.Option(False, "--formal", "-f", help="Использовать формальное приветствие."),
+    formal: bool = typer.Option(
+        False, "--formal", "-f", help="Использовать формальное приветствие."
+    ),
 ):
     """
     Говорит "Привет" пользователю, опционально используя фамилию и формальный стиль.
@@ -14,6 +16,6 @@ def main(
     else:
         print(f"Привет, {name}!")
 
+
 if __name__ == "__main__":
     typer.run(main)
-
