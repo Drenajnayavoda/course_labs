@@ -20,6 +20,47 @@ theme:
     - analytics
     - content.tables
 
+nav:
+  - "Главная страница": index.md
+  - "Лабораторные работы":
+      - "Лабораторная работа №1": labs/lab01.md
+      - "Лабораторная работа №2": labs/lab02.md
+      - "Лабораторная работа №3": labs/lab03.md
+      - "Лабораторная работа №4": labs/lab04.md
+      - "Лабораторная работа №5": labs/lab05.md
+  - "Приложение": APPENDIX.md
+  - "Материалы":
+      - "Лекции": course.md
+      - "Примеры":
+          - "Лекции": course.md
+          - "Аналитические кейсы": exmpl.md
+          - "Использование MultiSiq": Multisignature.md
+          - "PrintNightmare Vulnerability": PrintNightmare.md
+          - "Risk Analysis": RA.md
+      - "Лицензии ПО": licenses.md
+      - "Классификация инструментов": appsec_tt.md
+      - "OWASP TOP 10":
+          - "CI/CD Risks": OWASP_Top_10_CICD_Risks.md
+          - "Authorization": Authorization.md
+          - "Authentication": Authentication.md
+          - "Client-side Attacks": Client-side Attacks.md
+          - "ommand Execution": Command Execution.md
+          - "Logical Attacks": Logical Attacks.md
+          - "Information Disclosure": Information Disclosure.md
+  - "CheatSheet":
+      - "Docker": artifacts/cheatsheet/CHEATSHEET_DOCKER.md
+      - ".dockerignore": artifacts/cheatsheet/CHEATSHEET_DOCKERIGNORE.md
+      - "GitHub CLI": artifacts/cheatsheet/CHEATSHEET_GH_CLI.md
+      - "GitSCM": artifacts/cheatsheet/CHEATSHEET_GIT.md
+      - ".gitignore": artifacts/cheatsheet/CHEATSHEET_GITIGNORE.md
+  - "Contributor Covenant": Contributor Covenant.md
+  - "Политика безопасности": Security.md
+  - "AppSec Toolchain Map": "https://geminishkv.github.io/oss_toolchainmap/research-notes/"
+  - "Карта сертификации ГОСТ 56939-2024": "https://storage.yandexcloud.net/aft-tilda/%D0%A2%D0%B8%D0%BF%D0%BE%D0%B2%D0%BE%D0%B9%20%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D0%B9%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8%20%D0%B4%D0%BB%D1%8F%20%D1%84%D0%B8%D0%BD%D1%82%D0%B5%D1%85%D0%B0.pdf"
+  - "FinDevSecOps": "https://findevsecops.ru/"
+  - "АО ЛАНИТ": "https://www.lanit.ru"
+  - "О проекте": about.md
+
 extra_css:
   - stylesheets/header.css
   - stylesheets/menu.css
@@ -56,45 +97,3 @@ extra:
       link: mailto:shmakovis@inbox.ru
     - icon: fontawesome/brands/youtube
       link: https://
-
-nav:
-  - "Главная страница": index.md
-  - "Лабораторные работы":
-      - "Лабораторная работа №1": labs/lab01.md
-      - "Лабораторная работа №2": labs/lab02.md
-      - "Лабораторная работа №3": labs/lab03.md
-      - "Лабораторная работа №4": labs/lab04.md
-      - "Лабораторная работа №5": labs/lab05.md
-  - "Приложение": APPENDIX.md
-  - "Материалы":
-      - "Лекции": course.md
-      - "Примеры":
-          - "Лекции": course.md
-          - "Аналитические кейсы": exmpl.md
-          - "Использование MultiSiq": Multisignature.md
-          - "PrintNightmare Vulnerability": PrintNightmare.md
-          - "Risk Analysis": RA.md
-      - "Лицензии ПО": licenses.md
-      - "Классификация инструментов": appsec_tt.md
-      - "OWASP TOP 10":
-          - OWASP_Top_10_CICD_Risks.md
-          - Authorization.md
-          - Authentication.md
-          - Client-side Attacks.md
-          - Command Execution.md
-          - Logical Attacks.md
-          - Information Disclosure.md
-      - "Примеры":
-  - "CheatSheet":
-      - "": artifacts/cheatsheet/CHEATSHEET_DOCKER.md
-      - "": artifacts/cheatsheet/CHEATSHEET_DOCKERIGNORE.md
-      - "": artifacts/cheatsheet/CHEATSHEET_GH_CLI.md
-      - "": artifacts/cheatsheet/CHEATSHEET_GIT.md
-      - "": artifacts/cheatsheet/CHEATSHEET_GITIGNORE.md
-  - "Contributor Covenant": Contributor Covenant.md
-  - "Политика безопасности": Security.md
-  - "AppSec Toolchain Map": "https://geminishkv.github.io/oss_toolchainmap/research-notes/"
-  - "Карта сертификации ГОСТ 56939-2024": "https://storage.yandexcloud.net/aft-tilda/%D0%A2%D0%B8%D0%BF%D0%BE%D0%B2%D0%BE%D0%B9%20%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D0%B9%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8%20%D0%B4%D0%BB%D1%8F%20%D1%84%D0%B8%D0%BD%D1%82%D0%B5%D1%85%D0%B0.pdf"
-  - "FinDevSecOps": "https://findevsecops.ru/"
-  - "АО ЛАНИТ": "https://www.lanit.ru"
-  - "О проекте": about.md

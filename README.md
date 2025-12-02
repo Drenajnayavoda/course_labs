@@ -91,7 +91,7 @@ $ pip install -r requirements.txt
 $ pip install mkdocs mkdocs-material mkdocs-macros-plugin # must-have
 $ pip install pyyaml
 $ ruff format .
-$ python -m mkdocs serve
+$ mkdocs serve
 # or
 $ mkdocs serve -a 127.0.0.1:8001 # прямое обозначение адреса
 ```
