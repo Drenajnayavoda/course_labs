@@ -7,7 +7,6 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
-.DS_Store
 .AppleDouble
 .LSOverride
 .DocumentRevisions-V100
@@ -17,14 +16,14 @@ Thumbs.db
 .Trashes
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
+*.icloud
 
-# Misc
-.vscode
-Icon
-
-# Node
-dist
-node_modules
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.ruff_cache
 
 # Directories potentially created on remote AFP share
 .AppleDB
@@ -33,12 +32,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-### macOS Patch ###
-# iCloud generated files
-*.icloud
-
 # Compiled source #
-###################
 *.com
 *.class
 *.dll
@@ -47,9 +41,6 @@ Temporary Items
 *.so
 
 # Packages #
-############
-# it better to unpack these files and commit the raw source
-# git has its own built in compression methods
 *.7z
 *.dmg
 *.gz
@@ -59,8 +50,34 @@ Temporary Items
 # *.tar
 *.zip
 
-# Logs and databases #
-######################
+# Secrets and environment configs
+.env
+.env.*
+*.env
+venv/
+.venv/
+.vscode/
+.idea/
+*.swp
+
+# Logs and runtime files
 *.log
-*.sql
+logs/
+*.pid
+
+# Data exports
+*.odt
+*.xlsx
+*.xls
+# site
+dist/
+build/
+
+# Databases
 *.sqlite
+*.db
+*.sql
+
+# Node.js
+node_modules/
+/node_modules
