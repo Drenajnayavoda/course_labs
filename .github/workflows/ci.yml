@@ -93,10 +93,8 @@ jobs:
       - name: Lint Dockerfiles with hadolint
         uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: |
-            labs/lab05/server/Dockerfile
-            labs/lab05/client/Dockerfile
-            labs/lab05/source/Dockerfile
+          dockerfile: labs
+          recursive: true
 
       - name: Scan repository for secrets with gitleaks
         uses: gitleaks/gitleaks-action@v2
