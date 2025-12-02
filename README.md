@@ -117,7 +117,7 @@ $ kill <PID>
 $ git tag -a v1.0.0 -m “Основные изменения: …” 
 $ git push origin v1.0.0
 
-# Альтернатива для использования - это RELEASE_NOTES.md
+# Альтернатива для использования - это RELEASE_NOTES
 $ git tag -a v1.0.0 -m "v1.0.0"
 $ git add "Release Notes.md" && git commit -m "Update notes for v1.0.0" 
 
