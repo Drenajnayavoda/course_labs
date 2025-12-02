@@ -1,10 +1,11 @@
-site_name: AppSec Toolchain
-site_url: "https://geminishkv.github.io/oss_toolchainmap/"
+site_name: AppSecCource
+site_url: "https://geminishkv.github.io/course_labs/"
 
 theme:
   name: material
-  logo: assets/logotype/site/logo.png
-  favicon: assets/logotype/site/favicon.ico
+  language: ru
+  logo: artifacts/assets/logo.png
+  favicon: artifacts/assets/favicon.ico
   font:
     text: Montserrat
     code: Roboto Mono
@@ -20,7 +21,6 @@ theme:
     - content.tables
 
 extra_css:
-  - stylesheets/table.css
   - stylesheets/header.css
   - stylesheets/menu.css
   - stylesheets/footer.css
@@ -30,36 +30,14 @@ extra_css:
   - stylesheets/tools-overlay.css
   - stylesheets/burger.css
   - stylesheets/mobile-heder.css
-  - stylesheets/mobile-logo.css
 
 extra_javascript:
-  - javascripts/tools-overlay.js
-  - javascripts/tools-search.js
-  - javascripts/tools-interpretator.js
-  - javascripts/tools-search_style.js
-  - javascripts/tools-search_pagging.js
   - javascripts/custom-title.js
-  - javascripts/menu-logo.js
-
-nav:
-  - "Главная страница": index.md
-  - "Карта инструментов":
-      - "Toolchain Map": research-notes.md
-      - "Православные вендора": vendor_rf.md
-      - "Зарубежные вендора": external.md
-      - "OSS": OSS.md
-  - "Материалы":
-        - "Лицензии ПО": licenses.md
-        - "Классификация инструментов": appsec_tt.md
-        - "Дополнительные материалы": materials_iso.md
-  - "Лидеры сообщества": liders.md
-  - "FinDevSecOps": "https://findevsecops.ru/"
-  - "Карта сертификации ГОСТ 56939-2024": "https://storage.yandexcloud.net/aft-tilda/%D0%A2%D0%B8%D0%BF%D0%BE%D0%B2%D0%BE%D0%B9%20%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D0%B9%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8%20%D0%B4%D0%BB%D1%8F%20%D1%84%D0%B8%D0%BD%D1%82%D0%B5%D1%85%D0%B0.pdf"
-  - "О проекте": about.md
 
 plugins:
   - search
   - macros
+  - mkdocs-pdf
 
 markdown_extensions:
   - def_list
@@ -71,7 +49,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/geminishkv
     - icon: fontawesome/solid/code-branch
-      link: https://github.com/geminishkv/oss_toolchainmap/tree/master
+      link: https://github.com/geminishkv/course_labs
     - icon: fontawesome/brands/telegram
       link: https://t.me/shmakovis_appsec
     - icon: fontawesome/regular/envelope
@@ -79,85 +57,44 @@ extra:
     - icon: fontawesome/brands/youtube
       link: https://
 
-  table_config:
-    - division: AppSec
-      type:
-        - name: SAST
-          class:
-            - name: "Статический анализатор"
-              OSS_tools: docs/tools/AppSec/SAST/OSS_tools.yaml
-              PS_tools: docs/tools/AppSec/SAST/PS_tools.yaml
-
-        - name: Attack Surface Analysis
-          class:
-            - name: "Анализ поверхности атаки"
-              OSS_tools: docs/tools/AppSec/Attack_Surface_Analysis/OSS_tools.yaml
-              PS_tools: docs/tools/AppSec/Attack_Surface_Analysis/PS_tools.yaml
-
-        - name: IAST
-          class:
-            - name: "Интерактивный анализатор"
-              OSS_tools: docs/tools/AppSec/IAST/OSS_tools.yaml
-              PS_tools: docs/tools/AppSec/IAST/PS_tools.yaml
-
-        - name: SCA/OSA
-          class:
-            - name: "Анализатор"
-              OSS_tools: docs/tools/AppSec/SCA_OSA/Analizator/OSS_tools.yaml
-              PS_tools: docs/tools/AppSec/SCA_OSA/Analizator/PS_tools.yaml
-            - name: "SBOM"
-              OSS_tools: docs/tools/AppSec/SCA_OSA/SBOM/OSS_tools.yaml
-              PS_tools: docs/tools/AppSec/SCA_OSA/SBOM/PS_tools.yaml
-
-        - name: BCA
-          class:
-            - name: "Бинарный анализатор"
-              OSS_tools: docs/tools/AppSec/BCA/OSS_tools.yaml
-              PS_tools: docs/tools/AppSec/BCA/PS_tools.yaml
-
-        - name: DAST
-          class:
-            - name: "Whitebox Fuzzing"
-              OSS_tools: docs/tools/AppSec/DAST/Whitbox_fuzzing/OSS_tools.yaml
-              PS_tools: docs/tools/AppSec/DAST/Whitbox_fuzzing/PS_tools.yaml
-            - name: "DAST"
-              OSS_tools: docs/tools/AppSec/DAST/DAST/OSS_tools.yaml
-              PS_tools: docs/tools/AppSec/DAST/DAST/PS_tools.yaml
-
-        - name: MAST
-          class:
-            - name: "Анализатор MobApp"
-              OSS_tools: docs/tools/AppSec/MAST/OSS_tools.yaml
-              PS_tools: docs/tools/AppSec/MAST/PS_tools.yaml
-
-        - name: RASP
-          class:
-            - name: "Анализатор при Runtime"
-              OSS_tools: docs/tools/AppSec/RASP/OSS_tools.yaml
-              PS_tools: docs/tools/AppSec/RASP/PS_tools.yaml
-
-        - name: API
-          class:
-            - name: "ApiSec_WAF"
-              OSS_tools: docs/tools/AppSec/API/OSS_tools.yaml
-              PS_tools: docs/tools/AppSec/API/PS_tools.yaml
-
-    - division: codecoverage
-      OSS_tools: docs/tools/codecoverage/OSS_tools.yaml
-      PS_tools: docs/tools/codecoverage/PS_tools.yaml
-
-    - division: Application Security Posture Management
-      OSS_tools: docs/tools/ASPM/OSS_tools.yaml
-      PS_tools: docs/tools/ASPM/PS_tools.yaml
-
-    - division: Container Security
-      OSS_tools: docs/tools/Container_Security/OSS_tools.yaml
-      PS_tools: docs/tools/Container_Security/PS_tools.yaml
-
-    - division: Secrets Management
-      OSS_tools: docs/tools/Secrets_Management/OSS_tools.yaml
-      PS_tools: docs/tools/Secrets_Management/PS_tools.yaml
-
-    - division: MLSecOps
-      OSS_tools: docs/tools/MLSecOps/OSS_tools.yaml
-      PS_tools: docs/tools/MLSecOps/PS_tools.yaml
+nav:
+  - "Главная страница": index.md
+  - "Лабораторные работы":
+      - "Лабораторная работа №1": labs/lab01.md
+      - "Лабораторная работа №2": labs/lab02.md
+      - "Лабораторная работа №3": labs/lab03.md
+      - "Лабораторная работа №4": labs/lab04.md
+      - "Лабораторная работа №5": labs/lab05.md
+  - "Приложение": APPENDIX.md
+  - "Материалы":
+      - "Лекции": course.md
+      - "Примеры":
+          - "Лекции": course.md
+          - "Аналитические кейсы": exmpl.md
+          - "Использование MultiSiq": Multisignature.md
+          - "PrintNightmare Vulnerability": PrintNightmare.md
+          - "Risk Analysis": RA.md
+      - "Лицензии ПО": licenses.md
+      - "Классификация инструментов": appsec_tt.md
+      - "OWASP TOP 10":
+          - OWASP_Top_10_CICD_Risks.md
+          - Authorization.md
+          - Authentication.md
+          - Client-side Attacks.md
+          - Command Execution.md
+          - Logical Attacks.md
+          - Information Disclosure.md
+      - "Примеры":
+  - "CheatSheet":
+      - "": artifacts/cheatsheet/CHEATSHEET_DOCKER.md
+      - "": artifacts/cheatsheet/CHEATSHEET_DOCKERIGNORE.md
+      - "": artifacts/cheatsheet/CHEATSHEET_GH_CLI.md
+      - "": artifacts/cheatsheet/CHEATSHEET_GIT.md
+      - "": artifacts/cheatsheet/CHEATSHEET_GITIGNORE.md
+  - "Contributor Covenant": Contributor Covenant.md
+  - "Политика безопасности": Security.md
+  - "AppSec Toolchain Map": "https://geminishkv.github.io/oss_toolchainmap/research-notes/"
+  - "Карта сертификации ГОСТ 56939-2024": "https://storage.yandexcloud.net/aft-tilda/%D0%A2%D0%B8%D0%BF%D0%BE%D0%B2%D0%BE%D0%B9%20%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D0%B9%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8%20%D0%B4%D0%BB%D1%8F%20%D1%84%D0%B8%D0%BD%D1%82%D0%B5%D1%85%D0%B0.pdf"
+  - "FinDevSecOps": "https://findevsecops.ru/"
+  - "АО ЛАНИТ": "https://www.lanit.ru"
+  - "О проекте": about.md

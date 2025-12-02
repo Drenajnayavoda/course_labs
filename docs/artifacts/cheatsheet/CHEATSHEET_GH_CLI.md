@@ -33,11 +33,3 @@ $ gh pr merge --squash
 $ gh issue list # Список открытых issue
 $ gh repo view --web # Открыть репозитория в web
 ```
-
-***
-
-Copyright (c) 2025 Elijah S Shmakov
-
-
-![Logo](../../assets/logotype/logo.jpg)
-

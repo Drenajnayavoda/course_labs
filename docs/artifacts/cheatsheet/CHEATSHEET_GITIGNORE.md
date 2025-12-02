@@ -105,11 +105,3 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 .env.production.local
 .env.local
 ```
-
-***
-
-Copyright (c) 2025 Elijah S Shmakov
-
-
-![Logo](../../assets/logotype/logo.jpg)
-

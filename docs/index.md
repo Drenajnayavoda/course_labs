@@ -1,6 +1,3 @@
-<div align="center">
-<h1><a id="intro"> Лабораторные работы <sup><kbd>Course</kbd></sup></a><br></h1></div>
-
 <br>Салют :wave:,</br>
 Отмечу основные моменты:
 

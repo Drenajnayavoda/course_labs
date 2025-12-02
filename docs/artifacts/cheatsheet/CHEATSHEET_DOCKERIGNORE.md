@@ -27,11 +27,3 @@ Dockerfile
 frontend/node_modules/
 frontend/dist/
 ```
-
-***
-
-Copyright (c) 2025 Elijah S Shmakov
-
-
-![Logo](../../assets/logotype/logo.jpg)
-

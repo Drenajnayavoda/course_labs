@@ -3,10 +3,10 @@ name: ci
 on:
   push:
     branches:
-      - master
+      - develop
   pull_request:
     branches:
-      - master
+      - develop
 
 permissions:
   contents: read
@@ -170,7 +170,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   deploy:
-    if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/master')
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/develop')
     needs:
       - build
     runs-on: ubuntu-latest

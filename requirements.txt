@@ -1,0 +1,12 @@
+mkdocs==1.6.0
+mkdocs-material==9.5.0
+mkdocs-macros-plugin==1.0.5
+types-PyYAML
+PyYAML==6.0.2
+lunr==0.6.2
+ruff==0.7.0
+bandit==1.7.10
+flake8==7.1.1
+mypy==1.11.0
+safety==3.2.0
+mkdocs-pdf==0.1.2

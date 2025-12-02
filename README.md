@@ -90,9 +90,6 @@ $ source .venv/bin/activate
 $ pip install -r requirements.txt
 $ pip install mkdocs mkdocs-material mkdocs-macros-plugin # must-have
 $ pip install pyyaml
-$ python scripts/build_search_data.py
-$ ruff format scripts/build_search_data.py
-# or
 $ ruff format .
 $ python -m mkdocs serve
 # or

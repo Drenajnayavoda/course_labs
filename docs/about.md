@@ -1,0 +1,1 @@
+Лабораторные работы по курсам для AppSec, Risk Analysis, Securty Champion: Toolchain, Orchestration, CI/CD, UML, etc.
