@@ -19,6 +19,7 @@ Thumbs.db
 
 # Python cache and compiled files
 __pycache__/
+/__pycache__
 *.py[cod]
 *.pyo
 *.pyd
@@ -58,6 +59,7 @@ venv/
 .vscode/
 .idea/
 *.swp
+audit_reports/
 
 # Logs and runtime files
 *.log
