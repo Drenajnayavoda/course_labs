@@ -1,16 +1,15 @@
-#!/usr/bin/env bash
 set -euo pipefail
 
 echo "Starting Docker CIS Benchmark Audit with docker-bench-security"
 echo "================================================================="
 
 if ! command -v docker >/dev/null 2>&1; then
-  echo "ERROR: docker CLI not found. Install Docker before running this script."
+  echo "ERROR: docker CLI not found. Install Docker before running this script"
   exit 1
 fi
 
 if ! docker info >/dev/null 2>&1; then
-  echo "ERROR: Docker daemon is not reachable. Start Docker service/Desktop first."
+  echo "ERROR: Docker daemon is not reachable. Start Docker service/Desktop first"
   exit 1
 fi
 
@@ -26,17 +25,34 @@ else
   esac
 fi
 
-BENCH_IMAGE="${DOCKER_BENCH_IMAGE:-docker/docker-bench-security:latest}"
+DEFAULT_BENCH_IMAGE="docker/docker-bench-security:latest"
+BENCH_IMAGE="${DOCKER_BENCH_IMAGE:-$DEFAULT_BENCH_IMAGE}"
 
 echo "Detected platform: ${PLATFORM}"
 echo "Using image: ${BENCH_IMAGE}"
 echo ""
 
+# Проверка наличия образа и опциональный pull, без автопулла latest
+if ! docker image inspect "${BENCH_IMAGE}" >/dev/null 2>&1; then
+  echo "Bench image ${BENCH_IMAGE} not found locally."
+  echo "Pulling it explicitly (controlled, not implicit latest)..."
+  docker pull "${BENCH_IMAGE}"
+  echo ""
+fi
+
+# Хук для предварительного сканирования образа, если есть trivy/grype
+if command -v trivy >/dev/null 2>&1; then
+  echo "Running Trivy scan for ${BENCH_IMAGE} (basic image vulnerability check)..."
+  trivy image --quiet --severity HIGH,CRITICAL "${BENCH_IMAGE}" || true
+  echo ""
+fi
+
 run_bench() {
   local mounts="$1"
   local extra_opts="$2"
 
-  echo "Running Docker Bench Security container..."
+  echo "Running Docker Bench Security container (audit-only, elevated profile)"
+  echo "NOTE: --network host / --pid host / docker.sock:ro are used ONLY for host security audit."
   echo ""
 
   docker run --rm \
@@ -45,7 +61,6 @@ run_bench() {
     --pid host \
     --userns host \
     --cap-add audit_control \
-    --read-only \
     --security-opt no-new-privileges \
     ${extra_opts} \
     -e DOCKER_CONTENT_TRUST="${DOCKER_CONTENT_TRUST:-0}" \
@@ -57,10 +72,9 @@ run_bench() {
 
 case "${PLATFORM}" in
   Linux)
-    echo "Linux host detected – configuring mounts for full CIS coverage where possible"
+    echo "Linux host detected – configuring mounts for CIS Docker Benchmark coverage"
     echo ""
 
-    # Базовые директории, которые CIS использует для проверки конфигурации Docker и хоста
     MOUNTS="-v /etc:/etc:ro \
             -v /var/lib:/var/lib:ro \
             -v /usr/bin:/usr/bin:ro"
@@ -83,7 +97,6 @@ case "${PLATFORM}" in
       echo "Mounting /lib/systemd"
     fi
 
-    # Docker daemon config
     if [ -d "/etc/docker" ]; then
       MOUNTS="${MOUNTS} -v /etc/docker:/etc/docker:ro"
       echo "Mounting /etc/docker"
@@ -98,34 +111,27 @@ case "${PLATFORM}" in
     ;;
 
   macOS)
-    echo "macOS detected – Docker Desktop environment"
-    echo "CIS checks will apply to the Linux VM used by Docker Desktop, not the macOS host kernel."
+    echo "macOS detected – Docker Desktop (Apple Silicon) environment"
+    echo "docker-bench-security is designed for native Linux hosts and is unstable/unsupported on Docker Desktop in this setup"
     echo ""
-
-    MAC_MOUNTS=""
-    # audit будет ограничен конфигурацией Docker Engine внутри VM через docker.sock
-    if [ -d "/etc" ]; then
-      MAC_MOUNTS="${MAC_MOUNTS} -v /etc:/etc:ro"
-    fi
-
-    run_bench "${MAC_MOUNTS}" ""
-
+    echo "For this lab:"
+    echo "- Create a small Linux VM (e.g., Ubuntu) or use WSL2 on Windows"
+    echo "- Install Docker Engine there and run this script inside that Linux environment"
     echo ""
-    echo "Note:"
-    echo "- Some host-kernel and systemd-related CIS checks are not applicable on macOS."
-    echo "- Treat results as audit of the Docker Linux VM configuration, not of macOS itself."
-    ;;
+    echo "This ensures the CIS Docker Benchmark checks are executed against a real Linux host"
+    echo "not the macOS Desktop abstraction layer"
+    exit 0
+    ;*
 
   Windows)
-    echo "Windows / WSL environment detected."
+    echo "Windows / WSL environment detected"
     echo ""
 
-    # Определяем, работает ли Docker через WSL2
     if grep -qi "microsoft" /proc/version 2>/dev/null; then
-      echo "Docker appears to be running under WSL (Linux kernel)."
-      echo "CIS checks will apply to this WSL Linux environment and Docker Engine inside it."
+      echo "Docker appears to be running under WSL (Linux kernel)"
+      echo "CIS checks will apply to this WSL Linux environment and Docker Engine inside it"
       echo ""
-      # Внутри WSL действуем как на обычном Linux
+
       MOUNTS="-v /etc:/etc:ro \
               -v /var/lib:/var/lib:ro \
               -v /usr/bin:/usr/bin:ro"
@@ -160,7 +166,7 @@ case "${PLATFORM}" in
 
   *)
     echo "Unsupported or unknown platform: ${PLATFORM} (${OS_TYPE})"
-    echo "This script supports Linux hosts, macOS (Docker Desktop) and Windows via WSL2."
+    echo "This script supports Linux hosts, macOS (as a wrapper that recommends Linux VM), and Windows via WSL2"
     exit 1
     ;;
 esac
