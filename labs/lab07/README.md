@@ -19,6 +19,11 @@
 
 - 
 
+
+http://localhost:8080
+
+bash sca/dependency-check.sh --update
+
 ***
 
 ## Задание
