@@ -1,6 +1,35 @@
-## Отчет по лабораторной работе №1
+<div align="center">
+<h1><a id="intro">Лабораторная работа №1</a><br></h1>
+<a href="https://docs.github.com/en"><img src="https://img.shields.io/static/v1?logo=github&logoColor=fff&label=&message=Docs&color=36393f&style=flat" alt="GitHub Docs"></a>
+<a href="https://daringfireball.net/projects/markdown"><img src="https://img.shields.io/static/v1?logo=markdown&logoColor=fff&label=&message=Markdown&color=36393f&style=flat" alt="Markdown"></a> 
+<a href="https://symbl.cc/en/unicode-table"><img src="https://img.shields.io/static/v1?logo=unicode&logoColor=fff&label=&message=Unicode&color=36393f&style=flat" alt="Unicode"></a> 
+<a href="https://shields.io"><img src="https://img.shields.io/static/v1?logo=shieldsdotio&logoColor=fff&label=&message=Shields&color=36393f&style=flat" alt="Shields"></a>
+<a href="https://img.shields.io/badge/Risk_Analyze-2448a2"><img src="https://img.shields.io/badge/Course-Risk_Analysis-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/AppSec-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/Contributor-Ласточкин_И._А.-8b9aff" alt="Contributor Badge"></a></div>
 
-### Ласточкин Иван
+***
+
+<br>Салют :wave:, </br>
+Данная лабораторная работа посвящена изучению систем обмена данными. Работа позволит ознакомиться с базовыми навыками необходимыми для произведения `commit changes`, публикации изменений в удаленный репозиторий, обновлениями данных для них, `fork` и тд.
+
+***
+
+## Задание
+
+- [X] 1. Зарегистрироваться на почтовом сервисе **Gmail**. В случае наличия аккаунта - не требуется
+- [X] 2. Зарегистрироваться на сервисе совместной разработки **GitHub**. В случае наличия аккаунта требуется произвести дополнительные настройки и обновить данные персонификации
+- [X] 3. Отправить зарегистрированный адрес почтового ящика личным сообщением
+- [X] 4. Отправить зарегистрированный логин личным сообщением
+- [X] 5. Ознакомиться со ссылками учебного материала и формализованными требованиями из основного описания
+- [X] 6. Сгенерировать **SSH** ключ и добавить его в список ключей для сервиса **GitHub**
+- [X] 7. Сгенерировать **Personal Token** с правами **gist** и сохранить его в файл
+- [X] 8. Сгенерировать GnuPG для подтверждения подписания коммитов и возможно использование Х.509 (включить в отчет описание, что такое `smimesign`)
+- [X] 9. Подготовить глобальные переменные окружения для **GitHub**
+- [X] 10. Ознакомиться с материалами `gh` сервиса и использовать их для авторизации, `commit`, `pull request` и тд.
+- [X] 11. Выполнить инструкцию учебного материала
+- [X] 12. Оформить `README.md` по аналогии и использовать `shield`, etc.
+- [X] 13. Составить `gist` отчет и отправить ссылку личным сообщением
+
+***
 
 1. Настраиваем Git
 
