@@ -58,10 +58,11 @@ sudo usermod -aG docker "$USER"
 ```
 
 - [ ] 2. Проверить работу докера и сделать скрипт `audit.sh` исполняемым, проверить вывод и что скрипт работает корректно.
-- [ ] 3. Развернуть уязвимое приложение
+- [ ] 3. Развернуть уязвимое приложение как отдельные стенды
 
 ```bash
-docker-compose -f dvulnerable-app.yml up -d
+docker compose up -d # основной web, app, postgres
+docker-compose -f dvulnerable-app.yml up -d # поверх для vulnerable-web, debug-shell
     -f # file
     up # создает и поднимает файлы из compose
     -d # фоновый режим

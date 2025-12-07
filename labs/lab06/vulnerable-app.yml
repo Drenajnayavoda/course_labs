@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   vulnerable-web:
     image: nginx:latest
@@ -18,7 +20,7 @@ services:
       - /:/hostroot:rw
       - /var/run/docker.sock:/var/run/docker.sock
       - ./backup:/var/backups:rw
-      - ./config/nginx.conf:/etc/nginx/nginx.conf:rw 
+      - ./config/nginx.conf:/etc/nginx/nginx.conf:rw
     cap_add:
       - ALL
     security_opt:
@@ -28,24 +30,7 @@ services:
       driver: "json-file"
       options:
         max-size: "50m"
-    command: ["/bin/sh", "-c", "apt-get update && apt-get install -y vim net-tools iputils-ping && nginx -g 'daemon off;'"] # Установка лишних утилит (vim, net-tools, ping) расширяет инструментарий атакующего в контейнере
-
-  insecure-db:
-    image: mysql:5.7
-    container_name: insecure-db
-    platform: linux/arm64
-    user: "0:0"
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=proddb
-      - MYSQL_USER=produser
-      - MYSQL_PASSWORD=prodpass
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-    ports:
-      - "0.0.0.0:3306:3306"
-    volumes:
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:rw 
-      - ./db//var/lib/mysql:rw
+    command: ["/bin/sh", "-c", "apt-get update && apt-get install -y vim net-tools iputils-ping && nginx -g 'daemon off;'"]
 
   debug-shell:
     image: alpine:latest
