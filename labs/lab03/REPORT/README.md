@@ -232,9 +232,13 @@ CONN (1.1154s) TCP localhost > 192.168.31.1:445 => Connection refused
 CONN (1.1154s) TCP localhost > 192.168.31.1:143 => Connection refused
 CONN (1.1154s) TCP localhost > 192.168.31.1:1723 => Connection refused
 CONN (1.1154s) TCP localhost > 192.168.31.1:21 => Connection refused
+
 .......................
+
 .......................
+
 .......................
+
 CONN (73.1906s) TCP localhost > 192.168.31.1:2383 => Connection refused
 CONN (73.1906s) TCP localhost > 192.168.31.1:10629 => Connection refused
 CONN (73.1906s) TCP localhost > 192.168.31.1:31038 => Connection refused
@@ -302,9 +306,13 @@ CONN (0.5230s) TCP localhost > 45.33.32.156:995 => Operation now in progress
 CONN (0.5232s) TCP localhost > 45.33.32.156:587 => Operation now in progress
 CONN (0.5232s) TCP localhost > 45.33.32.156:1025 => Operation now in progress
 CONN (0.5233s) TCP localhost > 45.33.32.156:1723 => Operation now in progress
+
 .......................
+
 .......................
+
 .......................
+
 CONN (10.3718s) TCP localhost > 45.33.32.156:7435 => Operation now in progress
 CONN (10.3718s) TCP localhost > 45.33.32.156:11110 => Connection refused
 CONN (10.3718s) TCP localhost > 45.33.32.156:4126 => Connection refused
@@ -531,9 +539,38 @@ $ xsltproc ~/project/reports/nmapres_new.xml -o ~/project/reports/nmapres_new.ht
 
 ```bash
 nmap -sP inet_addr
+
+jvs@debian:~/course_labs/labs/lab03/REPORT$ nmap -sP 172.16.238.189
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-12-07 23:36 MSK
+Nmap scan report for 172.16.238.189
+Host is up (0.00015s latency).
+Nmap done: 1 IP address (1 host up) scanned in 0.03 seconds
+
 ```
 
 - [X] 5. Определите ОС, данные ssh, telnet  с помощью `nmap` и выведитео них информацию.
+
+```bash
+
+jvs@debian:~/course_labs/labs/lab03/REPORT$ sudo nmap -O -sV 172.16.238.189
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-12-07 23:37 MSK
+Nmap scan report for 172.16.238.189
+Host is up (0.000081s latency).
+Not shown: 999 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 10.0p2 Debian 7 (protocol 2.0)
+Device type: general purpose
+Running: Linux 2.6.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6.32 cpe:/o:linux:linux_kernel:5 cpe:/o:linux:linux_kernel:6
+OS details: Linux 2.6.32, Linux 5.0 - 6.2
+Network Distance: 0 hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 1.71 seconds
+
+```
+
 - [X] 6. Результаты из `nmapres_new.txt` надо перенести в `nmapres.txt` и оставить оба файла рядом в локальном репозитории. Желательно использовать `cp` в консоли через редактор.
 - [X] 7. Оформить `README.md` по аналогии и использовать `shield`, etc.
 - [X] 8. Составить `gist` отчет и отправить ссылку личным сообщением
