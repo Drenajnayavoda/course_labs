@@ -297,4 +297,3 @@ $ git push origin :refs/tags/v0.1.0 # удалить тот же тег на Git
 Copyright (c) 2025 Elijah S Shmakov
 
 ![Logo](assets/logotype/logo.jpg)
-
