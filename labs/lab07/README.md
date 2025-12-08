@@ -15,10 +15,39 @@
 
 ***
 
+## Структура репозитория лабораторной работы
+
+```bash
+lab07
+├── cheat_check_yuorself.sh
+├── docker-compose.yml
+├── sast
+│   ├── checkov-config.yaml
+│   └── semgrep-rules.yml
+├── sca
+│   ├── dependency-check.sh
+│   ├── generate_unified_report.sh
+│   └── pom.xml
+└── vulnerable-app
+    ├── app.py
+    ├── config.yaml
+    ├── Dockerfile
+    └── requirements.txt
+```
+
+***
+
 ## Материал
 
 - 
 
+
+
+
+cd sca
+mvn dependency:resolve
+mvn dependency:copy-dependencies -DoutputDirectory=./lib
+mvn org.owasp:dependency-check-maven:check
 
 http://localhost:8080
 

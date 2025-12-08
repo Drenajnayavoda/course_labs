@@ -3,7 +3,9 @@ WORKDIR /app
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-        curl vim netcat-traditional iputils-ping && \
+        build-essential \
+        libjpeg-dev zlib1g-dev \
+        libxml2-dev libxslt1-dev && \
     rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt /app/requirements.txt
