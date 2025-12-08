@@ -54,20 +54,20 @@
 - [ ] 1. Необходимо установить `Docker Engine` для Linux
 
 ```bash
-sudo apt-get update
-sudo apt-get install -y docker.io
-sudo usermod -aG docker "$USER"
+$ sudo apt-get update
+$ sudo apt-get install -y docker.io
+$ sudo usermod -aG docker "$USER"
 
-sudo systemctl start docker
-docker pull docker/docker-bench-security
+$ sudo systemctl start docker
+$ docker pull docker/docker-bench-security
 ```
 
 - [ ] 2. Проверьте работу докера и сделать скрипт `audit.sh` исполняемым
 - [ ] 3. Развернуть уязвимое приложение как отдельные стенды
 
 ```bash
-docker compose up -d # основной web, app, postgres
-docker-compose -f dvulnerable-app.yml up -d # поверх для vulnerable-web, debug-shell
+$ docker compose up -d # основной web, app, postgres
+$ docker-compose -f dvulnerable-app.yml up -d # поверх для vulnerable-web, debug-shell
     -f # file
     up # создает и поднимает файлы из compose
     -d # фоновый режим
@@ -76,11 +76,11 @@ docker-compose -f dvulnerable-app.yml up -d # поверх для vulnerable-web
 - [ ] 4. Запустите скрипт из `venv` и проанализируйте то, что вывело на терминале и что вывело при конвертировании
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install openpyxl odfpy
-./audit.sh
-deactivate # или deactivate 2>/dev/null || true
+$ python3 -m venv venv
+$ source venv/bin/activate
+$ pip install openpyxl odfpy
+$ ./audit.sh
+$ deactivate # или $ deactivate 2>/dev/null || true
 ```
  
 - [ ] 5. Проведите анализ уязвимостей, опишите их причину возникновения
@@ -102,9 +102,9 @@ deactivate # или deactivate 2>/dev/null || true
 - [ ] 10. Почистите кеш от `venv` и остановите уязвимостей приложение, почистите контейнера
 
 ```bash
-rm -rf venv
-docker-compose -f demo-vulnerable-app.yml down
-docker system prune -f
+$ rm -rf venv
+$ docker-compose -f demo-vulnerable-app.yml down
+$ docker system prune -f
  ```
  
 ***
@@ -114,7 +114,7 @@ docker system prune -f
 - Права для исполнения скрипта
 
 ```bash
-chmod +x xxx.sh # разрешение прав при permission denied
+$ chmod +x xxx.sh # разрешение прав при permission denied
 ```
 
 - На macOS/AArch64 docker-bench-security может не запускаться из‑за ограничений Docker Desktop и это работает для Linux‑VM. На Mac используем Trivy‑скан и разбор конфигурации compose‑файлов.
