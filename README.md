@@ -9,7 +9,7 @@
 
 <div align="center">
 
-![Repo Size](https://img.shields.io/github/repo-size/geminishkv/course_labs)![License](https://img.shields.io/github/license/geminishkv/course_labs)![CI](https://img.shields.io/github/actions/workflow/status/geminishkv/course_labs/ci.yml?branch=master)![Status](https://img.shields.io/badge/status-active-success)![Release](https://img.shields.io/github/v/release/geminishkv/course_labs)![Contributor Badge](https://img.shields.io/badge/Contributor-%D0%A8%D0%BC%D0%B0%D0%BA%D0%BE%D0%B2_%D0%98._%D0%A1.-8b9aff?style=flat)![Contributors](https://img.shields.io/github/contributors/geminishkv/course_labs)![Open pull requests](https://img.shields.io/github/issues-pr/geminishkv/course_labs)![Commit Activity](https://img.shields.io/github/commit-activity/m/geminishkv/course_labs)![Last commit](https://img.shields.io/github/last-commit/geminishkv/course_labs)
+![Repo Size](https://img.shields.io/github/repo-size/geminishkv/course_labs)![License](https://img.shields.io/github/license/geminishkv/course_labs)![CI](https://img.shields.io/github/actions/workflow/status/geminishkv/course_labs/ci.yml?branch=develop)![Status](https://img.shields.io/badge/status-active-success)![Release](https://img.shields.io/github/v/release/geminishkv/course_labs)![Contributor Badge](https://img.shields.io/badge/Contributor-%D0%A8%D0%BC%D0%B0%D0%BA%D0%BE%D0%B2_%D0%98._%D0%A1.-8b9aff?style=flat)![Contributors](https://img.shields.io/github/contributors/geminishkv/course_labs)![Open pull requests](https://img.shields.io/github/issues-pr/geminishkv/course_labs)![Commit Activity](https://img.shields.io/github/commit-activity/m/geminishkv/course_labs)![Last commit](https://img.shields.io/github/last-commit/geminishkv/course_labs)
 
 </div>
 
@@ -17,7 +17,7 @@
 Отмечу основные моменты:
 
 *  Цель - сформировать навыки работы с `git`, `CI`, `CD`, `docker`, `packages`, `appsec toolchain`, `yml`, etc. 
-*  *Часть работ базируется на на `Go`, `Python`, `JAVA`, `js` и и.д.
+*  *Часть работ базируется на на `Go`, `Python`, `JAVA`, `Shell` и и.д.
 *  Рассматриваются инструменты `SAST`, `SCA`, `Container Security`, `DAST`, `Secret Detection`, etc. 
 *  Работы направлены на углубление и изучение материалов анализа рисков и оценки защищенности приложений, которые необходимы для итерационной разработки, также дают дополнительно возможности для изучения паттернов программирования, прототипирования
 *  Каждый мини проект должен будет собран по формату из представленных лабораторных работ и размещен на сервисе `GitHub`, с формирование соответствующего отчета в виде `gistup` для демонстрации выполненной работы и скриншотами результатов (**где это требуется**). 
@@ -58,13 +58,14 @@
     -  Материалы для работы [тут](labs/lab06/)
 -  [ ] lab07 - [Данная лабораторная работа посвящена изучению SAST, SCA для выявления уязвимостей и как с ним работать на примере Semgrep, Checkov, Dependency Check](labs/lab07/README.md)
     -  Материалы для работы [тут](labs/lab07/)
--  [ ] 
--  [ ] 
+-  [ ] lab 08 -
+-  [ ] lab 09 -
+-  [ ] lab 10 -
 -  [ ] *Обновление будет предоставлено позднее**
 
 5. Реализовать итоговую работу и составить отчет
 
--  [ ] **Обновление будет предоставлено позднее** 
+-  [ ] pet_project - 
 
 ***
 
@@ -241,8 +242,29 @@ $ git push origin :refs/tags/v0.1.0
 │   │       ├── hello.py
 │   │       ├── image.tar
 │   │       └── requirements.txt
-│   └── lab06
-│       └── README.md
+│   ├── lab06
+│   │   ├── audit.sh
+│   │   ├── config
+│   │   │   └── nginx.conf
+│   │   ├── docker-compose.yml
+│   │   ├── README.md
+│   │   └── vulnerable-app.yml
+│   └── lab07
+│       ├── cheat_check_yuorself.sh
+│       ├── docker-compose.yml
+│       ├── README.md
+│       ├── sast
+│       │   ├── checkov-config.yaml
+│       │   └── semgrep-rules.yml
+│       ├── sca
+│       │   ├── dependency-check.sh
+│       │   ├── generate_unified_report.sh
+│       │   └── pom.xml
+│       └── vulnerable-app
+│           ├── app.py
+│           ├── config.yaml
+│           ├── Dockerfile
+│           └── requirements.txt
 ├── LICENSE.md
 ├── mkdocs.yml
 ├── mypy.ini
@@ -255,24 +277,7 @@ $ git push origin :refs/tags/v0.1.0
 
 ***
 
-### Ресурсы:
-
-* 📘  **Аннотационный материал:**
-
-    * [OWASP TOP 10](artifacts/owasp/)
-    * `gistup`
-
-```bash
-$ npm install -g gistup
-$ gh <command> <subcommand> --help
-$ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
-```
-
-* 📦 **Releases**:
-
 * **Links:**
-    * [Google Sheets](https://www.google.ru/intl/ru/sheets/about/)
-    * [Google Docs](https://www.google.ru/intl/ru/docs/about/)
     * [GitHub SSH Key](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
     * [Markdown](https://stackedit.io)
     * [Gist](https://gist.github.com)
@@ -282,9 +287,10 @@ $ gh gist create -d "my test gist" -f some_local_file.txt  test_gist
     * [Docker](https://docs.docker.com/)
     * [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager)
     * [Code of Conduct](https://www.contributor-covenant.org)
+    * [OWASP TOP 10](artifacts/owasp/)
+    * 
 
 Copyright (c) 2025 Elijah S Shmakov
-
 
 ![Logo](assets/logotype/logo.jpg)
 

@@ -15,6 +15,16 @@
 
 ***
 
+## Структура репозитория лабораторной работы
+
+```bash
+lab03
+├── exmp_targets.txt
+└── README.md
+```
+
+***
+
 ## Материал
 
 **Nmap Network Mapper** `open-source` утилита для исследования и анализа сетей, в которой основная цель выявление активных устройств, открытых портов, сервисов, версий ПО, ОС и других характеристик, которые способствуют определнию вектора атаки и влияния, а также перехвата управления инфраструктурой или отслеживания. Фактически она рассматривается как виртуальная сетевая карта
@@ -59,45 +69,57 @@ $ nmap -iL targets.txt # множествнные цели сканирован�
 
 -  **Типы сканирований и опции nmap**
 
-<link rel="stylesheet" href="../../assets/style/style.css">
-<div class="compact-table">
-<table width="100%">
-  <thead>
-    <tr><th>Scan type</th><th>nmap option</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>TCP (connect)</td><td>-sT</td></tr>
-    <tr><td>TCP SYN</td><td>-sS</td></tr>
-    <tr><td>TCP NULL</td><td>-sN</td></tr>
-    <tr><td>TCP FIN</td><td>-sF</td></tr>
-    <tr><td>TCP XMAS</td><td>-sX</td></tr>
-    <tr><td>TCP idle (zombie)</td><td>-sI</td></tr>
-    <tr><td>UDP</td><td>-sU</td></tr>
-    <tr><td>OS</td><td>-A</td></tr>
-  </tbody></table></div>
+<div style="width:100%; display:flex; justify-content:center;">
+  <table style="width:100%; max-width:800px; margin:0 auto; text-align:center;">
+    <thead>
+      <tr>
+        <th>Scan type</th>
+        <th>nmap option</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>TCP (connect)</td><td>-sT</td></tr>
+      <tr><td>TCP SYN</td><td>-sS</td></tr>
+      <tr><td>TCP NULL</td><td>-sN</td></tr>
+      <tr><td>TCP FIN</td><td>-sF</td></tr>
+      <tr><td>TCP XMAS</td><td>-sX</td></tr>
+      <tr><td>TCP idle (zombie)</td><td>-sI</td></tr>
+      <tr><td>UDP</td><td>-sU</td></tr>
+      <tr><td>OS</td><td>-A</td></tr>
+    </tbody>
+  </table>
+</div>
 
 - **Порты**
 
-<div class="compact-table">
-<table>
-  <thead>
-    <tr><th>Port</th><th>Service</th><th>Protocole</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>20/21</td><td>FTP (File Transfer)</td><td>TCP</td></tr>
-    <tr><td>22</td><td>SSH (Secure Shell)</td><td>TCP</td></tr>
-    <tr><td>23</td><td>Telnet</td><td>TCP</td></tr>
-    <tr><td>25</td><td>SMTP (Simple Mail Transfer)</td><td>TCP</td></tr>
-    <tr><td>53</td><td>DNS (Domain Name System)</td><td>TCP/UDP</td></tr>
-    <tr><td>67/68</td><td>DHCP (Dynamic Host Configuration Protocol)</td><td>UDP</td></tr>
-    <tr><td>69</td><td>TFTP (Trivial File Transfer Protocol)</td><td>UDP</td></tr>
-    <tr><td>80</td><td>HTTP (Hypertext Transfer Protocol)</td><td>TCP</td></tr>
-    <tr><td>110</td><td>POP3 (Post Office Protocol version 3)</td><td>TCP</td></tr>
-    <tr><td>443</td><td>HTTPS (HTTP Secure)</td><td>TCP</td></tr>
-    <tr><td>3306</td><td>MySQL Database</td><td>TCP</td></tr>
-</tbody></table></div>
+<div style="width:100%; display:flex; justify-content:center;">
+  <table style="width:100%; max-width:900px; margin:0 auto; text-align:center;">
+    <thead>
+      <tr>
+        <th>Port</th>
+        <th>Service</th>
+        <th>Protocol</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>20/21</td><td>FTP (File Transfer)</td><td>TCP</td></tr>
+      <tr><td>22</td><td>SSH (Secure Shell)</td><td>TCP</td></tr>
+      <tr><td>23</td><td>Telnet</td><td>TCP</td></tr>
+      <tr><td>25</td><td>SMTP (Simple Mail Transfer)</td><td>TCP</td></tr>
+      <tr><td>53</td><td>DNS (Domain Name System)</td><td>TCP/UDP</td></tr>
+      <tr><td>67/68</td><td>DHCP (Dynamic Host Configuration Protocol)</td><td>UDP</td></tr>
+      <tr><td>69</td><td>TFTP (Trivial File Transfer Protocol)</td><td>UDP</td></tr>
+      <tr><td>80</td><td>HTTP (Hypertext Transfer Protocol)</td><td>TCP</td></tr>
+      <tr><td>110</td><td>POP3 (Post Office Protocol version 3)</td><td>TCP</td></tr>
+      <tr><td>443</td><td>HTTPS (HTTP Secure)</td><td>TCP</td></tr>
+      <tr><td>3306</td><td>MySQL Database</td><td>TCP</td></tr>
+    </tbody>
+  </table>
+</div>
 
-- **Пример результата**
+***
+
+### Пример результата
 
 ```bash
 nmap scan report for 10.1.1.10
@@ -184,11 +206,16 @@ nmap -sP inet_addr
 ## Links
 
 - [Markdown](https://stackedit.io)
-- [Gist](https://gist.github.com)
-- [nmap.org](https://nmap.org/book/port-scanning-options.html)
-- [nmap github](https://github.com/nmap/nmap?ysclid=mi7x8wdde7291330856)
-- [IANA](https://www.iana.org)
 - [GitHub CLI](https://cli.github.com)
+- [Gist](https://gist.github.com)
+- [IANA](https://www.iana.org)
+- [IANA Port Numbers](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml)
+- [Nmap GitHub](https://github.com/nmap/nmap)
+- [Официальная документация nmap](https://nmap.org/book/)
+- [Nmap Reference Guide](https://nmap.org/book/man.html)
+- [Nmap Script (NSE) Reference](https://nmap.org/nsedoc/)
+- [Nmap Tutorial (Hackers-Arise)](https://nmap.org/docs.html)
+- [OWASP Testing Guide – Network Scanning](https://owasp.org/www-project-web-security-testing-guide/)
 
 Copyright (c) 2025 Elijah S Shmakov
 

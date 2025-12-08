@@ -15,6 +15,20 @@
 
 ***
 
+## Структура репозитория лабораторной работы
+
+```bash
+lab06
+├── audit.sh
+├── config
+│   └── nginx.conf
+├── docker-compose.yml
+├── README.md
+└── vulnerable-app.yml
+```
+
+***
+
 ## Материал
 
 - **Docker Bench Security** - официальным инструментом аудита безопасности от Docker, который проверяет наличие практик при развертывания на `CIS Docker Benchmark`
@@ -124,8 +138,13 @@ $ chmod +x xxx.sh # разрешение прав при permission denied
 ## Links
 
 - [Docker](https://docs.docker.com/)
+- [Docker Engine security](https://docs.docker.com/engine/security/)
+- [Docker Bench for Security](https://github.com/docker/docker-bench-security)
+- [CIS Docker Benchmark](https://www.cisecurity.org/benchmark/docker)
+- [Trivy: Container Security Scanner](https://aquasecurity.github.io/trivy/)
 - [Markdown](https://stackedit.io)
 - [Gist](https://gist.github.com)
+- [GitHub Docs](https://docs.github.com/en)
 - [GitHub CLI](https://cli.github.com)
 
 Copyright (c) 2025 Elijah S Shmakov
