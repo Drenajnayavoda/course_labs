@@ -1,0 +1,1 @@
+--8<-- "../../labs/lab06/README.md"

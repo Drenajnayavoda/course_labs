@@ -25,20 +25,53 @@ plugins:
   - search
   - macros
   - mkdocs-pdf
+  - include-markdown:
+      heading_offset: 0
+      preserve_includer_indent: false
+      dedent: true
 
 markdown_extensions:
   - def_list
   - md_in_html
   - attr_list
+  - admonition
+  - toc:
+      permalink: true
+
+extra_css:
+  - stylesheets/header.css
+  - stylesheets/footer.css
+  - stylesheets/search.css
+  - stylesheets/sidebar.css
+  - stylesheets/typeset.css
+  - stylesheets/tools-overlay.css
+  - stylesheets/burger.css
+  - stylesheets/mobile-logo.css
+
+extra_javascript:
+  - javascripts/custom-title.js
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/geminishkv
+    - icon: fontawesome/solid/code-branch
+      link: https://github.com/geminishkv/course_labs
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/shmakovis_appsec
+    - icon: fontawesome/regular/envelope
+      link: mailto:shmakovis@inbox.ru
 
 nav:
   - "Главная страница": index.md
   - "Лабораторные работы":
-      - "Лабораторная работа №1": labs/lab01.md
-      - "Лабораторная работа №2": labs/lab02.md
-      - "Лабораторная работа №3": labs/lab03.md
-      - "Лабораторная работа №4": labs/lab04.md
-      - "Лабораторная работа №5": labs/lab05.md
+    - "Лабораторная работа №1": labs/lab01.md
+    - "Лабораторная работа №2": labs/lab02.md
+    - "Лабораторная работа №3": labs/lab03.md
+    - "Лабораторная работа №4": labs/lab04.md
+    - "Лабораторная работа №5": labs/lab05.md
+    - "Лабораторная работа №6": labs/lab06.md
+    - "Лабораторная работа №7": labs/lab07.md
   - "Приложение": APPENDIX.md
   - "Материалы":
       - "Лекции": course.md
@@ -72,27 +105,3 @@ nav:
   - "FinDevSecOps": "https://findevsecops.ru/"
   - "АО ЛАНИТ": "https://www.lanit.ru"
   - "О проекте": about.md
-
-extra_css:
-  - stylesheets/header.css
-  - stylesheets/footer.css
-  - stylesheets/search.css
-  - stylesheets/sidebar.css
-  - stylesheets/typeset.css
-  - stylesheets/tools-overlay.css
-  - stylesheets/burger.css
-  - stylesheets/mobile-logo.css
-
-extra_javascript:
-  - javascripts/custom-title.js
-
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/geminishkv
-    - icon: fontawesome/solid/code-branch
-      link: https://github.com/geminishkv/course_labs
-    - icon: fontawesome/brands/telegram
-      link: https://t.me/shmakovis_appsec
-    - icon: fontawesome/regular/envelope
-      link: mailto:shmakovis@inbox.ru
