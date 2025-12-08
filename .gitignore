@@ -1,36 +1,19 @@
-# OS generated files
+# OS generated files (macOS / Windows / misc)
 .DS_Store
 .DS_Store?
 ._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
 .AppleDouble
 .LSOverride
+.Spotlight-V100
+.Trashes
 .DocumentRevisions-V100
 .fseventsd
-.Spotlight-V100
 .TemporaryItems
-.Trashes
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
+ehthumbs.db
+Thumbs.db
 *.icloud
-
-# Python cache and compiled files
-__pycache__/
-/__pycache__
-*.py[cod]
-*.pyo
-*.pyd
-.ruff_cache
-sast/semgrep-report.json
-sast/checkov-report.json/
-sast/checkov-report.json
-sca/dependency-check-report/
-reports/
-lib/
-.dependency-check-data
 
 # Directories potentially created on remote AFP share
 .AppleDB
@@ -39,33 +22,29 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# Compiled source #
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
+# Python: bytecode, cache, tooling
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.ruff_cache
 
-# Packages #
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-# *.tar
-*.zip
-
-# Secrets and environment configs
-.env
-.env.*
-*.env
+# Virtual environments
 venv/
 .venv/
+
+# IDE / editor configs
 .vscode/
 .idea/
 *.swp
+
+# Project-specific reports / tools output
+sast/semgrep-report.json
+sast/checkov-report.json
+sca/dependency-check-report/
+reports/
+lib/
+.dependency-check-data
 audit_reports/
 
 # Logs and runtime files
@@ -73,19 +52,42 @@ audit_reports/
 logs/
 *.pid
 
-# Data exports
+# Data exports / office docs
 *.odt
 *.xlsx
 *.xls
-# site
+
+# Build / dist artifacts (site, bundles, etc.)
 dist/
 build/
 
-# Databases
+# Databases / dumps
 *.sqlite
 *.db
 *.sql
 
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Archive / package formats
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.zip
+# *.tar
+
+# Secrets и env-конфиги
+.env
+.env.*
+*.env
+
 # Node.js
 node_modules/
-/node_modules
