@@ -54,10 +54,12 @@ details.spoiler summary {
 .tg-layout-side {
   flex: 0 0 340px;
 }
+
 @media (max-width: 960px) {
   .tg-layout {
     flex-direction: column;
   }
+  
   .tg-layout-side {
     flex: 0 0 auto;
   }
@@ -65,4 +67,18 @@ details.spoiler summary {
 
 .my-list li {
   margin-left: 5rem;
+}
+
+.md-typeset__table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+@media screen and (max-width: 768px) {
+  .md-typeset__table table {
+    font-size: 12px;
+  }
+}
+
+.md-typeset table {
+  border-collapse: collapse;
 }
