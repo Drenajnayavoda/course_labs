@@ -117,4 +117,5 @@ nav:
   - "АО ЛАНИТ": "https://www.lanit.ru"
   - "Блог": channel.md
   - "О проекте": about.md
+  - "Релизы": RELEASE_NOTES.md
   - "Политика безопасности": Security.md

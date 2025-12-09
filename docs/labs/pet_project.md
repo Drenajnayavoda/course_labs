@@ -1,4 +1,4 @@
-# Совокупная практическая работа
+# 
 
 {% include-markdown  "../../labs/pet_project/README.md" %}
 
