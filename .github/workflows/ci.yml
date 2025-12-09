@@ -104,7 +104,12 @@ jobs:
 
       - name: Lint JavaScript in docs
         run: |
-          npx eslint docs/**/*.js || npx eslint javascripts/**/*.js
+          if ls docs/**/*.js >/dev/null 2>&1; then
+            npx eslint "docs/**/*.js"
+          fi
+          if ls javascripts/**/*.js >/dev/null 2>&1; then
+            npx eslint "javascripts/**/*.js"
+          fi
 
       - name: Lint CSS in docs
         run: |
