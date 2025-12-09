@@ -1,0 +1,33 @@
+img[src*="logo.jpg"] {
+  display: none;
+}
+
+/* Растянуть таблицы на всю ширину контента */
+.md-typeset__table {
+  width: 100%;
+}
+
+.md-typeset__table table:not([class]) {
+  width: 100%;
+  display: table;
+}
+
+.md-typeset table th {
+  background-color: #1953ff;
+  color: #ffffff;
+}
+
+.md-typeset table {
+  border-collapse: collapse;
+}
+
+.md-typeset table th,
+.md-typeset table td {
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 0.4rem 0.6rem;
+}
+
+.md-typeset table th:last-child,
+.md-typeset table td:last-child {
+  border-right: none;
+}

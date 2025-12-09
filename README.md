@@ -96,7 +96,7 @@ $ source .venv/bin/activate
 $ pip install -r requirements.txt
 $ ruff format .
 $ pip install mkdocs-include-markdown-plugin
-$ python -m mkdocs serve
+$ python -m mkdocs serve --livereload
 # or
 $ mkdocs serve -a 127.0.0.1:8001 # прямое обозначение адреса
 

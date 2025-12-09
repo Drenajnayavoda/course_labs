@@ -69,53 +69,49 @@ $ nmap -iL targets.txt # множествнные цели сканирован�
 
 -  **Типы сканирований и опции nmap**
 
-<div style="width:100%; display:flex; justify-content:center;">
-  <table style="width:100%; max-width:800px; margin:0 auto; text-align:center;">
-    <thead>
-      <tr>
-        <th>Scan type</th>
-        <th>nmap option</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>TCP (connect)</td><td>-sT</td></tr>
-      <tr><td>TCP SYN</td><td>-sS</td></tr>
-      <tr><td>TCP NULL</td><td>-sN</td></tr>
-      <tr><td>TCP FIN</td><td>-sF</td></tr>
-      <tr><td>TCP XMAS</td><td>-sX</td></tr>
-      <tr><td>TCP idle (zombie)</td><td>-sI</td></tr>
-      <tr><td>UDP</td><td>-sU</td></tr>
-      <tr><td>OS</td><td>-A</td></tr>
-    </tbody>
-  </table>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Scan type</th>
+      <th>nmap option</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>TCP (connect)</td><td>-sT</td></tr>
+    <tr><td>TCP SYN</td><td>-sS</td></tr>
+    <tr><td>TCP NULL</td><td>-sN</td></tr>
+    <tr><td>TCP FIN</td><td>-sF</td></tr>
+    <tr><td>TCP XMAS</td><td>-sX</td></tr>
+    <tr><td>TCP idle (zombie)</td><td>-sI</td></tr>
+    <tr><td>UDP</td><td>-sU</td></tr>
+    <tr><td>OS</td><td>-A</td></tr>
+  </tbody>
+</table>
 
 - **Порты**
 
-<div style="width:100%; display:flex; justify-content:center;">
-  <table style="width:100%; max-width:900px; margin:0 auto; text-align:center;">
-    <thead>
-      <tr>
-        <th>Port</th>
-        <th>Service</th>
-        <th>Protocol</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>20/21</td><td>FTP (File Transfer)</td><td>TCP</td></tr>
-      <tr><td>22</td><td>SSH (Secure Shell)</td><td>TCP</td></tr>
-      <tr><td>23</td><td>Telnet</td><td>TCP</td></tr>
-      <tr><td>25</td><td>SMTP (Simple Mail Transfer)</td><td>TCP</td></tr>
-      <tr><td>53</td><td>DNS (Domain Name System)</td><td>TCP/UDP</td></tr>
-      <tr><td>67/68</td><td>DHCP (Dynamic Host Configuration Protocol)</td><td>UDP</td></tr>
-      <tr><td>69</td><td>TFTP (Trivial File Transfer Protocol)</td><td>UDP</td></tr>
-      <tr><td>80</td><td>HTTP (Hypertext Transfer Protocol)</td><td>TCP</td></tr>
-      <tr><td>110</td><td>POP3 (Post Office Protocol version 3)</td><td>TCP</td></tr>
-      <tr><td>443</td><td>HTTPS (HTTP Secure)</td><td>TCP</td></tr>
-      <tr><td>3306</td><td>MySQL Database</td><td>TCP</td></tr>
-    </tbody>
-  </table>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Port</th>
+      <th>Service</th>
+      <th>Protocol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>20/21</td><td>FTP (File Transfer)</td><td>TCP</td></tr>
+    <tr><td>22</td><td>SSH (Secure Shell)</td><td>TCP</td></tr>
+    <tr><td>23</td><td>Telnet</td><td>TCP</td></tr>
+    <tr><td>25</td><td>SMTP (Simple Mail Transfer)</td><td>TCP</td></tr>
+    <tr><td>53</td><td>DNS (Domain Name System)</td><td>TCP/UDP</td></tr>
+    <tr><td>67/68</td><td>DHCP (Dynamic Host Configuration Protocol)</td><td>UDP</td></tr>
+    <tr><td>69</td><td>TFTP (Trivial File Transfer Protocol)</td><td>UDP</td></tr>
+    <tr><td>80</td><td>HTTP (Hypertext Transfer Protocol)</td><td>TCP</td></tr>
+    <tr><td>110</td><td>POP3 (Post Office Protocol version 3)</td><td>TCP</td></tr>
+    <tr><td>443</td><td>HTTPS (HTTP Secure)</td><td>TCP</td></tr>
+    <tr><td>3306</td><td>MySQL Database</td><td>TCP</td></tr>
+  </tbody>
+</table>
 
 ***
 

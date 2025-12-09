@@ -14,7 +14,6 @@
 <img src="https://img.shields.io/github/actions/workflow/status/geminishkv/course_labs/ci.yml?branch=develop" alt="CI">
 <img src="https://img.shields.io/github/v/release/geminishkv/course_labs" alt="Release">
 
-
 </div>
 
 ## Intro
