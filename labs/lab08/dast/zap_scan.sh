@@ -30,10 +30,11 @@ echo "[+] ZAP scan completed. Reports (if any) in ${REPORT_DIR}"
 ls -lh "${REPORT_DIR}"/zap-report-*.* 2>/dev/null || echo "[!] No report files found"
 
 JSON_REPORT="${REPORT_DIR}/zap-report-${TIMESTAMP}.json"
+
 if [ -f "${JSON_REPORT}" ]; then
-  echo "[*] Converting JSON report to ODT/XLSX using ${PYTHON_BIN} ..."
-  cd "${REPORT_DIR}"
-  "${PYTHON_BIN}" ../convert_reports.py "${TIMESTAMP}"
+    echo "[*] Converting JSON report to ODT/XLSX using ${PYTHON_BIN} ..."
+    cd "${REPORT_DIR}" || exit 1
+    "${PYTHON_BIN}" ../convert_reports.py "${TIMESTAMP}"
 else
-  echo "[!] JSON report not found: ${JSON_REPORT}"
+    echo "[!] JSON report not found: ${JSON_REPORT}"
 fi
