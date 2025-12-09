@@ -31,3 +31,8 @@ img[src*="logo.jpg"] {
 .md-typeset table td:last-child {
   border-right: none;
 }
+
+details.spoiler summary {
+  cursor: pointer;
+  font-weight: 600;
+}

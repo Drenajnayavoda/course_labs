@@ -56,3 +56,5 @@
     </tr>
   </tbody>
 </table>
+
+![Logo](../artifacts/assets/logotypemd.jpg)
