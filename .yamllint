@@ -1,5 +1,9 @@
 extends: default
 
+ignore: |
+  **/audit_reports/**
+  **/sca/dependency-check-report/**
+
 rules:
   truthy:
     level: warning
@@ -8,9 +12,5 @@ rules:
     max: 120
     level: warning
 
-  new-line-at-end-of-file:
+  comments-indentation:
     level: warning
-
-  ignore: |
-  **/audit_reports/**
-  **/sca/dependency-check-report/**
