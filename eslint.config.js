@@ -5,10 +5,16 @@ export default [
   {
     files: ["docs/**/*.js", "javascripts/**/*.js"],
     languageOptions: {
-      sourceType: "module"
+      sourceType: "module",
+      globals: {
+        document: "readonly",
+        window: "readonly",
+        setTimeout: "readonly",
+        clearTimeout: "readonly"
+      }
     },
     rules: {
-      // свои правила при желании
+      // свои правила по желанию
     }
   }
 ];
