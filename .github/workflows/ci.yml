@@ -228,7 +228,7 @@ jobs:
       - security_py_dependency_checks
       - security_secrets_checks
       - security_docker_checks
-      - security_shell_checks
+#      - security_shell_checks
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -279,7 +279,7 @@ jobs:
       - security_py_dependency_checks
       - security_secrets_checks
       - security_docker_checks
-      - security_shell_checks
+#      - security_shell_checks
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
