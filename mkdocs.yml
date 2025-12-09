@@ -11,6 +11,7 @@ theme:
     text: Montserrat
     code: Roboto Mono
   features:
+    - navigation.indexes
     - search.highlight
     - content.code.copy
     - navigation.tabs.sticky
