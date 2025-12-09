@@ -141,6 +141,26 @@ $ act pull_request -j docs-preview -b # docs-preview и все зависимы�
 $ ACT_SKIP_CHOWN=true act push -j linter_checks_ruff_shell -b
 ```
 
+* Тестирование
+
+```bash
+$ abandit -r labs
+$ aruff check .
+
+$ anpx eslint "docs/**/*.js" "javascripts/**/*.js"
+npx stylelint "docs/**/*.css" "stylesheets/**/*.css"
+
+$ a$ agit ls-files '*.sh' \
+  | grep -v 'labs/lab08/dast/zap_scan.sh' \
+  | grep -v 'labs/lab07/sca/dependency-check.sh' \
+  | grep -v 'labs/lab06/audit.sh' \
+  | xargs -r shellcheck -e SC2086,SC1090,SC1091
+
+$ ayamllint .github/workflows mkdocs.yml
+$ anpx markdownlint-cli2 "docs/**/*.md" "labs/**/*.md" "README.md"
+```
+
+
 ***
 
 ### Структура репозитория
