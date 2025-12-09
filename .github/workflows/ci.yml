@@ -188,7 +188,7 @@ jobs:
           find labs -name 'Dockerfile' -print0 | xargs -0 -n1 hadolint --failure-threshold error
         shell: bash
 
-    security_shell_checks:
+  security_shell_checks:
     runs-on: ubuntu-latest
     needs:
       - linter_checks_ruff_shell
