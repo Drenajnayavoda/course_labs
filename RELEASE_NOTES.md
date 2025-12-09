@@ -1,6 +1,6 @@
 # Release Notes
 
-## v1.2.0
+## v1.3.0
 
 * fix release-from-notes.yml and ci.yml
 * Выстроена логика работы для сайта, таблицы инструментов и ее фильтрации
