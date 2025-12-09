@@ -59,6 +59,7 @@ extra_css:
 
 extra_javascript:
   - javascripts/custom-title.js
+  - javascripts/typewriter-target.js
 
 extra:
   social:

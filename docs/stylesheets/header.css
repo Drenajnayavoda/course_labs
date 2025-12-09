@@ -49,3 +49,8 @@
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
 }
+
+.md-header__title .md-header__topic {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
