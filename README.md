@@ -127,11 +127,16 @@ $ git tag -d v0.1.0 # удалить локальный тег
 $ git push origin :refs/tags/v0.1.0 # удалить тот же тег на GitHub
 ```
 
-* Локальное тестирование
+* Локальное тестирование ci.yml
 
 ```bash
 $ act -l
 $ act -j имя_job #  или общий act push
+$ act push -b -v
+
+$ act push -j build -b
+$ act pull_request -j linter_checks_ruff_shell # конкретный job
+$ act pull_request -j docs-preview -b # docs-preview и все зависимые job
 ```
 
 ***
