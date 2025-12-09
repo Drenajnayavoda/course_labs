@@ -60,6 +60,7 @@ logs/
 # Build / dist artifacts (site, bundles, etc.)
 dist/
 build/
+site
 
 # Databases / dumps
 *.sqlite

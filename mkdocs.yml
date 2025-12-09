@@ -90,7 +90,7 @@ nav:
       - "Примеры":
           - "Аналитические кейсы": exmpl.md
           - "Использование MultiSiq": Multisignature.md
-          - "PrintNightmare Vulnerability": PrintNightmare.md
+          - "PrintNightmare": PrintNightmare.md
           - "Risk Analysis": RA.md
       - "Лицензии ПО": licenses.md
       - "Классификация инструментов": appsec_tt.md
@@ -115,5 +115,6 @@ nav:
   - "AppSec Toolchain Map": "https://geminishkv.github.io/oss_toolchainmap/research-notes/"
   - "FinDevSecOps": "https://findevsecops.ru/"
   - "АО ЛАНИТ": "https://www.lanit.ru"
+  - "Блог": channel.md
   - "О проекте": about.md
   - "Политика безопасности": Security.md
