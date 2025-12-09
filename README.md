@@ -137,6 +137,8 @@ $ act push -b -v
 $ act push -j build -b
 $ act pull_request -j linter_checks_ruff_shell # конкретный job
 $ act pull_request -j docs-preview -b # docs-preview и все зависимые job
+
+$ ACT_SKIP_CHOWN=true act push -j linter_checks_ruff_shell -b
 ```
 
 ***
