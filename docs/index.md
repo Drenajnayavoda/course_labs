@@ -46,31 +46,124 @@
 
 ## Лабораторные работы
 
-- lab01 – [Лабораторная работа посвящена изучению **GitSCM** и подготовительным материалам для последующих работ](labs/lab01.md)  
-    - Материалы для работы [тут](../labs/lab01/)
-- lab02 – [Лабораторная работа посвящена изучению работы *nix, контролей прав доступа и управлению процессами](labs/lab02.md)  
-    - Материалы для работы [тут](../labs/lab02/)
-- lab03 – [Лабораторная работа посвящена изучению **nmap** и анализа выявленных уязвимостей](labs/lab03.md)  
-    - Материалы для работы [тут](../labs/lab03/)
-- lab04 – [Лабораторная работа посвящена практическому **анализу и определению мер** снижения рисков ИБ](labs/lab04.md)
-- lab05 – [Лабораторная работа посвящена изучению **Docker** и работе с контейнерами](labs/lab05.md)  
-    Материалы для работы [тут](../labs/lab05/)
-- lab06 – [Лабораторная работа посвящена изучению **Docker CIS Benchmark** и аудиту Docker‑хоста](labs/lab06.md)  
-    - Материалы для работы [тут](../labs/lab06/)
-- lab07 – [Лабораторная работа посвящена изучению **SAST и SCA** на примере Semgrep, Checkov, Dependency‑Check](labs/lab07.md)  
-    - Материалы для работы [тут](../labs/lab07/)
-- lab08 – [Лабораторная работа посвящена изучению **DAST (OWASP ZAP)** и ручному тестированию уязвимого приложения](labs/lab08.md)  
-    - Материалы для работы [тут](../labs/lab08/)
-- lab09 – *будет опубликована позже*
-- lab10 – [Лабораторная работа посвящена оценке анализа рисков ИБ и отработке практических знаний](labs/lab10.md)
+<table>
+  <thead>
+    <tr>
+      <th style="width:5%;">№</th>
+      <th style="width:70%;">Описание</th>
+      <th style="width:25%;">Материалы</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>lab01</strong></td>
+      <td>
+        <a href="labs/lab01">
+          Лабораторная работа посвящена изучению <strong>GitSCM</strong> и подготовительным материалам для последующих работ
+        </a>
+      </td>
+      <td>
+        <a href="https://github.com/geminishkv/course_labs/tree/develop/labs/lab01">Материалы в репозитории</a>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>lab02</strong></td>
+      <td>
+        <a href="labs/lab02">
+          Лабораторная работа посвящена изучению работы <em>*nix</em>, контролей прав доступа и управлению процессами
+        </a>
+      </td>
+      <td>
+        <a href="https://github.com/geminishkv/course_labs/tree/develop/labs/lab02">Материалы в репозитории</a>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>lab03</strong></td>
+      <td>
+        <a href="labs/lab03">
+          Лабораторная работа посвящена изучению <strong>nmap</strong> и анализа выявленных уязвимостей
+        </a>
+      </td>
+      <td>
+        <a href="https://github.com/geminishkv/course_labs/tree/develop/labs/lab03">Материалы в репозитории</a>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>lab04</strong></td>
+      <td>
+        <a href="labs/lab04">
+          Лабораторная работа посвящена практическому <strong>анализу и определению мер</strong> снижения рисков ИБ
+        </a>
+      </td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><strong>lab05</strong></td>
+      <td>
+        <a href="labs/lab05">
+          Лабораторная работа посвящена изучению <strong>Docker</strong> и работе с контейнерами
+        </a>
+      </td>
+      <td>
+        <a href="https://github.com/geminishkv/course_labs/tree/develop/labs/lab05">Материалы в репозитории</a>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>lab06</strong></td>
+      <td>
+        <a href="labs/lab06">
+          Лабораторная работа посвящена изучению <strong>Docker CIS Benchmark</strong> и аудиту Docker‑хоста
+        </a>
+      </td>
+      <td>
+        <a href="https://github.com/geminishkv/course_labs/tree/develop/labs/lab06">Материалы в репозитории</a>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>lab07</strong></td>
+      <td>
+        <a href="labs/lab07">
+          Лабораторная работа посвящена изучению <strong>SAST и SCA</strong> на примере Semgrep, Checkov, Dependency‑Check
+        </a>
+      </td>
+      <td>
+        <a href="https://github.com/geminishkv/course_labs/tree/develop/labs/lab01">Материалы в репозитории</a>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>lab08</strong></td>
+      <td>
+        <a href="labs/lab08">
+          Лабораторная работа посвящена изучению <strong>DAST (OWASP ZAP)</strong> и ручному тестированию уязвимого приложения
+        </a>
+      </td>
+      <td>
+        <a href="https://github.com/geminishkv/course_labs/tree/develop/labs/lab08">Материалы в репозитории</a>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>lab09</strong></td>
+      <td><em>будет опубликована позже</em></td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><strong>lab10</strong></td>
+      <td>
+        <a href="labs/lab10">
+          Лабораторная работа посвящена оценке анализа рисков ИБ и отработке практических знаний
+        </a>
+      </td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
 
 ***
 
 ## Формализованные требования 
 
 <div style="display:flex; flex-wrap:wrap; gap:0.5rem 1.5rem; align-items:flex-start;">
-  <span>✔️ Единый стиль кода</span>
-  <span>✔️ Все функции по работе с деревом должны находиться в пространстве имен</span>
+  <span>✔️ Все функции по работе с деревом должны находиться в пространстве имен и единый стиль кода</span>
   <span>✔️ Оформление <code>README.md</code> в соответствии с содержанием проекта</span>
   <span>✔️ Оформление <code>.gitignore</code> в соответствии с содержанием проекта</span>
   <span>✔️ Оформление <code>.dockerignore</code> в соответствии с содержанием проекта</span>
