@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# shellcheck disable=all
+
 set -euo pipefail
 
 TARGET_URL="${TARGET_URL:-http://host.docker.internal:8080}"
