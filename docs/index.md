@@ -18,7 +18,7 @@
 
 ## Intro
 
-<br>Салют :wave:,</br>
+Салют :wave:,<br>
 Отмечу основные моменты:
 
 - Цель - сформировать навыки работы с `git`, `CI`, `CD`, `docker`, `packages`, `appsec toolchain`, `yml`, etc. 
