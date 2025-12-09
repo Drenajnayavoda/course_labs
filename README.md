@@ -161,10 +161,9 @@ $ act -j имя_job #  или общий act push
 │   │   │   ├── CHEATSHEET_GIT.md
 │   │   │   └── CHEATSHEET_GITIGNORE.md
 │   │   ├── exmpls
-│   │   │   ├── exmpl.pdf
-│   │   │   ├── Multisignature.pdf
-│   │   │   ├── PrintNightmare.pdf
-│   │   │   └── RA.pdf
+│   │   │   ├── risk-analysis.png
+│   │   │   ├── table1.png
+│   │   │   └── transaction.png
 │   │   ├── owasp
 │   │   │   ├── Authentication.pdf
 │   │   │   ├── Authorization.pdf
@@ -177,15 +176,15 @@ $ act -j имя_job #  или общий act push
 │   │       └── Лекция_Управление Рисками ИБ_intro.pdf
 │   ├── Authentication.md
 │   ├── Authorization.md
+│   ├── channel.md
 │   ├── Client-side Attacks.md
 │   ├── Command Execution.md
-│   ├── Contributor Covenant.md
-│   ├── course.md
 │   ├── exmpl.md
 │   ├── index.md
 │   ├── Information Disclosure.md
 │   ├── javascripts
-│   │   └── custom-title.js
+│   │   ├── custom-title.js
+│   │   └── typewriter-target.js
 │   ├── labs
 │   │   ├── lab01.md
 │   │   ├── lab02.md
@@ -204,16 +203,24 @@ $ act -j имя_job #  или общий act push
 │   ├── OWASP_Top_10_CICD_Risks.md
 │   ├── PrintNightmare.md
 │   ├── RA.md
+│   ├── RELEASE_NOTES.md
+│   ├── robots.txt
 │   ├── Security.md
-│   └── stylesheets
-│       ├── burger.css
-│       ├── footer.css
-│       ├── header.css
-│       ├── mobile-logo.css
-│       ├── search.css
-│       ├── sidebar.css
-│       ├── tools-overlay.css
-│       └── typeset.css
+│   ├── stylesheets
+│   │   ├── burger.css
+│   │   ├── footer.css
+│   │   ├── header.css
+│   │   ├── layout.css
+│   │   ├── mobile-logo.css
+│   │   ├── search.css
+│   │   ├── sidebar.css
+│   │   ├── tools-overlay.css
+│   │   └── typeset.css
+│   └── tmp
+│       └── overrides
+│           └── material
+│               └── partials
+│                   └── toc.html
 ├── labs
 │   ├── lab01
 │   │   ├── README.md
@@ -268,6 +275,7 @@ $ act -j имя_job #  или общий act push
 │   ├── lab08
 │   │   ├── dast
 │   │   │   ├── convert_reports.py
+│   │   │   ├── reports
 │   │   │   ├── zap_scan.sh
 │   │   │   └── zap-baseline.conf
 │   │   ├── docker-compose.yml
@@ -279,6 +287,8 @@ $ act -j имя_job #  или общий act push
 │   │       ├── files
 │   │       │   └── secret.txt
 │   │       └── requirements.txt
+│   ├── lab09
+│   │   └── README.md
 │   ├── lab10
 │   │   └── README.md
 │   └── pet_project
