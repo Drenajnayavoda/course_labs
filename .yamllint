@@ -10,3 +10,7 @@ rules:
 
   new-line-at-end-of-file:
     level: warning
+
+  ignore: |
+  **/audit_reports/**
+  **/sca/dependency-check-report/**
