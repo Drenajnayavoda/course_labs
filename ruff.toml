@@ -1,0 +1,3 @@
+[tool.ruff.lint.per-file-ignores]
+"labs/lab08/dast/convert_reports.py" = ["F401"]
+"labs/lab08/vulnerable-app/app.py" = ["F401"]
