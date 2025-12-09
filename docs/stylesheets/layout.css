@@ -36,3 +36,33 @@ details.spoiler summary {
   cursor: pointer;
   font-weight: 600;
 }
+
+.tg-widget {
+  margin-top: 1rem;
+}
+
+.tg-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.tg-layout-main {
+  flex: 1 1 auto;
+}
+
+.tg-layout-side {
+  flex: 0 0 340px;
+}
+@media (max-width: 960px) {
+  .tg-layout {
+    flex-direction: column;
+  }
+  .tg-layout-side {
+    flex: 0 0 auto;
+  }
+}
+
+.my-list li {
+  margin-left: 5rem;
+}

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 <div style="text-align:center;"><img src="../artifacts/exmpls/risk-analysis.png" alt="table1"></div>
 
 ## Vulnerability Description NC (HIGH): 

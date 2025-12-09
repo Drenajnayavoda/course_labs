@@ -1,9 +1,14 @@
+---
+hide:
+  - toc
+---
+
 <table>
   <thead>
     <tr>
       <th style="width:15%;">Раздел</th>
-      <th style="width:25%;">Описание</th>
-      <th style="width:60%;">Основные элементы</th>
+      <th style="width:35%;">Описание</th>
+      <th style="width:50%;">Основные элементы</th>
     </tr>
   </thead>
   <tbody>
