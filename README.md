@@ -106,7 +106,7 @@ $ pip show mkdocs # debug
 * Очистка локального репозитория
 
 ```bash
-$ rm -rf __pycache__ scripts/__pycache__ docs/assets/search/tools.json
+$ rm -rf __pycache__ scripts/__pycache__  # etc.
 $ lsof -i :8000
 $ kill <PID>
 ```
