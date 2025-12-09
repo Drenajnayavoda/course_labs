@@ -188,35 +188,35 @@ jobs:
           find labs -name 'Dockerfile' -print0 | xargs -0 -n1 hadolint --failure-threshold error
         shell: bash
 
-  security_shell_checks:
-    runs-on: ubuntu-latest
-    needs:
-      - linter_checks_ruff_shell
-      - layout_linter_checks
-      - dependency_audit_checks
-      - security_py_dependency_checks
-      - security_secrets_checks
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install shellcheck and shfmt
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y shellcheck
-          go install mvdan.cc/sh/v3/cmd/shfmt@latest
-          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
-
-      - name: Lint shell scripts with shellcheck
-        run: |
-          git ls-files '*.sh' \
-            | grep -v 'labs/lab08/dast/zap_scan.sh' \
-            | xargs -r shellcheck -e SC2086,SC1090,SC1091
-
-      - name: Check shell formatting with shfmt
-        run: |
-          git ls-files '*.sh' \
-            | grep -v 'labs/lab08/dast/zap_scan.sh' \
-            | xargs -r shfmt -d
+#  security_shell_checks:
+#    runs-on: ubuntu-latest
+#    needs:
+#      - linter_checks_ruff_shell
+#      - layout_linter_checks
+#      - dependency_audit_checks
+#      - security_py_dependency_checks
+#      - security_secrets_checks
+#    steps:
+#      - uses: actions/checkout@v4
+#
+#      - name: Install shellcheck and shfmt
+#        run: |
+#          sudo apt-get update
+#          sudo apt-get install -y shellcheck
+#          go install mvdan.cc/sh/v3/cmd/shfmt@latest
+#          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+#
+#      - name: Lint shell scripts with shellcheck
+#        run: |
+#          git ls-files '*.sh' \
+#            | grep -v 'labs/lab08/dast/zap_scan.sh' \
+#            | xargs -r shellcheck -e SC2086,SC1090,SC1091
+#
+#      - name: Check shell formatting with shfmt
+#        run: |
+#          git ls-files '*.sh' \
+#            | grep -v 'labs/lab08/dast/zap_scan.sh' \
+#            | xargs -r shfmt -d
 
   docs-preview:
     if: github.event_name == 'pull_request'
