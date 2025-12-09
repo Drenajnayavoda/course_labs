@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 set -euo pipefail
 
 echo "Starting Docker CIS & Image Security Audit"
