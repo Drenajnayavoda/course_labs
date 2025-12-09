@@ -127,7 +127,7 @@ def login():
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
 
-    query = f"SELECT id, username, role FROM users WHERE username = '{username}' AND password = '{password}'" # nosec B608
+    query = f"SELECT id, username, role FROM users WHERE username = '{username}' AND password = '{password}'"  # nosec B608
     row = cur.execute(query).fetchone()
     conn.close()
 

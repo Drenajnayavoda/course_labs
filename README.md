@@ -160,7 +160,6 @@ $ ayamllint .github/workflows mkdocs.yml
 $ anpx markdownlint-cli2 "docs/**/*.md" "labs/**/*.md" "README.md"
 ```
 
-
 ***
 
 ### Структура репозитория
