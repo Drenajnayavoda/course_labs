@@ -119,7 +119,7 @@ $ deactivate # или $ deactivate 2>/dev/null || true
 $ rm -rf venv
 $ docker-compose -f demo-vulnerable-app.yml down
 $ docker system prune -f
- ```
+```
  
 ***
 

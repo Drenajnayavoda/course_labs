@@ -189,7 +189,7 @@ $ xsltproc ~/project/reports/nmapres_new.xml -o ~/project/reports/nmapres_new.ht
 - [ ] 4.Найдите IP сетевой карты `Ethernet`, которая соответствует вашей виртуальной машине используя `ifconfig` и выполните команду
 
 ```bash
-nmap -sP inet_addr
+$ nmap -sP inet_addr
 ```
 
 - [ ] 5. Определите ОС, данные ssh, telnet  с помощью `nmap` и выведитео них информацию.
