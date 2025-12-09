@@ -74,7 +74,7 @@ def search():
     username = request.args.get("username", "")
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
-    query = f"SELECT id, username, role FROM users WHERE username = '{username}'"
+    query = f"SELECT id, username, role FROM users WHERE username = '{username}'" # nosec B608
     rows = []
     error = None
     try:
@@ -214,4 +214,4 @@ def files(subpath=""):
 
 if __name__ == "__main__":
     init_db()
-    app.run(host="0.0.0.0", port=8080, debug=True)  # nosec B201,B104
+    app.run(host="0.0.0.0", port=8080, debug=True) # nosec B201,B104

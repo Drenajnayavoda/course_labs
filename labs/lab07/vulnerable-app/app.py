@@ -31,7 +31,7 @@ def get_user():
     username = request.args.get("name", "")
     conn = get_db()
     cur = conn.cursor()
-    query = f"SELECT id, name, email FROM users WHERE name = '{username}'"
+    query = f"SELECT id, name, email FROM users WHERE name = '{username}'" # nosec B608
     app.logger.debug("Executing query: %s", query)
     rows = cur.execute(query).fetchall()
     conn.close()
@@ -48,14 +48,14 @@ def search():
 @app.route("/ping")
 def ping():
     host = request.args.get("host", "127.0.0.1")
-    cmd = f"ping -c 1 {host}"
+    cmd = f"ping -c 1 {host}" # nosec B605
     os.system(cmd)
     return f"Pinged {host}"
 
 
 @app.route("/backup")
 def backup():
-    target = request.args.get("target", "/tmp/backup.sql")
+    target = request.args.get("target", "/tmp/backup.sql") # nosec B108
     cmd = ["sh", "-c", f"pg_dump mydb > {target}"]
     subprocess.call(cmd)
     return f"Backup to {target} started"
@@ -76,7 +76,7 @@ def read_file():
 def load():
     data = request.args.get("data", "")
     try:
-        obj = pickle.loads(bytes.fromhex(data))
+        obj = pickle.loads(bytes.fromhex(data)) # nosec B301
         return f"Loaded object: {obj}"
     except Exception as e:
         return f"Error: {e}", 500
@@ -85,7 +85,7 @@ def load():
 @app.route("/calc")
 def calc():
     expr = request.args.get("expr", "1+1")
-    result = eval(expr)
+    result = eval(expr) # nosec B307
     return str(result)
 
 
@@ -100,4 +100,4 @@ def debug():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    app.run(host="0.0.0.0", port=8080) # nosec B104
