@@ -45,3 +45,5 @@ docker exec -it <container_name_or_id> <command> # выполнение кома
             -t  # выделяет псевдотерминал (tty) для взаимодействия.
             <container_name_or_id>  # имя или ID контейнера.
 ```
+
+![Logo](../assets/logotypemd.jpg)

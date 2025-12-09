@@ -33,3 +33,5 @@ $ gh pr merge --squash
 $ gh issue list # Список открытых issue
 $ gh repo view --web # Открыть репозитория в web
 ```
+
+![Logo](../assets/logotypemd.jpg)

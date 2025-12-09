@@ -27,3 +27,5 @@ Dockerfile
 frontend/node_modules/
 frontend/dist/
 ```
+
+![Logo](../assets/logotypemd.jpg)

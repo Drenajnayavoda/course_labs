@@ -105,3 +105,5 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 .env.production.local
 .env.local
 ```
+
+![Logo](../assets/logotypemd.jpg)

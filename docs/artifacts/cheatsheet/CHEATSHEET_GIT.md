@@ -73,3 +73,5 @@ $ git fetch origin # Жесткая перезапись репозитория
 $ git branch -u origin/gpages gpages
 $ git branch -m master gpages
 ```
+
+![Logo](../assets/logotypemd.jpg)
