@@ -1,10 +1,18 @@
-from flask import Flask, request, make_response, render_template_string, redirect, url_for
+from flask import (
+    Flask,
+    request,
+    make_response,
+    render_template_string,
+    redirect,
+    url_for,
+)
 import sqlite3
 import os
 
 app = Flask(__name__)
 
 DB_PATH = os.environ.get("APP_DB_PATH", "app.db")
+
 
 def init_db():
     conn = sqlite3.connect(DB_PATH)
@@ -29,6 +37,7 @@ def init_db():
     conn.commit()
     conn.close()
 
+
 @app.route("/")
 def index():
     html = """
@@ -47,6 +56,7 @@ def index():
     resp.set_cookie("session", "guest-session-id")
     return resp
 
+
 @app.route("/echo")
 def echo():
     msg = request.args.get("msg", "")
@@ -55,10 +65,9 @@ def echo():
     <p>Сообщение: {msg}</p>
     <p>Попробуйте передать что-нибудь вроде: <code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code></p>
     <a href="/">Назад</a>
-    """.format(
-        msg=msg
-    )
+    """.format(msg=msg)
     return render_template_string(template)
+
 
 @app.route("/search")
 def search():
@@ -95,6 +104,7 @@ def search():
     <a href="/">Назад</a>
     """
     return render_template_string(template, query=query, rows=rows, error=error)
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -135,6 +145,7 @@ def login():
             "<h2>Неверные учетные данные</h2><a href='/login'>Попробовать снова</a>"
         )
 
+
 @app.route("/profile")
 def profile():
     username = request.cookies.get("user", "guest")
@@ -148,6 +159,7 @@ def profile():
     <a href="/">Назад</a>
     """
     return render_template_string(template, username=username, role=role)
+
 
 @app.route("/admin")
 def admin():
@@ -168,6 +180,7 @@ def admin():
     <a href="/">Назад</a>
     """
     return render_template_string(template)
+
 
 @app.route("/files/")
 @app.route("/files/<path:subpath>")
@@ -197,6 +210,7 @@ def files(subpath=""):
     with open(full_path, "r", encoding="utf-8", errors="ignore") as f:
         content = f.read()
     return f"<pre>{content}</pre>"
+
 
 if __name__ == "__main__":
     init_db()

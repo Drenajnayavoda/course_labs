@@ -36,10 +36,10 @@ markdown_extensions:
   - attr_list
   - admonition
   - toc:
-      permalink: true
+      permalink: false
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra_css:
   - stylesheets/header.css
@@ -50,6 +50,7 @@ extra_css:
   - stylesheets/tools-overlay.css
   - stylesheets/burger.css
   - stylesheets/mobile-logo.css
+  - stylesheets/layout.css
 
 extra_javascript:
   - javascripts/custom-title.js
@@ -75,10 +76,10 @@ nav:
     - "Лабораторная работа №5": labs/lab05.md
     - "Лабораторная работа №6": labs/lab06.md
     - "Лабораторная работа №7": labs/lab07.md
-    - "Лабораторная работа №7": labs/lab08.md
-    - "Лабораторная работа №7": labs/lab09.md
-    - "Лабораторная работа №7": labs/lab10.md
-    - "Лабораторная работа №7": labs/pet_project.md
+    - "Лабораторная работа №8": labs/lab08.md
+    - "Лабораторная работа №9": labs/lab09.md
+    - "Лабораторная работа №10": labs/lab10.md
+    - "pet_project": labs/pet_project.md
   - "Приложение": APPENDIX.md
   - "Материалы":
       - "Лекции": course.md

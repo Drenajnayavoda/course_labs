@@ -9,6 +9,7 @@ try:
     from odf.opendocument import OpenDocumentText
     from odf.text import P, H
     from odf.style import Style, TextProperties
+
     HAS_ODF = True
     print("[debug] odf imported OK")
 except ImportError as e:
@@ -19,10 +20,12 @@ except ImportError as e:
 try:
     from openpyxl import Workbook
     from openpyxl.styles import Font, PatternFill, Alignment
+
     HAS_OPENPYXL = True
 except ImportError:
     HAS_OPENPYXL = False
     print("[!] WARNING: openpyxl не установлен. XLSX не будет генерироваться.")
+
 
 def parse_zap_json(json_path: str) -> dict:
     with open(json_path, "r") as f:
@@ -35,6 +38,7 @@ def parse_zap_json(json_path: str) -> dict:
         "total_alerts": len(alerts),
         "alerts": alerts,
     }
+
 
 def generate_odt(zap_dict, output_path: str) -> None:
     if not HAS_ODF:
@@ -71,6 +75,7 @@ def generate_odt(zap_dict, output_path: str) -> None:
 
     doc.save(output_path)
     print(f"[+] ODT report saved: {output_path}")
+
 
 def generate_xlsx(zap_dict, output_path: str) -> None:
     if not HAS_OPENPYXL:
@@ -120,6 +125,7 @@ def generate_xlsx(zap_dict, output_path: str) -> None:
     wb.save(output_path)
     print(f"[+] XLSX report saved: {output_path}")
 
+
 def main() -> None:
     if len(sys.argv) < 2:
         print("Usage: python3 convert_reports.py <timestamp>")
@@ -148,6 +154,7 @@ def main() -> None:
     generate_xlsx(zap_dict, xlsx_path)
 
     print("[+] Report conversion completed!")
+
 
 if __name__ == "__main__":
     main()

@@ -93,20 +93,14 @@
 ```bash
 $ python3 -m venv .venv
 $ source .venv/bin/activate
-
 $ pip install -r requirements.txt
-$ pip install mkdocs mkdocs-material mkdocs-macros-plugin # must-have
-$ pip install pyyaml
-$ pip install mkdocs-macros-plugin
-
 $ ruff format .
-
-$ pip show mkdocs-macros-plugin
-$ pip show mkdocs
-
+$ pip install mkdocs-include-markdown-plugin
 $ python -m mkdocs serve
 # or
 $ mkdocs serve -a 127.0.0.1:8001 # прямое обозначение адреса
+
+$ pip show mkdocs # debug
 ```
 
 * Очистка локального репозитория
@@ -131,6 +125,13 @@ $ git tag -a v1.1.0 -m "v1.1.0" # текущий релиз
 $ git push origin v1.1.0
 $ git tag -d v0.1.0 # удалить локальный тег
 $ git push origin :refs/tags/v0.1.0 # удалить тот же тег на GitHub
+```
+
+* Локальное тестирование
+
+```bash
+$ act -l
+$ act -j имя_job #  или общий act push
 ```
 
 ***

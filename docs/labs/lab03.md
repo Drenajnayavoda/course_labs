@@ -1,1 +1,7 @@
---8<-- "../../labs/lab03/README.md"
+# lab03
+
+{% include-markdown  "../../labs/lab03/README.md" %}
+
+***
+
+![Logo](../artifacts/assets/logotypemd.jpg)

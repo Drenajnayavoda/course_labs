@@ -15,13 +15,16 @@ DB_PATH = "app.db"
 
 logging.basicConfig(level=logging.DEBUG)
 
+
 def get_db():
     conn = sqlite3.connect(DB_PATH)
     return conn
 
+
 @app.route("/")
 def index():
     return "Vulnerable lab07 app v1.0"
+
 
 @app.route("/user")
 def get_user():
@@ -34,11 +37,13 @@ def get_user():
     conn.close()
     return {"result": rows}
 
+
 @app.route("/search")
 def search():
     q = request.args.get("q", "")
     html = f"<h1>Results for: {q}</h1>"
     return make_response(html, 200)
+
 
 @app.route("/ping")
 def ping():
@@ -47,12 +52,14 @@ def ping():
     os.system(cmd)
     return f"Pinged {host}"
 
+
 @app.route("/backup")
 def backup():
     target = request.args.get("target", "/tmp/backup.sql")
     cmd = ["sh", "-c", f"pg_dump mydb > {target}"]
     subprocess.call(cmd)
     return f"Backup to {target} started"
+
 
 @app.route("/read")
 def read_file():
@@ -64,6 +71,7 @@ def read_file():
     except Exception as e:
         return str(e), 500
 
+
 @app.route("/load")
 def load():
     data = request.args.get("data", "")
@@ -73,11 +81,13 @@ def load():
     except Exception as e:
         return f"Error: {e}", 500
 
+
 @app.route("/calc")
 def calc():
     expr = request.args.get("expr", "1+1")
     result = eval(expr)
     return str(result)
+
 
 @app.route("/debug")
 def debug():
@@ -87,6 +97,7 @@ def debug():
         "headers": headers,
         "env_sample": {k: env[k] for k in list(env)[:10]},
     }
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
