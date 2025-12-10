@@ -88,7 +88,6 @@ nav:
       - "Лабораторная работа №10": labs/lab10.md
       - "pet_project": labs/pet_project.md
   - "Материалы":
-      - "Лекции": course.md
       - "Примеры":
           - "Аналитические кейсы": exmpl.md
           - "Использование MultiSiq": Multisignature.md

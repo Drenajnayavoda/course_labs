@@ -158,6 +158,8 @@ $ a$ agit ls-files '*.sh' \
 
 $ ayamllint .github/workflows mkdocs.yml
 $ anpx markdownlint-cli2 "docs/**/*.md" "labs/**/*.md" "README.md"
+
+$ mkdocs build --strict --clean --config-file mkdocs.yml --site-dir /tmp/mkdocs-check
 ```
 
 ***

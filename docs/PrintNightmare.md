@@ -46,4 +46,4 @@
 
 Используется для повышения уровня проверки подлинности RPC, используемого для сетевой печати.
 
-![Logo](../artifacts/assets/logotypemd.jpg)
+![Логотип](artifacts/assets/logotypemd.jpg)

@@ -66,4 +66,4 @@ hide:
   </tbody>
 </table>
 
-![Logo](../artifacts/assets/logotypemd.jpg)
+![Логотип](artifacts/assets/logotypemd.jpg)

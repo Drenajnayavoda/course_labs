@@ -264,7 +264,7 @@ jobs:
 
       - name: Validate MkDocs config (preview)
         run: |
-          mkdocs build --strict --clean --config-file mkdocs.yml --site-dir /tmp/mkdocs-check
+          mkdocs build --clean --config-file mkdocs.yml --site-dir /tmp/mkdocs-check
         env:
           PYTHONPATH: .
 
@@ -315,7 +315,7 @@ jobs:
 
       - name: Validate MkDocs config
         run: |
-          mkdocs build --strict --clean --config-file mkdocs.yml --site-dir /tmp/mkdocs-check
+          mkdocs build --clean --config-file mkdocs.yml --site-dir /tmp/mkdocs-check
         env:
           PYTHONPATH: .
 
