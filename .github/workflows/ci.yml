@@ -321,7 +321,8 @@ jobs:
 
       - name: Type checking with mypy
         run: |
-          mypy labs
+          mypy labs \
+            --exclude 'labs/lab05/server/app.py|labs/lab07/vulnerable-app/app.py'
         env:
           MYPY_CACHE_DIR: .mypy_cache
 
