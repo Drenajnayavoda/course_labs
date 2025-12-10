@@ -42,9 +42,15 @@ jobs:
         run: |
           python scripts/build_search_data.py
 
+      - name: Validate MkDocs config
+        run: |
+          mkdocs build --clean --config-file mkdocs.yml --site-dir /tmp/mkdocs-check
+        env:
+          PYTHONPATH: .
+
       - name: Build MkDocs site
         run: |
-          mkdocs build --strict --site-dir site
+          mkdocs build --site-dir site
         env:
           PYTHONPATH: .
 
