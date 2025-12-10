@@ -245,10 +245,7 @@ $ mkdocs build --strict --clean --config-file mkdocs.yml --site-dir /tmp/mkdocs-
 │   │   ├── tools-overlay.css
 │   │   └── typeset.css
 │   └── tmp
-│       └── overrides
-│           └── material
-│               └── partials
-│                   └── toc.html
+├── eslint.config.js
 ├── labs
 │   ├── lab01
 │   │   ├── README.md
@@ -279,6 +276,7 @@ $ mkdocs build --strict --clean --config-file mkdocs.yml --site-dir /tmp/mkdocs-
 │   │       ├── image.tar
 │   │       └── requirements.txt
 │   ├── lab06
+│   │   ├── audit_reports
 │   │   ├── audit.sh
 │   │   ├── config
 │   │   │   └── nginx.conf
@@ -325,10 +323,16 @@ $ mkdocs build --strict --clean --config-file mkdocs.yml --site-dir /tmp/mkdocs-
 ├── mkdocs.yml
 ├── mypy.ini
 ├── NOTICE.md
+├── overrides
+│   └── material
+│       └── partials
+│           └── toc.html
 ├── README.md
 ├── RELEASE_NOTES.md
 ├── requirements.txt
-└── SECURITY.md
+├── ruff.toml
+├── SECURITY.md
+└── stylelint.config.cjs
 ```
 
 ***
