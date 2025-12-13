@@ -5,22 +5,24 @@ hide:
 
 <div align="center">
 
-<a href="https://img.shields.io/badge/Risk_Analyze-2448a2"></a>
 <img src="https://img.shields.io/badge/Course-Risk_Analysis-2448a2" alt="RA">
 <img src="https://img.shields.io/badge/AppSec-2448a2" alt="AppSec">
-<a href="https://img.shields.io/github/license/geminishkv/course_labs"></a>
-<img src="https://img.shields.io/github/license/geminishkv/course_labs" alt="License">
-<img src="https://img.shields.io/badge/code%20style-ruff-5f97ff" alt="Code style: ruff">
+<img src="https://img.shields.io/badge/Language-%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-2448a2?style=flat" alt="Language: Russian">
+<img src="https://img.shields.io/badge/Difficulty-Intermediate-2448a2?style=flat" alt="Course Difficulty">
 <img src="https://img.shields.io/badge/status-active-success" alt="Status">
-<img src="https://img.shields.io/github/repo-size/geminishkv/course_labs" alt="Repo Size">
-<img src="https://img.shields.io/github/last-commit/geminishkv/course_labs" alt="Last commit">
-<img src="https://img.shields.io/github/actions/workflow/status/geminishkv/course_labs/ci.yml?branch=develop" alt="CI">
-<img src="https://img.shields.io/github/v/release/geminishkv/course_labs" alt="Release">
-
-</div>
+<a href="https://www.apache.org/licenses/LICENSE-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License: Apache 2.0"></a>
+<img src="https://img.shields.io/badge/git-%23F05033.svg?style=flat-square&logo=git&logoColor=white" alt="Git">
+<a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3670A0.svg?logo=python&logoColor=ffdd54" alt="Python"></a>
+<a href="https://www.docker.com/"><img src="https://img.shields.io/badge/Docker-2496ED.svg?logo=docker&logoColor=white" alt="Docker"></a>
+<a href="https://www.mkdocs.org/"><img src="https://img.shields.io/badge/MkDocs-326ce5.svg?logo=MaterialForMkDocs&logoColor=white" alt="MkDocs"></a>
+<a href="https://www.gnu.org/software/bash/"><img src="https://img.shields.io/badge/shell-Bash-4EAA25.svg?logo=gnubash&logoColor=white" alt="Shell (Bash)"></a>
+<a href="https://www.markdownguide.org/"><img src="https://img.shields.io/badge/Markdown-000000.svg?logo=markdown&logoColor=white" alt="Markdown"></a>
+<a href="https://github.com/astral-sh/ruff"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Ruff"></a>
+<a href="https://github.com/geminishkv/course_labs/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/geminishkv/course_labs/ci.yml?branch=develop&label=GitHub%20Actions&logo=githubactions&logoColor=white" alt="CI" /></a>
+<a href="https://github.com/geminishkv/course_labs/releases"><img src="https://img.shields.io/github/v/release/geminishkv/course_labs?label=Release" alt="Latest release" /></a>
+<a href="https://github.com/geminishkv/course_labs"><img src="https://img.shields.io/github/repo-size/geminishkv/course_labs?label=Repo%20size" alt="Repo size" /></a></div>
 
 <div class="tg-layout">
-
 <div class="tg-layout-main">
 
 <h2>Intro</h2>
