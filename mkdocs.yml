@@ -8,14 +8,15 @@ theme:
   logo: artifacts/assets/logo.png
   icon:
     menu: fontawesome/solid/bars-staggered
-    search: fontawesome/brands/searchengin
     top: fontawesome/solid/angles-up
+    down: fontawesome/solid/angles-down
     previous: fontawesome/solid/angles-left
     next: fontawesome/solid/angles-right
+    close: fontawesome/solid/xmark
   favicon: artifacts/assets/favicon.ico
   font:
     text: Montserrat
-    code: Roboto Mono
+    code: Segoe UI
   features:
     - navigation.indexes
     - search.highlight
@@ -27,6 +28,9 @@ theme:
     - content.code.copy
     - analytics
     - content.tables
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
 
 plugins:
   - search
@@ -42,6 +46,14 @@ markdown_extensions:
   - md_in_html
   - attr_list
   - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+      use_pygments: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
   - toc:
       permalink: false
   - pymdownx.emoji:
@@ -63,6 +75,7 @@ extra_css:
   - stylesheets/burger.css
   - stylesheets/mobile-logo.css
   - stylesheets/layout.css
+  - stylesheets/clipboard.css
 
 extra_javascript:
   - javascripts/custom-title.js
@@ -76,7 +89,7 @@ extra:
       link: https://github.com/geminishkv/course_labs
     - icon: fontawesome/brands/telegram
       link: https://t.me/shmakovis_appsec
-    - icon: fontawesome/regular/envelope
+    - icon: fontawesome/regular/envelope-open
       link: mailto:shmakovis@inbox.ru
 
 nav:

@@ -3,10 +3,6 @@
   font-size: 0.6rem;
 }
 
-.md-sidebar--primary .md-sidebar__inner > .md-nav {
-  margin-top: 0.75rem;
-}
-
 .md-sidebar--primary .md-nav__link,
 .md-sidebar--primary .md-nav__link:visited {
   font-size: 0.7rem;
@@ -19,6 +15,11 @@
   font-weight: 700;
   color: #1953ff;
   margin: 0.15rem 0;
+}
+
+.md-sidebar--primary .md-nav--primary .md-nav__title {
+  background-color: #1953ff;
+  color: #ffffff;
 }
 
 .md-sidebar--primary .md-sidebar__inner .md-header-nav {

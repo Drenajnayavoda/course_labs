@@ -1,6 +1,6 @@
 .md-header__button.md-icon[for="__drawer"] {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.2rem;
+  height: 2.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,11 +17,18 @@
 }
 
 .md-header__button.md-icon[for="__drawer"]:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 .md-header__button.md-icon[for="__drawer"]:active {
   transform: translateY(0);
+}
+
+@media screen and (min-width: 3000px) {
+  .md-container {
+    max-width: 3000px;
+    margin: 0 auto;
+  }
 }
 
 @media screen and (min-width: 1220px) {
