@@ -6,6 +6,12 @@ theme:
   name: material
   language: ru
   logo: artifacts/assets/logo.png
+  icon:
+    menu: fontawesome/solid/bars-staggered
+    search: fontawesome/brands/searchengin
+    top: fontawesome/solid/angles-up
+    previous: fontawesome/solid/angles-left
+    next: fontawesome/solid/angles-right
   favicon: artifacts/assets/favicon.ico
   font:
     text: Montserrat

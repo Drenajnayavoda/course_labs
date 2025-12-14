@@ -9,7 +9,7 @@ hide:
 <img src="https://img.shields.io/badge/AppSec-2448a2" alt="AppSec">
 <img src="https://img.shields.io/badge/Language-%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-2448a2?style=flat" alt="Language: Russian">
 <img src="https://img.shields.io/badge/Difficulty-Intermediate-2448a2?style=flat" alt="Course Difficulty">
-<img src="https://img.shields.io/badge/status-active-success" alt="Status">
+<img src="https://img.shields.io/badge/Status-Active-success" alt="Status">
 <a href="https://www.apache.org/licenses/LICENSE-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License: Apache 2.0"></a>
 <img src="https://img.shields.io/badge/git-%23F05033.svg?style=flat-square&logo=git&logoColor=white" alt="Git">
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3670A0.svg?logo=python&logoColor=ffdd54" alt="Python"></a>
@@ -23,6 +23,7 @@ hide:
 <a href="https://github.com/geminishkv/course_labs"><img src="https://img.shields.io/github/repo-size/geminishkv/course_labs?label=Repo%20size" alt="Repo size" /></a></div>
 
 <div class="tg-layout">
+
 <div class="tg-layout-main">
 
 <h2>Intro</h2>
@@ -216,6 +217,7 @@ hide:
         data-dark="1"
         data-dark_color="#2AABEE"></script>
 </div>
+
 </div>
 
 <hr>
