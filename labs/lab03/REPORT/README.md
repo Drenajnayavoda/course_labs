@@ -525,26 +525,380 @@ Completed NSE at 20:21, 0.00s elapsed
 Read data files from: /usr/bin/../share/nmap
 Nmap done: 1 IP address (1 host up) scanned in 524.71 seconds
 
-$ nmap -sV --script vuln -oN nmapres_new.txt localhost
-$ cat > ./nmapres_new.txt # сделать подобный пример файлу exmp_targets.txt
-$ grep "VULNERABLE" nmapres_new.txt
+jvs@debian:~$ sudo nmap --script=vuln localhost -vv
+[sudo] пароль для jvs: 
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-12-15 13:49 MSK
+NSE: Loaded 105 scripts for scanning.
+NSE: Script Pre-scanning.
+NSE: Starting runlevel 1 (of 2) scan.
+Initiating NSE at 13:49
+NSE Timing: About 85.71% done; ETC: 13:50 (0:00:05 remaining)
+Completed NSE at 13:50, 34.31s elapsed
+NSE: Starting runlevel 2 (of 2) scan.
+Initiating NSE at 13:50
+Completed NSE at 13:50, 0.00s elapsed
+Pre-scan script results:
+| broadcast-avahi-dos: 
+|   Discovered hosts:
+|     224.0.0.251
+|   After NULL UDP avahi packet DoS (CVE-2011-1002).
+|_  Hosts are all up (not vulnerable).
+Warning: Hostname localhost resolves to 2 IPs. Using 127.0.0.1.
+Initiating SYN Stealth Scan at 13:50
+Scanning localhost (127.0.0.1) [1000 ports]
+Discovered open port 22/tcp on 127.0.0.1
+Discovered open port 631/tcp on 127.0.0.1
+Completed SYN Stealth Scan at 13:50, 1.23s elapsed (1000 total ports)
+NSE: Script scanning 127.0.0.1.
+NSE: Starting runlevel 1 (of 2) scan.
+Initiating NSE at 13:50
+Completed NSE at 13:50, 28.60s elapsed
+NSE: Starting runlevel 2 (of 2) scan.
+Initiating NSE at 13:50
+Completed NSE at 13:50, 0.00s elapsed
+Nmap scan report for localhost (127.0.0.1)
+Host is up, received localhost-response (0.0000050s latency).
+Other addresses for localhost (not scanned): ::1
+Scanned at 2025-12-15 13:50:06 MSK for 30s
+Not shown: 997 closed tcp ports (reset)
+PORT     STATE    SERVICE REASON
+22/tcp   open     ssh     syn-ack ttl 64
+631/tcp  open     ipp     syn-ack ttl 64
+| http-slowloris-check: 
+|   VULNERABLE:
+|   Slowloris DOS attack
+|     State: LIKELY VULNERABLE
+|     IDs:  CVE:CVE-2007-6750
+|       Slowloris tries to keep many connections to the target web server open and hold
+|       them open as long as possible.  It accomplishes this by opening connections to
+|       the target web server and sending a partial request. By doing so, it starves
+|       the http server's resources causing Denial Of Service.
+|       
+|     Disclosure date: 2009-09-17
+|     References:
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750
+|_      http://ha.ckers.org/slowloris/
+|_http-aspnet-debug: ERROR: Script execution failed (use -d to debug)
+|_http-jsonp-detection: Couldn't find any JSONP endpoints.
+|_http-wordpress-users: [Error] Wordpress installation was not found. We couldn't find wp-login.php
+| http-method-tamper: 
+|   VULNERABLE:
+|   Authentication bypass by HTTP verb tampering
+|     State: VULNERABLE (Exploitable)
+|       This web server contains password protected resources vulnerable to authentication bypass
+|       vulnerabilities via HTTP verb tampering. This is often found in web servers that only limit access to the
+|        common HTTP methods and in misconfigured .htaccess files.
+|              
+|     Extra information:
+|       
+|   URIs suspected to be vulnerable to HTTP verb tampering:
+|     /admin [GENERIC]
+|   
+|     References:
+|       http://capec.mitre.org/data/definitions/274.html
+|       http://www.imperva.com/resources/glossary/http_verb_tampering.html
+|       https://www.owasp.org/index.php/Testing_for_HTTP_Methods_and_XST_%28OWASP-CM-008%29
+|_      http://www.mkit.com.ar/labs/htexploit/
+| http-enum: 
+|   /admin.php: Possible admin folder (401 \xD0\x92 \xD0\xB4\xD0\xBE\xD1\x81\xD1\x82\xD1\x83\xD0\xBF\xD0\xB5 \xD0\xBE\xD1\x82\xD0\xBA\xD0\xB0\xD0\xB7\xD0\xB0\xD0\xBD\xD0\xBE)
+|   /admin/: Possible admin folder (401 \xD0\x92 \xD0\xB4\xD0\xBE\xD1\x81\xD1\x82\xD1\x83\xD0\xBF\xD0\xB5 \xD0\xBE\xD1\x82\xD0\xBA\xD0\xB0\xD0\xB7\xD0\xB0\xD0\xBD\xD0\xBE)
+|   /admin/admin/: Possible admin folder (401 \xD0\x92 \xD0\xB4\xD0\xBE\xD1\x81\xD1\x82\xD1\x83\xD0\xBF\xD0\xB5 \xD0\xBE\xD1\x82\xD0\xBA\xD0\xB0\xD0\xB7\xD0\xB0\xD0\xBD\xD0\xBE)
+|   /administrator/: Possible admin folder (401 \xD0\x92 \xD0\xB4\xD0\xBE\xD1\x81\xD1\x82\xD1\x83\xD0\xBF\xD0\xB5 \xD0\xBE\xD1\x82\xD0\xBA\xD0\xB0\xD0\xB7\xD0\xB0\xD0\xBD\xD0\xBE)
 
-$ mkdir -p ~/project/reports
-$ nmap -sV -p 8080 --script vuln -oN ~/project/reports/nmapres_new.txt -oX ~/project/reports/nmapres_new.xml localhost
-$ xsltproc ~/project/reports/nmapres_new.xml -o ~/project/reports/nmapres_new.html
+............
+
+............
+
+............
+
+|   /admin/environment.xml: Moodle files (401 \xD0\x92 \xD0\xB4\xD0\xBE\xD1\x81\xD1\x82\xD1\x83\xD0\xBF\xD0\xB5 \xD0\xBE\xD1\x82\xD0\xBA\xD0\xB0\xD0\xB7\xD0\xB0\xD0\xBD\xD0\xBE)
+|   /classes/: Potentially interesting folder
+|   /es/: Potentially interesting folder
+|   /help/: Potentially interesting folder
+|_  /printers/: Potentially interesting folder
+5000/tcp filtered upnp    no-response
+
+NSE: Script Post-scanning.
+NSE: Starting runlevel 1 (of 2) scan.
+Initiating NSE at 13:50
+Completed NSE at 13:50, 0.00s elapsed
+NSE: Starting runlevel 2 (of 2) scan.
+Initiating NSE at 13:50
+Completed NSE at 13:50, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 64.38 seconds
+           Raw packets sent: 1001 (44.044KB) | Rcvd: 2000 (84.004KB)
+
+
+jvs@debian:~$ sudo nmap -sV --script vuln -oN nmapres_new.txt localhost
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-12-15 13:53 MSK
+Pre-scan script results:
+| broadcast-avahi-dos: 
+|   Discovered hosts:
+|     224.0.0.251
+|   After NULL UDP avahi packet DoS (CVE-2011-1002).
+|_  Hosts are all up (not vulnerable).
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.0000040s latency).
+Other addresses for localhost (not scanned): ::1
+Not shown: 997 closed tcp ports (reset)
+PORT     STATE    SERVICE VERSION
+22/tcp   open     ssh     OpenSSH 10.0p2 Debian 7 (protocol 2.0)
+| vulners: 
+|   cpe:/a:openbsd:openssh:10.0p2: 
+|     	OSV:BELL-CVE-2025-61985	3.6	https://vulners.com/osv/OSV:BELL-CVE-2025-61985
+|     	OSV:BELL-CVE-2025-61984	3.6	https://vulners.com/osv/OSV:BELL-CVE-2025-61984
+|     	CVE-2025-61985	3.6	https://vulners.com/cve/CVE-2025-61985
+|     	CVE-2025-61984	3.6	https://vulners.com/cve/CVE-2025-61984
+|     	B7EACB4F-A5CF-5C5A-809F-E03CCE2AB150	3.6	https://vulners.com/githubexploit/B7EACB4F-A5CF-5C5A-809F-E03CCE2AB150	*EXPLOIT*
+|_    	4C6E2182-0E99-5626-83F6-1646DD648C57	3.6	https://vulners.com/githubexploit/4C6E2182-0E99-5626-83F6-1646DD648C57	*EXPLOIT*
+631/tcp  open     ipp     CUPS 2.4
+|_http-aspnet-debug: ERROR: Script execution failed (use -d to debug)
+| http-slowloris-check: 
+|   VULNERABLE:
+|   Slowloris DOS attack
+|     State: LIKELY VULNERABLE
+|     IDs:  CVE:CVE-2007-6750
+|       Slowloris tries to keep many connections to the target web server open and hold
+|       them open as long as possible.  It accomplishes this by opening connections to
+|       the target web server and sending a partial request. By doing so, it starves
+|       the http server's resources causing Denial Of Service.
+|       
+|     Disclosure date: 2009-09-17
+|     References:
+|       http://ha.ckers.org/slowloris/
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750
+| vulners: 
+|   CUPS 2.4: 
+|     	MSF:EXPLOIT-MULTI-MISC-CUPS_IPP_REMOTE_CODE_EXECUTION-	9.8	https://vulners.com/metasploit/MSF:EXPLOIT-MULTI-MISC-CUPS_IPP_REMOTE_CODE_EXECUTION-	*EXPLOIT*
+|     	1337DAY-ID-39819	9.0	https://vulners.com/zdt/1337DAY-ID-39819*EXPLOIT*
+|     	PACKETSTORM:182767	8.6	https://vulners.com/packetstorm/PACKETSTORM:182767	*EXPLOIT*
+|     	6D7EB122-6604-5374-B851-DA56ABDA1F34	8.6	https://vulners.com/githubexploit/6D7EB122-6604-5374-B851-DA56ABDA1F34	*EXPLOIT*
+|     	34D7D370-3683-5358-9692-BB0B5AF7F412	8.6	https://vulners.com/githubexploit/34D7D370-3683-5358-9692-BB0B5AF7F412	*EXPLOIT*
+|     	CVE-2024-47850	7.5	https://vulners.com/cve/CVE-2024-47850
+|     	MSF:AUXILIARY-SCANNER-MISC-CUPS_BROWSED_INFO_DISCLOSURE-	5.3	https://vulners.com/metasploit/MSF:AUXILIARY-SCANNER-MISC-CUPS_BROWSED_INFO_DISCLOSURE-	*EXPLOIT*
+|     	F5502B30-710E-5D69-B67C-937F75899289	5.3	https://vulners.com/githubexploit/F5502B30-710E-5D69-B67C-937F75899289	*EXPLOIT*
+|     	D0B85558-0ED9-5259-A56D-4C807CC07FCF	5.3	https://vulners.com/githubexploit/D0B85558-0ED9-5259-A56D-4C807CC07FCF	*EXPLOIT*
+|     	ADDB422D-CF88-55B8-BA36-EC2BAC7507A0	5.3	https://vulners.com/githubexploit/ADDB422D-CF88-55B8-BA36-EC2BAC7507A0	*EXPLOIT*
+|     	9DB4B6B1-3FB0-5827-B554-3F3779D23B09	5.3	https://vulners.com/githubexploit/9DB4B6B1-3FB0-5827-B554-3F3779D23B09	*EXPLOIT*
+|_    	48FAED93-C711-59A0-B81E-A65D4463C7F0	5.3	https://vulners.com/githubexploit/48FAED93-C711-59A0-B81E-A65D4463C7F0	*EXPLOIT*
+|_http-server-header: CUPS/2.4 IPP/2.1
+| http-enum: 
+|   /admin.php: Possible admin folder (401 \xD0\x92 \xD0\xB4\xD0\xBE\xD1\x81\xD1\x82\xD1\x83\xD0\xBF\xD0\xB5 \xD0\xBE\xD1\x82\xD0\xBA\xD0\xB0\xD0\xB7\xD0\xB0\xD0\xBD\xD0\xBE)
+|   /admin/: Possible admin folder (401 \xD0\x92 \xD0\xB4\xD0\xBE\xD1\x81\xD1\x82\xD1\x83\xD0\xBF\xD0\xB5 \xD0\xBE\xD1\x82\xD0\xBA\xD0\xB0\xD0\xB7\xD0\xB0\xD0\xBD\xD0\xBE)
+
+
+$ cat > ./nmapres_new.txt # сделать подобный пример файлу exmp_targets.txt
+
+jvs@debian:~/course_labs/labs/lab03/REPORT$ grep "VULNERABLE" nmapres_new.txt
+|   VULNERABLE:
+|     State: LIKELY VULNERABLE
+
+
+
+jvs@debian:~/course_labs/labs/lab03/REPORT$ mkdir -p ~/project/reports
+jvs@debian:~/course_labs/labs/lab03/REPORT$ nmap -sV -p 8080 --script vuln -oN ~/project/reports/nmapres_new.txt -oX ~/project/reports/nmapres_new.xml localhost
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-12-15 13:58 MSK
+Pre-scan script results:
+| broadcast-avahi-dos: 
+|   Discovered hosts:
+|     224.0.0.251
+|   After NULL UDP avahi packet DoS (CVE-2011-1002).
+|_  Hosts are all up (not vulnerable).
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.00059s latency).
+Other addresses for localhost (not scanned): ::1
+
+PORT     STATE  SERVICE    VERSION
+8080/tcp closed http-proxy
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 34.49 seconds
+
+
+
+jvs@debian:~/course_labs/labs/lab03/REPORT$ xsltproc ~/project/reports/nmapres_new.xml -o ~/project/reports/nmapres_new.html
+
 ```
 
+HTML отчет:
+
+<img width="1440" height="822" alt="Снимок экрана 2025-12-15 в 14 01 34" src="https://github.com/user-attachments/assets/9fbe3c7d-6bb1-41d9-b5ae-e30458d430d6" />
+
+
 - [X] 3. Используйте команду `tree` и выведите все вложенные файлы по директориям.
+
+```bash
+
+jvs@debian:~/course_labs$ tree .
+.
+├── assets
+│   └── logotype
+│       ├── logo2.jpg
+│       └── logo.jpg
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── docs
+│   ├── about.md
+│   ├── APPENDIX.md
+│   ├── appsec_tt.md
+│   ├── artifacts
+│   │   ├── assets
+│   │   │   ├── favicon.ico
+│   │   │   ├── logo.png
+│   │   │   └── logotypemd.jpg
+│   │   ├── cheatsheet
+│   │   │   ├── CHEATSHEET_DOCKERIGNORE.md
+│   │   │   ├── CHEATSHEET_DOCKER.md
+│   │   │   ├── CHEATSHEET_GH_CLI.md
+│   │   │   ├── CHEATSHEET_GITIGNORE.md
+│   │   │   └── CHEATSHEET_GIT.md
+│   │   ├── exmpls
+│   │   │   ├── exmpl.pdf
+│   │   │   ├── Multisignature.pdf
+│   │   │   ├── PrintNightmare.pdf
+│   │   │   └── RA.pdf
+│   │   ├── owasp
+│   │   │   ├── Authentication.pdf
+│   │   │   ├── Authorization.pdf
+│   │   │   ├── Client-side_Attacks.pdf
+│   │   │   ├── Command_Execution.pdf
+│   │   │   ├── Information_Disclosure.pdf
+│   │   │   ├── Logical_Attacks.pdf
+│   │   │   └── OWASP_Top_10_CICD_Risks.pdf
+│   │   └── ppt
+│   │       └── Лекция_Управление Рисками ИБ_intro.pdf
+│   ├── Authentication.md
+│   ├── Authorization.md
+│   ├── Client-side Attacks.md
+│   ├── Command Execution.md
+│   ├── Contributor Covenant.md
+│   ├── course.md
+│   ├── exmpl.md
+│   ├── index.md
+│   ├── Information Disclosure.md
+│   ├── javascripts
+│   │   └── custom-title.js
+│   ├── labs
+│   │   ├── lab01.md
+│   │   ├── lab02.md
+│   │   ├── lab03.md
+│   │   ├── lab04.md
+│   │   └── lab05.md
+│   ├── licenses.md
+│   ├── Logical Attacks.md
+│   ├── Multisignature.md
+│   ├── OWASP_Top_10_CICD_Risks.md
+│   ├── PrintNightmare.md
+│   ├── RA.md
+│   ├── Security.md
+│   └── stylesheets
+│       ├── burger.css
+│       ├── footer.css
+│       ├── header.css
+│       ├── mobile-logo.css
+│       ├── search.css
+│       ├── sidebar.css
+│       ├── tools-overlay.css
+│       └── typeset.css
+├── labs
+│   ├── lab01
+│   │   ├── README.md
+│   │   └── typersteel.py
+│   ├── lab02
+│   │   ├── exmpl_hello.py
+│   │   ├── pygamesteel.py
+│   │   └── README.md
+│   ├── lab03
+│   │   ├── exmp_targets.txt
+│   │   ├── README.md
+│   │   └── REPORT
+│   │       ├── nmapres_new.txt
+│   │       └── README.md
+│   ├── lab04
+│   │   └── README.md
+│   ├── lab05
+│   │   ├── client
+│   │   │   ├── client.py
+│   │   │   ├── Dockerfile
+│   │   │   └── requirements.txt
+│   │   ├── docker-compose.yml
+│   │   ├── README.md
+│   │   ├── server
+│   │   │   ├── app.py
+│   │   │   ├── Dockerfile
+│   │   │   └── requirements.txt
+│   │   └── source
+│   │       ├── Dockerfile
+│   │       ├── hello.py
+│   │       └── requirements.txt
+│   └── lab06
+│       └── README.md
+├── LICENSE.md
+├── mkdocs.yml
+├── mypy.ini
+├── NOTICE.md
+├── README.md
+├── RELEASE_NOTES.md
+├── requirements.txt
+└── SECURITY.md
+
+24 directories, 87 files
+
+```
+
 - [X] 4.Найдите IP сетевой карты `Ethernet`, которая соответствует вашей виртуальной машине используя `ifconfig` и выполните команду
 
 ```bash
-nmap -sP inet_addr
 
-jvs@debian:~/course_labs/labs/lab03/REPORT$ nmap -sP 172.16.238.189
-Starting Nmap 7.95 ( https://nmap.org ) at 2025-12-07 23:36 MSK
+jvs@debian:~/course_labs$ ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute 
+       valid_lft forever preferred_lft forever
+2: ens160: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 00:0c:29:3a:71:ac brd ff:ff:ff:ff:ff:ff
+    altname enp2s0
+    altname enx000c293a71ac
+    inet 172.16.238.189/24 brd 172.16.238.255 scope global dynamic noprefixroute ens160
+       valid_lft 1563sec preferred_lft 1563sec
+    inet6 fe80::20c:29ff:fe3a:71ac/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+3: docker_gwbridge: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
+    link/ether 02:42:7e:e5:df:68 brd ff:ff:ff:ff:ff:ff
+    inet 172.18.0.1/16 brd 172.18.255.255 scope global docker_gwbridge
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:7eff:fee5:df68/64 scope link proto kernel_ll 
+       valid_lft forever preferred_lft forever
+4: br-722957a69741: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether 02:42:e3:7a:f6:3f brd ff:ff:ff:ff:ff:ff
+    inet 172.19.0.1/16 brd 172.19.255.255 scope global br-722957a69741
+       valid_lft forever preferred_lft forever
+5: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether 02:42:ef:bb:f8:89 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+10: veth0457570@if9: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker_gwbridge state UP group default 
+    link/ether 5a:8c:98:8e:4b:14 brd ff:ff:ff:ff:ff:ff link-netnsid 1
+    inet6 fe80::588c:98ff:fe8e:4b14/64 scope link proto kernel_ll 
+       valid_lft forever preferred_lft forever
+14: veth11ea278@if13: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker_gwbridge state UP group default 
+    link/ether 82:68:2e:de:fa:fa brd ff:ff:ff:ff:ff:ff link-netnsid 2
+    inet6 fe80::8068:2eff:fede:fafa/64 scope link proto kernel_ll 
+       valid_lft forever preferred_lft forever 
+
+
+jvs@debian:~/course_labs$ nmap -sP 172.16.238.0/24
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-12-15 14:11 MSK
+Nmap scan report for 172.16.238.1
+Host is up (0.0033s latency).
+Nmap scan report for 172.16.238.2
+Host is up (0.0023s latency).
 Nmap scan report for 172.16.238.189
-Host is up (0.00015s latency).
-Nmap done: 1 IP address (1 host up) scanned in 0.03 seconds
+Host is up (0.00044s latency).
+Nmap done: 256 IP addresses (3 hosts up) scanned in 2.89 seconds
 
 ```
 
@@ -552,13 +906,60 @@ Nmap done: 1 IP address (1 host up) scanned in 0.03 seconds
 
 ```bash
 
-jvs@debian:~/course_labs/labs/lab03/REPORT$ sudo nmap -O -sV 172.16.238.189
-Starting Nmap 7.95 ( https://nmap.org ) at 2025-12-07 23:37 MSK
+jvs@debian:~/course_labs$ sudo nmap -A -p 22,23 172.16.238.0/24
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-12-15 14:08 MSK
+Nmap scan report for 172.16.238.1
+Host is up (0.00077s latency).
+
+PORT   STATE  SERVICE VERSION
+22/tcp closed ssh
+23/tcp closed telnet
+MAC Address: 1A:3E:EF:2D:CB:65 (Unknown)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.77 ms 172.16.238.1
+
+Nmap scan report for 172.16.238.2
+Host is up (0.00061s latency).
+
+PORT   STATE  SERVICE VERSION
+22/tcp closed ssh
+23/tcp closed telnet
+MAC Address: 00:50:56:E9:6C:2D (VMware)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: specialized
+Running: VMware Player
+OS CPE: cpe:/a:vmware:player
+OS details: VMware Player virtual NAT device
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.61 ms 172.16.238.2
+
+Nmap scan report for 172.16.238.254
+Host is up (0.00067s latency).
+
+PORT   STATE    SERVICE VERSION
+22/tcp filtered ssh
+23/tcp filtered telnet
+MAC Address: 00:50:56:E9:C5:72 (VMware)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.67 ms 172.16.238.254
+
 Nmap scan report for 172.16.238.189
-Host is up (0.000081s latency).
-Not shown: 999 closed tcp ports (reset)
-PORT   STATE SERVICE VERSION
-22/tcp open  ssh     OpenSSH 10.0p2 Debian 7 (protocol 2.0)
+Host is up (0.00015s latency).
+
+PORT   STATE  SERVICE VERSION
+22/tcp open   ssh     OpenSSH 10.0p2 Debian 7 (protocol 2.0)
+23/tcp closed telnet
 Device type: general purpose
 Running: Linux 2.6.X|5.X
 OS CPE: cpe:/o:linux:linux_kernel:2.6.32 cpe:/o:linux:linux_kernel:5 cpe:/o:linux:linux_kernel:6
@@ -567,11 +968,23 @@ Network Distance: 0 hops
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 1.71 seconds
+Nmap done: 256 IP addresses (4 hosts up) scanned in 13.17 seconds
+
 
 ```
 
 - [X] 6. Результаты из `nmapres_new.txt` надо перенести в `nmapres.txt` и оставить оба файла рядом в локальном репозитории. Желательно использовать `cp` в консоли через редактор.
+
+```bash
+
+jvs@debian:~/course_labs/labs/lab03/REPORT$ cp nmapres_new.txt nmapres.txt
+
+jvs@debian:~/course_labs/labs/lab03/REPORT$ git add nmapres.txt nmapres_new.txt
+
+jvs@debian:~/course_labs/labs/lab03/REPORT$ git commit -m "add nmapres files"
+
+```
+
 - [X] 7. Оформить `README.md` по аналогии и использовать `shield`, etc.
 - [X] 8. Составить `gist` отчет и отправить ссылку личным сообщением
 
