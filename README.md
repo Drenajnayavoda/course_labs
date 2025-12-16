@@ -156,7 +156,7 @@ $ aruff check .
 $ anpx eslint "docs/**/*.js" "javascripts/**/*.js"
 npx stylelint "docs/**/*.css" "stylesheets/**/*.css"
 
-$ a$ agit ls-files '*.sh' \
+$ agit ls-files '*.sh' \
   | grep -v 'labs/lab08/dast/zap_scan.sh' \
   | grep -v 'labs/lab07/sca/dependency-check.sh' \
   | grep -v 'labs/lab06/audit.sh' \
