@@ -11,7 +11,7 @@ hide:
 
 ## Схема как работают транзакции
 
-<div style="text-align:center;"><img src="../artifacts/exmpls/transaction.png" alt="table1"></div>
+<div style="text-align:center;"><img src="../../../artifacts/exmpls/transaction.png" alt="table1"></div>
 
 ## Схемы подписей
 
@@ -50,4 +50,4 @@ hide:
 - Использование дочерних кошельков при транзакциях, где при запросе конкретной суммы формируется временный кошелек.
 - HSM: решение на базе OpenVZ – множество изолированных ОС на одном ядре в отдельных контейнерах.
 
-![Логотип](artifacts/assets/logotypemd.jpg)
+![Логотип](../../artifacts/assets/logotypemd.jpg)

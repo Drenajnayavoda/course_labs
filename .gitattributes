@@ -12,21 +12,17 @@
  .vscode/ export-ignore
  node_modules/ export-ignore
 
-# Вставлять версию из файла VERSION при экспорте
-# VERSION export-subst
-
 * text=auto
 *.sh text eol=lf
 Dockerfile text eol=lf
 *.dockerfile text eol=lf
 docker-compose.yml text eol=lf
 
-# Windows‑проектные файлы – CRLF
+# Windows CRLF
 *.sln text eol=crlf
 *.vcxproj text eol=crlf
 *.csproj text eol=crlf
 
-# Бинарники
 *.png  binary
 *.jpg  binary
 *.jpeg binary
@@ -34,7 +30,7 @@ docker-compose.yml text eol=lf
 *.ico  binary
 *.pdf  binary
 *.zip  binary
-*.tar.gz binary
+# *.tar.gz binary
 *.exe  binary
 *.dll  binary
 *.jar  binary

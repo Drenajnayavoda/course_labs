@@ -20,17 +20,19 @@ theme:
   features:
     - navigation.indexes
     - search.highlight
-    - content.code.copy
     - navigation.tabs.sticky
     - navigation.top
     - search.share
     - search.suggest
-    - content.code.copy
     - analytics
     - content.tables
     - content.code.copy
     - content.code.select
     - content.code.annotate
+    - content.action.view
+    - navigation.instant
+    - navigation.instant.prefetch
+    - content.lazy
 
 plugins:
   - search
@@ -45,6 +47,7 @@ markdown_extensions:
   - def_list
   - md_in_html
   - attr_list
+  - fenced_code
   - admonition
   - pymdownx.highlight:
       anchor_linenums: true
@@ -53,7 +56,6 @@ markdown_extensions:
       use_pygments: true
   - pymdownx.superfences
   - pymdownx.inlinehilite
-  - pymdownx.snippets
   - toc:
       permalink: false
   - pymdownx.emoji:
@@ -61,6 +63,14 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.snippets:
       check_paths: true
+  - pymdownx.tabbed
+  - pymdownx.details
+  - pymdownx.tasklist
+  - pymdownx.magiclink
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.smartsymbols
 
 watch:
   - docs
@@ -87,10 +97,18 @@ extra:
       link: https://github.com/geminishkv
     - icon: fontawesome/solid/code-branch
       link: https://github.com/geminishkv/course_labs
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/u/geminishkvdev
     - icon: fontawesome/brands/telegram
       link: https://t.me/shmakovis_appsec
+    - icon: fontawesome/brands/instagram
+      link: https://instagram.com/geminishkv
+    - icon: fontawesome/brands/Linkedin-in
+      link: https://www.linkedin.com/in/geminishkvdev
     - icon: fontawesome/regular/envelope-open
       link: mailto:shmakovis@inbox.ru
+    - icon: fontawesome/solid/rss
+      link: https://geminishkv.github.io/course_labs/feed.xml
 
 nav:
   - "Главная страница": index.md
@@ -108,31 +126,31 @@ nav:
       - "pet_project": labs/pet_project.md
   - "Материалы":
       - "Примеры":
-          - "Аналитические кейсы": exmpl.md
-          - "Использование MultiSiq": Multisignature.md
-          - "PrintNightmare": PrintNightmare.md
-          - "Risk Analysis": RA.md
+          - "Аналитические кейсы": materials/examples/exmpl.md
+          - "Использование MultiSiq": materials/examples/Multisignature.md
+          - "PrintNightmare": materials/examples/PrintNightmare.md
+          - "Risk Analysis": materials/examples/RA.md
       - "Лицензии ПО": licenses.md
       - "Классификация инструментов": appsec_tt.md
       - "OWASP TOP 10":
-          - "CI/CD Risks": OWASP_Top_10_CICD_Risks.md
-          - "Authorization": Authorization.md
-          - "Authentication": Authentication.md
-          - "Client-side Attacks": Client-side Attacks.md
-          - "Command Execution": Command Execution.md
-          - "Logical Attacks": Logical Attacks.md
-          - "Information Disclosure": Information Disclosure.md
+          - "CI/CD Risks": materials/OWASPTOP10/OWASP_Top_10_CICD_Risks.md
+          - "Authorization": materials/OWASPTOP10/Authorization.md
+          - "Authentication": materials/OWASPTOP10/Authentication.md
+          - "Client-side Attacks": materials/OWASPTOP10/Client-side Attacks.md
+          - "Command Execution": materials/OWASPTOP10/Command Execution.md
+          - "Logical Attacks": materials/OWASPTOP10/Logical Attacks.md
+          - "Information Disclosure": materials/OWASPTOP10/Information Disclosure.md
   - "CheatSheet":
-      - "Docker": artifacts/cheatsheet/CHEATSHEET_DOCKER.md
-      - ".dockerignore": artifacts/cheatsheet/CHEATSHEET_DOCKERIGNORE.md
       - "GitHub CLI": artifacts/cheatsheet/CHEATSHEET_GH_CLI.md
       - "GitSCM": artifacts/cheatsheet/CHEATSHEET_GIT.md
+      - "Docker": artifacts/cheatsheet/CHEATSHEET_DOCKER.md
+      - ".dockerignore": artifacts/cheatsheet/CHEATSHEET_DOCKERIGNORE.md
       - ".gitignore": artifacts/cheatsheet/CHEATSHEET_GITIGNORE.md
   - "Приложение": APPENDIX.md
-  - "AppSec Toolchain Map": "https://geminishkv.github.io/oss_toolchainmap/research-notes/"
-  - "FinDevSecOps": "https://findevsecops.ru/"
-  - "АО ЛАНИТ": "https://www.lanit.ru"
   - "Блог": channel.md
   - "О проекте": about.md
   - "Релизы": RELEASE_NOTES.md
   - "Политика безопасности": Security.md
+  - "AppSec Toolchain Map": "https://geminishkv.github.io/oss_toolchainmap/research-notes/"
+  - "FinDevSecOps": "https://findevsecops.ru/"
+  - "АО ЛАНИТ": "https://www.lanit.ru"

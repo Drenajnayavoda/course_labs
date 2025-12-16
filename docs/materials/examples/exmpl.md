@@ -136,4 +136,4 @@
 
 </details>
 
-![Логотип](artifacts/assets/logotypemd.jpg)
+![Логотип](../../artifacts/assets/logotypemd.jpg)

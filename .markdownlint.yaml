@@ -1,8 +1,7 @@
 default: true
-
 MD013:
-  line_length: 150
-  heading_line_length: 150
+  line_length: 140
+  heading_line_length: 120
   code_block_line_length: 0
   tables: false
 
@@ -10,6 +9,13 @@ MD025:
   front_matter_title: false
 
 MD026:
-  punctuation: ".,;:!?"
+  punctuation: ".,;:"
 
-MD033: false
+MD033:
+  allowed_elements:
+    - br
+    - img
+    - details
+    - summary
+    - span
+    - div

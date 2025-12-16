@@ -7,12 +7,20 @@ ignore: |
 rules:
   truthy:
     level: warning
+    check-keys: false
+
   line-length:
     max: 120
     level: warning
+    allow-non-breakable-words: true
+    allow-non-breakable-inline-mappings: true
+
   comments-indentation:
     level: warning
+
   empty-lines:
     level: warning
+
   indentation:
     level: warning
+    indent-sequences: consistent

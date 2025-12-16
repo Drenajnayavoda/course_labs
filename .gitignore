@@ -1,4 +1,4 @@
-# OS generated files (macOS / Windows / misc)
+#(macOS / Windows / misc)
 .DS_Store
 .DS_Store?
 ._*
@@ -16,27 +16,26 @@ Thumbs.db
 *.icloud
 CACHEDIR.TAG
 
-# Directories potentially created on remote AFP share
+# remote AFP share
 .AppleDB
 .AppleDesktop
 Network Trash Folder
 Temporary Items
 .apdisk
 
-# Python: bytecode, cache, tooling
+# Python
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
 .ruff_cache
-
-# Virtual environments
 venv/
-
-# IDE / editor configs
 .vscode/
 .idea/
 *.swp
+*.log
+logs/
+*.pid
 
 # Project-specific reports / tools output
 sast/semgrep-report.json
@@ -47,12 +46,7 @@ lib/
 .dependency-check-data
 audit_reports/
 
-# Logs and runtime files
-*.log
-logs/
-*.pid
-
-# Data exports / office docs
+# Data exports
 *.odt
 *.xlsx
 *.xls
