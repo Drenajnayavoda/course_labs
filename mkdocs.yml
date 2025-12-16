@@ -2,8 +2,8 @@
 site_name: AppSecCource
 site_url: "https://geminishkv.github.io/course_labs/"
 site_description: >
-  Практический курс по прикладной безопасности приложений: лабораторные работы и аннотационные материалы 
-  для прокачки навыков в ИБ (информационной безопасности), а также чеклисты и методички по AppSec, DevSecOps 
+  Практический курс по прикладной безопасности приложений: лабораторные работы и аннотационные материалы
+  для прокачки навыков в ИБ (информационной безопасности), а также чеклисты и методички по AppSec, DevSecOps
   и OWASP Top 10.
 site_author: "Илья Шмаков"
 
@@ -41,6 +41,7 @@ theme:
 
 plugins:
   - search
+  - meta
   - macros
   - mkdocs-pdf
   - include-markdown:
@@ -68,7 +69,8 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.snippets:
       check_paths: true
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+    alternate_style: true
   - pymdownx.details
   - pymdownx.tasklist
   - pymdownx.magiclink
@@ -108,12 +110,15 @@ extra:
       link: https://t.me/shmakovis_appsec
     - icon: fontawesome/brands/instagram
       link: https://instagram.com/geminishkv
-    - icon: fontawesome/brands/Linkedin-in
+    - icon: fontawesome/brands/linkedin-in
       link: https://www.linkedin.com/in/geminishkvdev
     - icon: fontawesome/regular/envelope-open
       link: mailto:shmakovis@inbox.ru
     - icon: fontawesome/solid/rss
       link: https://geminishkv.github.io/course_labs/feed.xml
+#  analytics:
+#    provider: google
+#    property: G-XXXXXXXXXX
 
 nav:
   - "Главная страница": index.md
