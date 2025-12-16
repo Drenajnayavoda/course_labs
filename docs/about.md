@@ -1,6 +1,9 @@
 ---
 hide:
   - toc
+
+title: Описание проекта для курса AppSec
+description: Описывают принципы, структура и каких целей достигает курс лабораторных работ по AppSec.
 ---
 
 Лабораторные работы по курсам для AppSec, Risk Analysis, Securty Champion: Toolchain, Orchestration, CI/CD, UML, etc.

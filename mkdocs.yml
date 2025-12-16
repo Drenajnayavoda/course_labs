@@ -1,6 +1,11 @@
 ---
 site_name: AppSecCource
 site_url: "https://geminishkv.github.io/course_labs/"
+site_description: >
+  Практический курс по прикладной безопасности приложений: лабораторные работы и аннотационные материалы 
+  для прокачки навыков в ИБ (информационной безопасности), а также чеклисты и методички по AppSec, DevSecOps 
+  и OWASP Top 10.
+site_author: "Илья Шмаков"
 
 theme:
   name: material

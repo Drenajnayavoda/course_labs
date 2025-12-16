@@ -1,6 +1,9 @@
 ---
 hide:
   - toc
+
+title: Описание основных типов лицензий Open Source
+description: Описание лицензий и их типов для open-source инструментов.
 ---
 
 <table>
