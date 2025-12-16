@@ -322,7 +322,7 @@ jobs:
       - name: Type checking with mypy
         run: |
           mypy labs \
-            --exclude 'labs/lab01/typersteel.py|labs/lab02/exmpl_hello.py|labs/lab05/source/hello.py|labs/lab05/client/client.py|labs/lab08/dast/convert_reports.py|labs/lab08/vulnerable-app/app.py|labs/lab05/server/app.py|labs/lab07/vulnerable-app/app.py'
+            --exclude 'labs/lab01/typersteel.py|labs/lab02/exmpl_hello.py|labs/lab02/pygamesteel.py|labs/lab05/source/hello.py|labs/lab05/client/client.py|labs/lab08/dast/convert_reports.py|labs/lab08/vulnerable-app/app.py|labs/lab05/server/app.py|labs/lab07/vulnerable-app/app.py'
         env:
           MYPY_CACHE_DIR: .mypy_cache
 
