@@ -41,7 +41,7 @@ theme:
 
 plugins:
   - search
-  - meta
+  - meta-descriptions
   - macros
   - mkdocs-pdf
   - include-markdown:
