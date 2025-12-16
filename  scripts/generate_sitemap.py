@@ -7,6 +7,7 @@ from xml.etree.ElementTree import Element, ElementTree, SubElement
 
 BASE_URL = "https://geminishkv.github.io/course_labs"
 
+
 def main() -> None:
     urlset = Element(
         "urlset",
@@ -26,8 +27,12 @@ def main() -> None:
             if rel_path == "index.html":
                 loc = BASE_URL + "/"
             else:
-                loc = BASE_URL + "/" + urllib.parse.quote(
-                    rel_path.replace("index.html", "").rstrip("/"),
+                loc = (
+                    BASE_URL
+                    + "/"
+                    + urllib.parse.quote(
+                        rel_path.replace("index.html", "").rstrip("/"),
+                    )
                 )
 
             url = SubElement(urlset, "url")
@@ -37,6 +42,7 @@ def main() -> None:
 
     tree = ElementTree(urlset)
     tree.write("site/sitemap.xml", encoding="utf-8", xml_declaration=True)
+
 
 if __name__ == "__main__":
     main()
