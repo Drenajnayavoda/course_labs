@@ -208,14 +208,8 @@ $ mkdocs build --strict --clean --config-file mkdocs.yml --site-dir /tmp/mkdocs-
 │   │   │   └── OWASP_Top_10_CICD_Risks.pdf
 │   │   └── ppt
 │   │       └── Лекция_Управление Рисками ИБ_intro.pdf
-│   ├── Authentication.md
-│   ├── Authorization.md
 │   ├── channel.md
-│   ├── Client-side Attacks.md
-│   ├── Command Execution.md
-│   ├── exmpl.md
 │   ├── index.md
-│   ├── Information Disclosure.md
 │   ├── javascripts
 │   │   ├── custom-title.js
 │   │   └── typewriter-target.js
@@ -232,25 +226,34 @@ $ mkdocs build --strict --clean --config-file mkdocs.yml --site-dir /tmp/mkdocs-
 │   │   ├── lab10.md
 │   │   └── pet_project.md
 │   ├── licenses.md
-│   ├── Logical Attacks.md
-│   ├── Multisignature.md
-│   ├── OWASP_Top_10_CICD_Risks.md
-│   ├── PrintNightmare.md
-│   ├── RA.md
+│   ├── materials
+│   │   ├── examples
+│   │   │   ├── exmpl.md
+│   │   │   ├── Multisignature.md
+│   │   │   ├── PrintNightmare.md
+│   │   │   └── RA.md
+│   │   └── OWASPTOP10
+│   │       ├── Authentication.md
+│   │       ├── Authorization.md
+│   │       ├── Client-side Attacks.md
+│   │       ├── Command Execution.md
+│   │       ├── Information Disclosure.md
+│   │       ├── Logical Attacks.md
+│   │       └── OWASP_Top_10_CICD_Risks.md
 │   ├── RELEASE_NOTES.md
 │   ├── robots.txt
 │   ├── Security.md
-│   ├── stylesheets
-│   │   ├── burger.css
-│   │   ├── footer.css
-│   │   ├── header.css
-│   │   ├── layout.css
-│   │   ├── mobile-logo.css
-│   │   ├── search.css
-│   │   ├── sidebar.css
-│   │   ├── tools-overlay.css
-│   │   └── typeset.css
-│   └── tmp
+│   └── stylesheets
+│       ├── burger.css
+│       ├── clipboard.css
+│       ├── footer.css
+│       ├── header.css
+│       ├── layout.css
+│       ├── mobile-logo.css
+│       ├── search.css
+│       ├── sidebar.css
+│       ├── tools-overlay.css
+│       └── typeset.css
 ├── eslint.config.js
 ├── labs
 │   ├── lab01
@@ -329,15 +332,14 @@ $ mkdocs build --strict --clean --config-file mkdocs.yml --site-dir /tmp/mkdocs-
 ├── mkdocs.yml
 ├── mypy.ini
 ├── NOTICE.md
-├── overrides
-│   └── material
-│       └── partials
-│           └── toc.html
 ├── README.md
 ├── RELEASE_NOTES.md
 ├── requirements.txt
 ├── ruff.toml
+├──  scripts
+│   └── generate_sitemap.py
 ├── SECURITY.md
+├── sitemap.xml
 └── stylelint.config.cjs
 ```
 
