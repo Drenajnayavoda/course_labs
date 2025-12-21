@@ -17,7 +17,7 @@
 
 - [X] 1. Выведите на терминале и проанализируйте следующие команды консоли
 
-<img width="1045" height="604" alt="Снимок экрана 2025-11-30 в 19 31 24" src="https://github.com/user-attachments/assets/cb151365-e40f-49e0-a5ca-00070ab07efc" />
+<img width="1045" height="604" alt="Снимок экрана 2025-11-30 в 19 31 24" src="https://github.com/Drenajnayavoda/course_labs/blob/lab2/labs/lab02/REPORT/images/Снимок%20экрана%202025-11-30%20в%2019.31.24.png" />
 
 who — показывает, кто сейчас в системе.
 
@@ -33,7 +33,7 @@ hostnamectl показывает hostname, ОС, ядро, виртуализа�
 
 - [X] 2. Выведите утилитой `tree` список вложенности дерева диреторий для каталога своего пользователя. Далее используйте `ls -a` и укажите отличие от `ls -l`.
 
-<img width="860" height="794" alt="Снимок экрана 2025-11-30 в 19 32 39" src="https://github.com/user-attachments/assets/ee575736-b5b8-44d0-849b-20a529b1e720" />
+<img width="860" height="794" alt="Снимок экрана 2025-11-30 в 19 32 39" src="https://github.com/Drenajnayavoda/course_labs/blob/lab2/labs/lab02/REPORT/images/Снимок%20экрана%202025-11-30%20в%2019.32.39.png" />
 
 tree ~ выводит полную структуру домашнего каталога.
 
@@ -43,7 +43,7 @@ ls -l детальный вывод: права, владелец, группа,
 
 - [X] 3. Используйте утилиту `file` и `df` для определения какая файловая система на разделе `/dev/sda1`.
 
-<img width="909" height="190" alt="Снимок экрана 2025-11-30 в 19 36 58" src="https://github.com/user-attachments/assets/a82be371-82fa-46cb-b0dc-0df34a6665b2" />
+<img width="909" height="190" alt="Снимок экрана 2025-11-30 в 19 36 58" src="https://github.com/Drenajnayavoda/course_labs/blob/lab2/labs/lab02/REPORT/images/Снимок%20экрана%202025-11-30%20в%2019.36.58.png" />
 
 file -s покажет структуру файловой системы (ext4 / xfs / btrfs и т.п.)
 
@@ -51,27 +51,31 @@ df -Th покажет тип ФС и размер раздела.
 
 - [X] 4. Выведите на терминале и проанализируйте следующие команды консоли
 
-<img width="1080" height="534" alt="Снимок экрана 2025-11-30 в 19 44 59" src="https://github.com/user-attachments/assets/dd60ba6d-488c-4218-8ae4-d0b1c50b71fd" />
+<img width="1080" height="534" alt="Снимок экрана 2025-11-30 в 19 44 59" src="https://github.com/Drenajnayavoda/course_labs/blob/lab2/labs/lab02/REPORT/images/Снимок%20экрана%202025-11-30%20в%2019.44.59.png" />
 
 which vi показывает путь до бинарника
 
 locate сначала ичего не показал, тк база locate обновляется через updatedb, после этого locate начинает находить новые файлы
 
-<img width="1156" height="576" alt="Снимок экрана 2025-11-30 в 19 45 40" src="https://github.com/user-attachments/assets/dc63a6d3-f0ad-49e5-b4db-bc7d3d4e688e" />
+<img width="1156" height="576" alt="Снимок экрана 2025-11-30 в 19 45 40" src="https://github.com/Drenajnayavoda/course_labs/blob/lab2/labs/lab02/REPORT/images/Снимок%20экрана%202025-11-30%20в%2019.45.40.png" />
 
 find найдёт сразу. locate до обновления базы — нет.
 
 - [X]  5. Используйте конструкцию и вставьте ее в созданный файл ранее. Подключите `pygame` - используем исключительно для стилизации окна.
 
-<img width="877" height="530" alt="Снимок экрана 2025-11-30 в 22 55 26" src="https://github.com/user-attachments/assets/c38b939b-0d24-4b06-8189-45fed28d5945" />
+<img width="877" height="530" alt="Снимок экрана 2025-11-30 в 22 55 26" src="https://github.com/Drenajnayavoda/course_labs/blob/lab2/labs/lab02/REPORT/images/Снимок%20экрана%202025-11-30%20в%2022.55.26.png" />
+
+---
+
+<img width="877" height="530" alt="Снимок экрана 2025-11-30 в 22 55 26" src="https://github.com/Drenajnayavoda/course_labs/blob/lab2/labs/lab02/REPORT/images/screen.png" />
 
 - [X] 6. Сделайте `commit` и `push` в свой репозиторий с изменениями в `master branch`. На следующих лабораторных работах мы вернемся к этому файлу.
 
-<img width="711" height="345" alt="Снимок экрана 2025-12-07 в 16 20 43" src="https://github.com/user-attachments/assets/8d60ac1b-c717-4a46-b8e1-a4ec4820ca44" />
+<img width="711" height="345" alt="Снимок экрана 2025-12-07 в 16 20 43" src="https://github.com/Drenajnayavoda/course_labs/blob/lab2/labs/lab02/REPORT/images/Снимок%20экрана%202025-11-30%20в%2016.20.43.png" />
 
 - [X] 7. Выведите на терминале и проанализируйте следующие команды консоли
 
-<img width="984" height="466" alt="Снимок экрана 2025-11-30 в 20 17 20" src="https://github.com/user-attachments/assets/9cb8eaa1-d603-4082-b2d2-8b18a17cba61" />
+<img width="984" height="466" alt="Снимок экрана 2025-11-30 в 20 17 20" src="https://github.com/Drenajnayavoda/course_labs/blob/lab2/labs/lab02/REPORT/images/Снимок%20экрана%202025-11-30%20в%2020.17.20.png" />
 
 groups — показываем группы текущего пользователя.
 
@@ -97,13 +101,13 @@ chmod 666 screen — делаем файл screen доступным для чт
 
 - [X] 8. Выведите группу прав для `screen` и измените, что бы файл был доступен только для чтения созданному пользователю и выведите права этого польователя для измененного файла только используя `readgroup`.
 
-<img width="614" height="178" alt="Снимок экрана 2025-11-30 в 20 35 49" src="https://github.com/user-attachments/assets/2009f31b-4f0c-41c2-aedf-bc3a058787aa" />
+<img width="614" height="178" alt="Снимок экрана 2025-11-30 в 20 35 49" src="https://github.com/Drenajnayavoda/course_labs/blob/lab2/labs/lab02/REPORT/images/Снимок%20экрана%202025-11-30%20в%2020.35.49.png" />
 
 Теперь только readgroup имеет доступ, пользователь smallman может читать, другие не могут
 
 - [X] 9. Используйте `POSIX ACL`. Выведите на терминале и проанализируйте следующие команды консоли
 
-<img width="602" height="355" alt="Снимок экрана 2025-11-30 в 20 36 41" src="https://github.com/user-attachments/assets/b3a9df38-4b89-44db-b219-d7ecc5ae6d13" />
+<img width="602" height="355" alt="Снимок экрана 2025-11-30 в 20 36 41" src="https://github.com/Drenajnayavoda/course_labs/blob/lab2/labs/lab02/REPORT/images/Снимок%20экрана%202025-11-30%20в%2020.36.41.png" />
 
 setfacl -m u:smallman:rw nmapres.txt - выдаём пользователю smallman права чтения и записи на файл.
 
@@ -113,28 +117,28 @@ getfacl nmapres.txt — просматриваем расширенные ACL‑
 
 - [X] 10. Сохраните файл внутри локального репозитория, так как следующая работа будет подразумевать запись в нее данных о nmap.
 
-<img width="711" height="345" alt="Снимок экрана 2025-12-07 в 16 20 43" src="https://github.com/user-attachments/assets/9ed6ff2b-f51c-4abb-a096-70eb2dad6a11" />
+<img width="711" height="345" alt="Снимок экрана 2025-12-07 в 16 20 43" src="https://github.com/Drenajnayavoda/course_labs/blob/lab2/labs/lab02/REPORT/images/Снимок%20экрана%202025-11-30%20в%2016.20.43.png" />
 
 - [X] 11. Для закрепления выведите все списки групп пользователей на вашей ОС и права на верхнеуровневые каталоги.
 - [X] 12. Выведите все права для файлов и директорий локального репозитория которые имеют различные пользователи  (без использования длинных путей)
 
 Группы:
 
-<img width="600" height="714" alt="Снимок экрана 2025-11-30 в 20 45 17" src="https://github.com/user-attachments/assets/deac12a8-a2de-4299-a6ad-9694fac4b04c" />
+<img width="600" height="714" alt="Снимок экрана 2025-11-30 в 20 45 17" src="https://github.com/Drenajnayavoda/course_labs/blob/lab2/labs/lab02/REPORT/images/Снимок%20экрана%202025-11-30%20в%2020.45.17.png" />
 
 Права на верхний уровень - ls -ld /*, Права файлов репозитория - ls -l:
 
-<img width="743" height="604" alt="Снимок экрана 2025-11-30 в 20 45 25" src="https://github.com/user-attachments/assets/5f68f1b6-4f23-423b-9f94-517216fab2c8" />
+<img width="743" height="604" alt="Снимок экрана 2025-11-30 в 20 45 25" src="https://github.com/Drenajnayavoda/course_labs/blob/lab2/labs/lab02/REPORT/images/Снимок%20экрана%202025-11-30%20в%2020.45.25.png" />
 
 - [X] 13. Выведите процессы которые у вас запущены в термине и вне его.
 
-<img width="1029" height="669" alt="Снимок экрана 2025-11-30 в 20 45 48" src="https://github.com/user-attachments/assets/df53dbf7-484e-43f8-ae75-ef82c74ecc01" />
+<img width="1029" height="669" alt="Снимок экрана 2025-11-30 в 20 45 48" src="https://github.com/Drenajnayavoda/course_labs/blob/lab2/labs/lab02/REPORT/images/Снимок%20экрана%202025-11-30%20в%2020.45.48.png" />
 
 ps -a только привязанные к терминалу
 
 ps -e все процессы
 
-<img width="1058" height="738" alt="Снимок экрана 2025-11-30 в 20 46 05" src="https://github.com/user-attachments/assets/527a7921-364c-47df-a2fc-85fae42d1fec" />
+<img width="1058" height="738" alt="Снимок экрана 2025-11-30 в 20 46 05" src="https://github.com/Drenajnayavoda/course_labs/blob/lab2/labs/lab02/REPORT/images/Снимок%20экрана%202025-11-30%20в%2020.46.05.png" />
 
 - [X] 14. Оформить `README.md` по аналогии и использовать `shield`, etc.
 
