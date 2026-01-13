@@ -1,16 +1,47 @@
-FROM python:3.11-slim AS builder          # Базовый образ Python, этап сборки зависимостей
-WORKDIR /hello                          # Рабочая директория внутри контейнера
-COPY requirements.txt .                  # Копируем файл зависимостей отдельно для кеширования
-RUN pip install --upgrade pip && pip wheel --wheel-dir=/wheels -r requirements.txt  # обновляем pip, собираем зависимости в wheel-пакеты
+# Этап 1: сборка зависимостей
+FROM python:3.11-slim AS builder
 
-FROM python:3.11-slim                     # Финальный минимальный runtime-образ
-WORKDIR /hello                            # Рабочая директория приложения
+WORKDIR /hello
 
-COPY --from=builder /wheels /wheels       # Копируем собранные wheel-пакеты из builder-этапа
-COPY requirements.txt .                  # Копируем файл зависимостей
-RUN pip install --no-index --find-links=/wheels -r requirements.txt                  # Запрещаем загрузку пакетов из интернета, указываем локальный источник пакетов, устанавливаем зависимости
-COPY hello.py .                           # Копируем основной Python-скрипт
+# Копируем файл с зависимостями
+COPY requirements.txt .
+
+# Устанавливаем pip и собираем зависимости в wheel-формате
+RUN pip install --upgrade pip && pip wheel --wheel-dir=/wheels -r requirements.txt
 
 
-ENV PYTHONUNBUFFERED=1                  # Вывод логов без буферизации
-CMD ["python", "hello.py"]             # Команда запуска приложения
+# Этап 2: создаем финальный образ
+FROM python:3.11-slim
+
+# Устанавливаем необходимые системные библиотеки
+RUN apt-get update \
+        && apt-get install -y --no-install-recommends \
+                libgl1 \
+                libglib2.0-0 \
+                libsm6 \
+                libxext6 \
+                libxrender1 \
+        && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /hello
+
+# Копируем собранные wheel-пакеты из предыдущего этапа
+COPY --from=builder /wheels /wheels
+
+# Копируем файл с зависимостями
+COPY requirements.txt .
+
+# Устанавливаем зависимости из wheel-файлов
+RUN pip install --no-index --find-links=/wheels -r requirements.txt \
+        && rm -rf /wheels
+
+# Копируем исходный код приложения
+COPY typersteel.py ./
+
+# Переменные окружения для улучшенной работы Python
+ENV PYTHONUNBUFFERED=1 \
+        SDL_AUDIODRIVER=dummy
+
+# Определяем точку входа и команду по умолчанию
+ENTRYPOINT ["python", "-u"]
+CMD ["typersteel.py", "AppSec"]
