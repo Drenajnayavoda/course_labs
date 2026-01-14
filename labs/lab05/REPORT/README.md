@@ -818,8 +818,65 @@ WARN[0000] /home/jvs/course_labs/labs/lab05/docker-compose.yml: the attribute `v
  ✔ Network lab05_app_net     Removed                                                                                                                     0.2s
 ```
 - [x] 14. Доработайте `docker-compose` и скрипт, который вы подготовили ранее, что бы вы смогли воспроизвести шаги п.11 по п.13 с демонстрацией. Сделайте `commit`.
+
+<img width="707" height="392" alt="Снимок экрана 2026-01-11 в 01 03 03" src="https://github.com/user-attachments/assets/480dd069-5b52-440e-b9a8-66f4a3baf500" />
+
+
+```bash
+jvs@debian:~/course_labs/labs/lab05$ git commit -S -m "Доработал docker-compose и скрипт"
+```
+
 - [x] 15. Залейте изменения в свой удаленный репозиторий, проверьте историю `commit`.
+
+```bash
+jvs@debian:~/course_labs$ git push -u origin lab5
+Перечисление объектов: 730, готово.
+Подсчет объектов: 100% (730/730), готово.
+При сжатии изменений используется до 2 потоков
+Сжатие объектов: 100% (326/326), готово.
+Запись объектов: 100% (730/730), 8.80 МиБ | 183.81 МиБ/с, готово.
+Total 730 (delta 334), reused 724 (delta 329), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (334/334), done.
+To https://github.com/Drenajnayavoda/course_labs.git
+ + 8667485...2e55c5f lab5 -> lab5
+branch 'lab5' set up to track 'origin/lab5'.
+
+jvs@debian:~/course_labs$ git log
+commit 81667472efd9b0fafc1dbdaf82aca0fe53d9c01f (HEAD -> lab5, origin/lab5)
+Author: Drenajnayavoda <gadflyx307@gmail.com>
+Date:   Tue Jan 13 19:14:51 2026 +0300
+
+    Доработал docker-compose и скрипт
+
+commit b47e83bc6d547ee89b9e692aaad84a15739035c8
+Author: Drenajnayavoda <gadflyx307@gmail.com>
+Date:   Tue Jan 13 19:07:29 2026 +0300
+
+    add requirements
+
+commit 6715dfc5a50ad16b588bd8151bc44db498aea8c7
+Author: Drenajnayavoda <gadflyx307@gmail.com>
+Date:   Tue Jan 13 19:04:43 2026 +0300
+
+    remake Dockerfile
+
+commit d00da28424b1495d28fa0c4f4bc13fac5240f58f
+Author: Drenajnayavoda <gadflyx307@gmail.com>
+Date:   Tue Jan 13 19:00:39 2026 +0300
+
+    analyze Dockerfile
+
+commit c84c6569e4e590e17539fd52422433cd76e346e5
+Author: Drenajnayavoda <gadflyx307@gmail.com>
+Date:   Tue Jan 13 18:58:20 2026 +0300
+
+    add report
+```
+
+
 - [x] 16. Подготовьте отчет `gist`.
+
+https://gist.github.com/Drenajnayavoda/c92039317f4c1511ec1adfc01151dc5e
  
 ***
 
