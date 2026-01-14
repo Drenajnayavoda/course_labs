@@ -244,24 +244,307 @@ $ mvn dependency:copy-dependencies -DoutputDirectory=./lib # зависимос�
 $ mvn org.owasp:dependency-check-maven:check || true # Maven-плагин OWASP
 ```
 
+Сделано
+
 - [x] 6. Запустите SCA CLI OWASP Dependency-Check для уязвимого приложения. Отчеты будут в директории SCA. Опишите как работает сканирование SCA для `pom.xml` и `app.py`
-- [x] 7. Соберите единый отчет из всех сканирований в виде `html`, `csv`, `json`
+
+```bash
+
+jvs@debian:~/course_labs/labs/lab07/sca$ dependency-check.sh \
+  --project "vulnerable-app" \
+  --scan ~/course_labs/labs/lab07/vulnerable-app \
+  --scan ~/course_labs/labs/lab07/sca/lib \
+  -f ALL \
+  --out ~/course_labs/labs/lab07/sca/dependency-check-cli-report \
+  --enableExperimental
+[INFO] Checking for updates
+[INFO] Skipping the NVD API Update as it was completed within the last 240 minutes
+[INFO] Skipping Known Exploited Vulnerabilities update check since last check was within 24 hours.
+[INFO] Check for updates complete (2406 ms)
+[INFO] 
+
+Dependency-Check is an open source tool performing a best effort analysis of 3rd party dependencies; false positives and false negatives may exist in the analysis performed by the tool. Use of the tool and the reporting provided constitutes acceptance for use in an AS IS condition, and there are NO warranties, implied or otherwise, with regard to the analysis or its use. Any use of the tool and the reporting provided is at the user's risk. In no event shall the copyright holder or OWASP be held liable for any damages whatsoever arising out of or in connection with the use of this tool, the analysis performed, or the resulting report.
+
+
+   About ODC: https://jeremylong.github.io/DependencyCheck/general/internals.html
+   False Positives: https://jeremylong.github.io/DependencyCheck/general/suppression.html
+
+💖 Sponsor: https://github.com/sponsors/jeremylong
+
+
+[INFO] Analysis Started
+[INFO] Finished Archive Analyzer (0 seconds)
+[INFO] Finished File Name Analyzer (0 seconds)
+[INFO] Finished Jar Analyzer (0 seconds)
+[INFO] Finished Central Analyzer (3 seconds)
+[INFO] Finished Python Package Analyzer (0 seconds)
+[INFO] Finished pip Analyzer (0 seconds)
+[INFO] Finished Dependency Merging Analyzer (0 seconds)
+[INFO] Finished Hint Analyzer (0 seconds)
+[INFO] Finished Version Filter Analyzer (0 seconds)
+WARNING: A restricted method in java.lang.foreign.Linker has been called
+WARNING: java.lang.foreign.Linker::downcallHandle has been called by the unnamed module
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for this module
+
+янв. 14, 2026 9:45:49 PM org.apache.lucene.store.MemorySegmentIndexInputProvider <init>
+INFO: Using MemorySegmentIndexInput and native madvise support with Java 21 or later; to disable start with -Dorg.apache.lucene.store.MMapDirectory.enableMemorySegments=false
+янв. 14, 2026 9:45:49 PM org.apache.lucene.internal.vectorization.VectorizationProvider lookup
+WARNING: Java vector incubator module is not readable. For optimal vector performance, pass '--add-modules jdk.incubator.vector' to enable Vector API.
+[INFO] Created CPE Index (1 seconds)
+[INFO] Finished NPM CPE Analyzer (1 seconds)
+[INFO] Created CPE Index (1 seconds)
+[INFO] Finished CPE Analyzer (1 seconds)
+[INFO] Finished False Positive Analyzer (0 seconds)
+[INFO] Finished NVD CVE Analyzer (0 seconds)
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/sca/lib/commons-codec-1.2.jar' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/sca/lib/commons-httpclient-3.1.jar' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/sca/lib/commons-logging-1.0.4.jar' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/sca/lib/groovy-all-2.1.6.jar' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/sca/lib/jackson-annotations-2.4.0.jar' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/sca/lib/jackson-core-2.4.6.jar' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/sca/lib/jackson-jaxrs-base-2.4.6.jar' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/sca/lib/jackson-databind-2.4.6.jar' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/sca/lib/jackson-jaxrs-json-provider-2.4.6.jar' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/tmp/dctempdbb6f479-b2fd-4e36-96b8-92a3efd00e9b/check11733183163765021075tmp/3/pom.xml' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/sca/lib/jackson-module-jaxb-annotations-2.4.6.jar' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/vulnerable-app/requirements.txt' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/vulnerable-app/requirements.txt' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/vulnerable-app/requirements.txt' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/vulnerable-app/requirements.txt' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/vulnerable-app/requirements.txt' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/vulnerable-app/requirements.txt' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/vulnerable-app/requirements.txt' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/vulnerable-app/requirements.txt' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/vulnerable-app/requirements.txt' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/vulnerable-app/requirements.txt' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/vulnerable-app/requirements.txt' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/vulnerable-app/requirements.txt' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/vulnerable-app/requirements.txt' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/vulnerable-app/requirements.txt' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/vulnerable-app/requirements.txt' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/vulnerable-app/requirements.txt' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/vulnerable-app/requirements.txt' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/vulnerable-app/requirements.txt' (Sonatype OSS Index Analyzer).
+[WARN] An error occurred while analyzing '/home/jvs/course_labs/labs/lab07/vulnerable-app/requirements.txt' (Sonatype OSS Index Analyzer).
+[INFO] Finished Sonatype OSS Index Analyzer (12 seconds)
+[INFO] Finished Vulnerability Suppression Analyzer (0 seconds)
+[INFO] Finished Known Exploited Vulnerability Analyzer (0 seconds)
+[INFO] Finished Dependency Bundling Analyzer (0 seconds)
+[INFO] Finished Unused Suppression Rule Analyzer (0 seconds)
+[INFO] Analysis Complete (19 seconds)
+[INFO] Writing XML report to: /home/jvs/course_labs/labs/lab07/sca/dependency-check-cli-report/dependency-check-report.xml
+[INFO] Writing HTML report to: /home/jvs/course_labs/labs/lab07/sca/dependency-check-cli-report/dependency-check-report.html
+[INFO] Writing JSON report to: /home/jvs/course_labs/labs/lab07/sca/dependency-check-cli-report/dependency-check-report.json
+[INFO] Writing CSV report to: /home/jvs/course_labs/labs/lab07/sca/dependency-check-cli-report/dependency-check-report.csv
+[INFO] Writing SARIF report to: /home/jvs/course_labs/labs/lab07/sca/dependency-check-cli-report/dependency-check-report.sarif
+[INFO] Writing JENKINS report to: /home/jvs/course_labs/labs/lab07/sca/dependency-check-cli-report/dependency-check-jenkins.html
+[INFO] Writing JUNIT report to: /home/jvs/course_labs/labs/lab07/sca/dependency-check-cli-report/dependency-check-junit.xml
+[INFO] Writing GITLAB report to: /home/jvs/course_labs/labs/lab07/sca/dependency-check-cli-report/dependency-check-gitlab.json
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+[ERROR] Failed to request component-reports
+jvs@debian:~/course_labs/labs/lab07/sca$ 
+jvs@debian:~/course_labs/labs/lab07/sca$ ls
+ dependency-check-cli-report   dependency-check.sh   lib
+ dependency-check-report      '[Help'                pom.xml
+
+```
+
+SCA-сканирование уязвимого приложения выполнено с использованием OWASP Dependency-Check CLI.
+В ходе анализа были просканированы Python-зависимости приложения (requirements.txt, app.py), а также Java-библиотеки, полученные из pom.xml и сохранённые в директории lib.
+Инструмент сопоставляет версии зависимостей с базой NVD (CVE), выявляя известные уязвимости в цепочке поставки ПО.
+Предупреждения Sonatype OSS Index связаны с ограничениями внешнего сервиса и не влияют на основной результат анализа.
+Отчёты сформированы в форматах HTML, JSON и CSV.
+
+SCA для pom.xml
+При сканировании pom.xml OWASP Dependency-Check анализирует объявленные Maven-зависимости проекта. На этапе dependency:resolve Maven загружает все библиотеки, после чего они копируются в виде JAR-файлов в каталог lib. Dependency-Check извлекает метаданные библиотек (groupId, artifactId, version), формирует для них идентификаторы CPE и сопоставляет версии с базой уязвимостей NVD (CVE). В результате выявляются уязвимости в используемых сторонних Java-библиотеках, для которых в отчёте указываются CVE, уровень критичности (CVSS) и описание риска.
+
+SCA для app.py
+При сканировании Python-приложения Dependency-Check анализирует файл requirements.txt и структуру проекта app.py. Инструмент определяет используемые Python-пакеты и их версии, после чего сопоставляет их с известными уязвимостями в базе NVD и связанных источниках. Таким образом выявляются уязвимости в сторонних Python-зависимостях, которые могут быть использованы при эксплуатации приложения. Результаты анализа также включаются в итоговый SCA-отчёт с указанием уязвимых пакетов и соответствующих CVE.
+
+- [?] 7. Соберите единый отчет из всех сканирований в виде `html`, `csv`, `json`
 
 ```bash
 $ bash sca/generate_unified_report.sh
 ```
+Такого скрипта я не нашел
 
-- [x] 8. Проанализируйте все уязвимости и обьясните для SAST Checkov сработки статуса `Unknown`. Классифицируйте их и укажите какие не должны быть в отчетах. Внесите исправления и запустите повторное сканирование и убедитесь, что они устранены. Приложите исправленный файл и отчет без уязвимостей. 
+- [x] 8. Проанализируйте все уязвимости и обьясните для SAST Checkov сработки статуса `Unknown`. Классифицируйте их и укажите какие не должны быть в отчетах. Внесите исправления и запустите повторное сканирование и убедитесь, что они устранены. Приложите исправленный файл и отчет без уязвимостей.
+
+UNKNOWN — не означает уязвимость, но означает: Checkov «не уверен» и не может PASS/FAIL. Обычно такие записи нужно проанализировать вручную (достоверна ли защита?) и либо исправить Dockerfile так, чтобы Checkov получил явную информацию, либо добавить подавление (skip) с обоснованием в отчёт.
+
+Из results_json.json:
+CKV_DOCKER_3 — Ensure that a user for the container has been created
+Почему: Dockerfile изначально не создавал явный non-root пользователь и не переключался на него (USER). Это повышает риск запуска процесса в контейнере от root.
+Критичность: HIGH (security best-practice) — запуск от root повышает риск при компрометации образа.
+Исправление: создать пользователя и переключиться USER app.
+CKV_DOCKER_2 — Ensure that HEALTHCHECK instructions have been added
+Почему: образ не содержит инструкции HEALTHCHECK, поэтому orchestration/monitoring не может корректно определять состояние контейнера.
+Критичность: MEDIUM (operational & security).
+Исправление: добавить простую инструкцию HEALTHCHECK --interval=30s --timeout=3s CMD wget -q -O- http://127.0.0.1:8080/ || exit 1 или использвать curl / CMD-SHELL.
+
+```bash
+
+(venv) jvs@debian:~/course_labs/labs/lab07$ checkov --framework dockerfile --file vulnerable-app/Dockerfile docker-compose.yml --output json --output-file-path sast/checkov-report.json --soft-fail
+[ dockerfile framework ]: 100%|████████████████████|[1/1], Current File Scanned=
+{
+    "check_type": "dockerfile",
+    "results": {
+        "passed_checks": [
+            {
+                "check_id": "CKV_DOCKER_1",
+                "bc_check_id": "BC_DKR_1",
+                "check_name": "Ensure port 22 is not exposed",
+                "check_result": {
+                    "result": "PASSED",
+                    "results_configuration": null
+                },
+                "code_block": [
+                    [
+                        1,
+                        "FROM python:3.11-slim\n"
+                    ],
+                    [
+                        2,
+                        "\n"
+                    ],
+                    [
+                        3,
+                        "# \u0421\u043e\u0437\u0434\u0430\u0434\u0438\u043c \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f non-root\n"
+                    ],
+                    [
+                        4,
+                        "RUN groupadd -r app && useradd -r -g app app\n"
+                    ],
+                    [
+                        5,
+                        "\n"
+                    ],
+                    [
+                        6,
+                        "WORKDIR /app\n"
+                    ],
+
+..............
+
+        "parsing_errors": []
+    },
+    "summary": {
+        "passed": 87,
+        "failed": 0,
+        "skipped": 0,
+        "parsing_errors": 0,
+        "resource_count": 1,
+        "checkov_version": "3.2.497"
+    },
+    "url": "Add an api key '--bc-api-key <api-key>' to see more detailed insights via https://bridgecrew.cloud"
+}
+(venv) jvs@debian:~/course_labs/labs/lab07$ 
+
+```
+Ни одной уязвимости не найдено
+
 - [x] 9. Опишите выведенные уязвимости для SAST Semgrep и принцип их работы. Поправьте скрипт `app.py`. Запустите повторное сканирование и убедитесь, что они устранены. Приложите исправленный файл `app.py` и отчет без уязвимостей. 
+
+Из отчёта Semgrep (результат semgrep-report.json) найдены следующие серьёзные проблемы:
+RCE через os.system в /ping (CRITICAL). 
+Произвольное чтение файлов (/read) — LFI/Path Traversal (CRITICAL). 
+Небезопасная десериализация pickle.loads (/load) (CRITICAL). 
+Использование eval на пользовательском вводе (/calc) (HIGH). 
+Раскрытие версии/информации (LOW). 
+Также Semgrep показал ошибку парсинга config.yaml (синтаксическая ошибка) — это мешает корректной статической проверке конфига. 
+
+Исправляю скрипт app.py и запускаю сканирование повторно:
+
+```bash
+(venv) jvs@debian:~/course_labs/labs/lab07$ semgrep --config sast/semgrep-rules.yml \
+  --json \
+  --output sast/semgrep-report.json \
+  vulnerable-app/
+
+┌──── ○○○ ────┐
+│ Semgrep CLI │
+└─────────────┘
+
+⠙ Loading rules...                                                              Rule sast.py-sql-injection-critical contains an include pattern 'vulnerable-app/app.py' that will soon be interpreted as '/vulnerable-app/app.py' to comply with the Semgrepignore v2 and Gitignore specifications. To make this pattern permanently 
+
+
+.....         
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+✅ Scan completed successfully.
+ • Findings: 0 (0 blocking)
+ • Rules run: 16
+ • Targets scanned: 2
+ • Parsed lines: ~100.0%
+ • Scan was limited to files tracked by git
+ • For a detailed list of skipped files and lines, run semgrep with the --verbose flag
+Ran 16 rules on 2 files: 0 findings.
+
+✨ If Semgrep missed a finding, please send us feedback to let us know!
+   See https://semgrep.dev/docs/reporting-false-negatives/
+(venv) jvs@debian:~/course_labs/labs/lab07$ 
+
+
 - [x] 10. Доработайте SCA уязвимости, что бы они только остались в фиинальной версии отчетов.
+
+Dependency-Check (SCA) нашёл много уязвимых библиотек; наиболее критичные — jackson-databind-2.4.6.jar (много CVE), groovy-all-2.1.6.jar, pyjwt:1.7.1, PyYAML:5.3.1, paramiko:2.4.1 и др. (см. dependency-check-report.json).
+
 - [x] 11. Проверьте себя по найденным сработкам анализаторов и так вы сможете помочь себе разобраться в ситуации, если возникнут сложности
 
 ```bash
 $ bash cheat_check_yuorself.sh
 ```
+Ни одной уязвимости не найдено
+
+- [x] 10. Доработайте SCA уязвимости, что бы они только остались в фиинальной версии отчетов.
+
+Dependency-Check (SCA) нашёл много уязвимых библиотек; наиболее критичные — jackson-databind-2.4.6.jar (много CVE), groovy-all-2.1.6.jar, pyjwt:1.7.1, PyYAML:5.3.1, paramiko:2.4.1 и др. (см. dependency-check-report.json).
+
+- [x] 11. Проверьте себя по найденным сработкам анализаторов и так вы сможете помочь себе разобраться в ситуации, если возникнут сложности
+
+```bash
+$ bash cheat_check_yuorself.sh
+```
+### Проверил и этим скриптом, уязвимости не найдены
 
 - [x] 12. Делайте все коммиты на соответствующих шагах, далее заливайте изменения в удаленный репозиторий.
+
+Сделано
+
 - [x] 13. Подготовьте отчет `gist`.
+
+
+
 - [x] 14. Почистите кеш от `venv` и остановите уязвимое приложение
 
 ```bash
