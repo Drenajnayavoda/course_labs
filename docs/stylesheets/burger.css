@@ -1,26 +1,34 @@
 .md-header__button.md-icon[for="__drawer"] {
- width: 2.5rem;
- height: 2.5rem;
- display: flex;
- align-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  transition: background 0.2s ease,
-              transform 0.1s ease;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
 }
 
 .md-header__button.md-icon[for="__drawer"] svg {
-  width: 1.4rem;
-  height: 1.4rem;
+  width: 1.2rem;
+  height: 1.2rem;
   color: #ffffff;
   fill: currentColor;
 }
 
 .md-header__button.md-icon[for="__drawer"]:hover {
-  transform: translateY(-1px);
+  transform: translateY(-3px);
 }
 
 .md-header__button.md-icon[for="__drawer"]:active {
   transform: translateY(0);
+}
+
+@media screen and (min-width: 3000px) {
+  .md-container {
+    max-width: 3000px;
+    margin: 0 auto;
+  }
 }
 
 @media screen and (min-width: 1220px) {

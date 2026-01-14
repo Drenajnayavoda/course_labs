@@ -8,10 +8,33 @@
 
 ***
 
-<br>Салют :wave:, </br>
+Салют :wave:,<br>
 Данная лабораторная работа посвещена изучению Docker и как с ним работать. Эта лабораторная работа послужит подпоркой для старта в выявлении и определении уязвимостей на уровне сканирования контейнеров при сборке приложений. 
 
 Для сдачи данной работы также будет требоваться ответить на дополнительыне вопросы по описанным темам.
+
+***
+
+## Структура репозитория лабораторной работы
+
+```bash
+lab05
+├── client
+│   ├── client.py
+│   ├── Dockerfile
+│   └── requirements.txt
+├── docker-compose.yml
+├── README.md
+├── server
+│   ├── app.py
+│   ├── Dockerfile
+│   └── requirements.txt
+└── source
+    ├── Dockerfile
+    ├── hello.py
+    ├── image.tar
+    └── requirements.txt
+```
 
 ***
 
@@ -106,7 +129,9 @@ $ docker save -o hello.tar hello-appsec-world
 $ docker load -i hello.tar
 $ docker load -i image.tar
 ```
+
 - [ ] 3. Откройте `Dockerfile` и сделайте его анализ. Сделайте `commit`
+
 - [ ] 4. Замените в `Dockerfile`значение скрипта на `python` тем, который вы сделали ранее в прошлых лабораторных работах. Вложите свой файл `python` в директорию. Сделайте анализ своего измененного `Dockerfile` и внесите изменения. Сделайте `commit`. 
 
 > Пример анализа по текущему `Dockerfile` в репозитории
@@ -203,6 +228,7 @@ $ docker images
 $ docker ps -q | xargs docker stop
 $ docker-compose down
 ```
+
 - [ ] 14. Доработайте `docker-compose` и скрипт, который вы подготовили ранее, что бы вы смогли воспроизвести шаги п.11 по п.13 с демонстрацией. Сделайте `commit`.
 - [ ] 15. Залейте изменения в свой удаленный репозиторий, проверьте историю `commit`.
 - [ ] 16. Подготовьте отчет `gist`.
@@ -211,10 +237,16 @@ $ docker-compose down
 
 ## Links
 
-- [Docker](https://docs.docker.com/)
 - [Markdown](https://stackedit.io)
 - [Gist](https://gist.github.com)
 - [GitHub CLI](https://cli.github.com)
+- [GitHub Docs](https://docs.github.com/en)
+- [Docker](https://docs.docker.com/)
+- [Docker Engine overview](https://docs.docker.com/engine/)
+- [Dockerfile reference](https://docs.docker.com/reference/dockerfile/)
+- [Docker Compose documentation](https://docs.docker.com/compose/)
+- [Docker Hub](https://hub.docker.com/)
+- [Docker security overview](https://docs.docker.com/engine/security/)
 
 Copyright (c) 2025 Elijah S Shmakov
 
