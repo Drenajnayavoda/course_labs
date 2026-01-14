@@ -543,7 +543,7 @@ $ bash cheat_check_yuorself.sh
 
 - [x] 13. Подготовьте отчет `gist`.
 
-
+https://gist.github.com/Drenajnayavoda/dd2157021b3d6460662cd1c51d67ecbf
 
 - [x] 14. Почистите кеш от `venv` и остановите уязвимое приложение
 
