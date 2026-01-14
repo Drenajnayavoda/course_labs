@@ -223,6 +223,8 @@ OpenCart: регистрируются XSS/файловые уязвимости
 
 - [x] 8. Подготовьте отчет `gist`.
 
+https://gist.github.com/Drenajnayavoda/8cf35d3030ad7e29cb67faf9e9e19177
+
 ***
 
 Copyright (c) 2025 Lastochkin Ivan
