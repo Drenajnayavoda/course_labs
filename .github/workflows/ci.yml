@@ -171,11 +171,18 @@ jobs:
       - dependency_audit_checks
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install gitleaks
+        run: |
+          curl -sSL https://github.com/gitleaks/gitleaks/releases/download/v8.24.3/gitleaks_8.24.3_linux_x64.tar.gz -o /tmp/gitleaks.tar.gz
+          tar -xzf /tmp/gitleaks.tar.gz -C /tmp
+          sudo mv /tmp/gitleaks /usr/local/bin/
 
       - name: Scan repository for secrets with gitleaks
-        uses: gitleaks/gitleaks-action@v2
-        with:
-          config-path: .gitleaks.toml
+        run: |
+          gitleaks detect --source . -v --config .gitleaks.toml
 
   security_docker_checks:
     runs-on: ubuntu-latest
