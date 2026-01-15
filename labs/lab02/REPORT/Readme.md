@@ -65,7 +65,7 @@ find найдёт сразу. locate до обновления базы — не
 
 <img width="877" height="530" alt="Снимок экрана 2025-11-30 в 22 55 26" src="https://github.com/Drenajnayavoda/course_labs/blob/lab2/labs/lab02/REPORT/images/Снимок%20экрана%202025-11-30%20в%2022.55.26.png" />
 
----
+***
 
 <img width="877" height="530" alt="Снимок экрана 2025-11-30 в 22 55 26" src="https://github.com/Drenajnayavoda/course_labs/blob/lab2/labs/lab02/REPORT/images/screen.png" />
 
