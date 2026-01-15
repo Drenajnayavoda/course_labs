@@ -1,5 +1,6 @@
 import typer
 
+
 # Updated code style (PEP8 formatting)
 def main(
     name: str,
@@ -11,6 +12,7 @@ def main(
         print(f"Good day, {name} {lastname}!")
     else:
         print(f"Hello, {name}!")
+
 
 if __name__ == "__main__":
     typer.run(main)
