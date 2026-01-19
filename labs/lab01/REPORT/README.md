@@ -35,11 +35,11 @@
 
 <img width="520" height="142" alt="image" src="https://github.com/user-attachments/assets/e3b5fdbf-d626-4c0b-97f3-c8bf2eadc52e" />
 
----------------
+***
 
 <img width="726" height="438" alt="image" src="https://github.com/user-attachments/assets/58059716-9954-4d0f-94bb-4b354e196a36" />
 
----------------
+***
 
 <img width="654" height="322" alt="image" src="https://github.com/user-attachments/assets/84c029a3-731f-4ed7-b119-445dae6c7d2e" />
 
@@ -47,7 +47,7 @@
 
 <img width="588" height="188" alt="image" src="https://github.com/user-attachments/assets/3a846695-cba8-40fd-90c7-4688fee00f31" />
 
----------------
+***
 
 3. Проинициализируйте репозиторий
 
@@ -65,7 +65,7 @@
 
 <img width="614" height="168" alt="image" src="https://github.com/user-attachments/assets/af2b6bdf-aefa-44a9-92ca-3a8dc48e947b" />
 
----------------
+***
 
 7. Создайте файл hello.py в локальном репозитории. Реализуйте Hello appsecworld на языке python используя несколько интерпретаторов с "грязным" кодом
 
@@ -75,7 +75,7 @@
 
 <img width="544" height="274" alt="image" src="https://github.com/user-attachments/assets/c0c409f8-c867-41cc-be77-84ace978ee4b" />
 
----------------
+***
 
 9. Измените исходный код, что бы скрипт запрашивал имя пользователя и выводил Helloappsec world from @name
 
@@ -85,13 +85,13 @@
 
 <img width="710" height="274" alt="image" src="https://github.com/user-attachments/assets/0388c4c6-d9d3-4cb6-acd9-41c7700e555a" />
 
----------------
+***
 
 11. В локальном репозитории создайте ветку patch1 и внесите изменения исправлению кода и модернизации до следующего вида, что бы код был рабочим. Сделайте публикацию своего commit с флагом -S в удаленный репозиторий. Проверьте, что ветка patch1 в удалённом репозитории. Создайте pull-request в виде patch1 -> master. В ветке patch1 добавьте в исходный код комментарии и убедитесь, что естьуказанные изменения в pull-request:
 
 <img width="814" height="620" alt="image" src="https://github.com/user-attachments/assets/9d504313-cc81-4063-b11b-1880bf096975" />
 
----------------
+***
 
 <img width="586" height="216" alt="image" src="https://github.com/user-attachments/assets/46590b02-811f-4c48-ad3a-eb59fbe9fecb" />
 
@@ -99,17 +99,17 @@
 
 <img width="936" height="518" alt="image" src="https://github.com/user-attachments/assets/de752e15-2bcc-423d-9258-559a543cbf4f" />
 
----------------
+***
 
 13. Создайте новую локальную ветку patch2. Измените code style по своему усмотрению. Сделайте публикацию своего commit с флагом -S в удаленный репозиторий исоздайте pull-request patch2 -> master:
 
 <img width="936" height="408" alt="image" src="https://github.com/user-attachments/assets/3148d8ff-f44a-4aed-894f-be13d523dc8e" />
 
----------------
+***
 
 <img width="612" height="258" alt="image" src="https://github.com/user-attachments/assets/aec96618-2639-475a-9759-60a3ac1eff98" />
 
----------------
+***
 
 14. В ветке master удаленного репозитория явно измените комментарий.
 
@@ -137,8 +137,8 @@
 
 <img width="808" height="482" alt="image" src="https://github.com/user-attachments/assets/d209ef66-6cb9-4725-8a25-4c34c2f3855d" />
 
----------------
+***
 
 <img width="936" height="610" alt="image" src="https://github.com/user-attachments/assets/1e1f91a9-d64d-42cd-a5e0-9b68f6f6a6e7" />
 
----------------
+***
