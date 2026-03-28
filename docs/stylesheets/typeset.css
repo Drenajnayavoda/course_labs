@@ -122,3 +122,36 @@
 .md-typeset details.tip > summary::before {
   background-color: #F9B361;
 }
+
+/* ── Content links ── */
+.md-typeset a {
+  color: #D51A1A;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.md-typeset a:hover,
+.md-typeset a:focus {
+  color: #F9B361;
+  text-decoration: underline;
+}
+
+/* ── Inline code ── */
+.md-typeset code {
+  background-color: rgba(213, 26, 26, 0.07);
+  color: #B51515;
+  border-radius: 3px;
+  padding: 0.05em 0.3em;
+}
+
+/* ── Text selection ── */
+::selection {
+  background-color: rgba(249, 179, 97, 0.3);
+  color: #1A1919;
+}
+
+/* ── Search result highlight ── */
+.md-search-result mark {
+  color: #D51A1A;
+  background-color: rgba(249, 179, 97, 0.25);
+}

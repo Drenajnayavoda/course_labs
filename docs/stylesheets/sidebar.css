@@ -1,3 +1,4 @@
+/* ── Primary sidebar (navigation) ── */
 .md-sidebar--primary .md-nav,
 .md-sidebar--primary .md-sidebar__inner {
   font-size: 0.65rem;
@@ -26,8 +27,8 @@
 
 .md-sidebar--primary .md-nav__link:hover,
 .md-sidebar--primary .md-nav__link:focus {
-  color: #B51515;
-  background-color: rgba(213, 26, 26, 0.06);
+  color: #F9B361;
+  background-color: rgba(249, 179, 97, 0.08);
 }
 
 .md-sidebar--primary .md-nav--primary .md-nav__title {
@@ -57,4 +58,43 @@
   padding-left: 1rem;
   gap: 0;
   color: #D51A1A;
+}
+
+/* ── Secondary sidebar (TOC) ── */
+.md-sidebar--secondary .md-nav__link,
+.md-sidebar--secondary .md-nav__link:visited {
+  color: #555555;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.md-sidebar--secondary .md-nav__link:hover,
+.md-sidebar--secondary .md-nav__link:focus {
+  color: #D51A1A;
+}
+
+.md-sidebar--secondary .md-nav__link--active,
+.md-sidebar--secondary .md-nav__item--active > .md-nav__link {
+  color: #D51A1A;
+  font-weight: 600;
+  border-left: 2px solid #D51A1A;
+  padding-left: 0.4rem;
+}
+
+/* ── Scrollbar ── */
+.md-sidebar__inner::-webkit-scrollbar {
+  width: 4px;
+}
+
+.md-sidebar__inner::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.md-sidebar__inner::-webkit-scrollbar-thumb {
+  background: rgba(213, 26, 26, 0.3);
+  border-radius: 2px;
+}
+
+.md-sidebar__inner::-webkit-scrollbar-thumb:hover {
+  background: rgba(213, 26, 26, 0.6);
 }

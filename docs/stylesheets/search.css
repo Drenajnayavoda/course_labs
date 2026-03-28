@@ -1,17 +1,51 @@
-/* Стандартный поиск Material */
+/* ── MkDocs Material search ── */
 .md-search__form {
-  background-color: #fff;
-  color: #000;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
 }
 
 .md-search__input {
-  color: #000;
+  color: #ffffff;
 }
 
 .md-search__input::placeholder {
-  color: #555;
+  color: rgba(255, 255, 255, 0.5);
 }
 
+.md-search__icon svg {
+  color: #F9B361;
+  fill: #F9B361;
+}
+
+.md-header .md-search__icon svg {
+  color: #F9B361;
+  fill: #F9B361;
+}
+
+/* Search results overlay */
+.md-search__scrollwrap {
+  background-color: #ffffff;
+}
+
+.md-search-result__link {
+  color: #D51A1A;
+}
+
+.md-search-result__link:hover,
+.md-search-result__link:focus {
+  background-color: rgba(249, 179, 97, 0.1);
+}
+
+.md-search-result__article--document .md-search-result__title {
+  color: #D51A1A;
+}
+
+.md-search-result mark {
+  color: #D51A1A;
+  background-color: rgba(249, 179, 97, 0.3);
+}
+
+/* ── App-level search (custom overlay) ── */
 .app-search {
   position: fixed;
   inset: 0;
@@ -40,13 +74,8 @@
   cursor: pointer;
 }
 
-.app-search__back {
-  font-size: 1.4rem;
-}
-
-.app-search__close {
-  font-size: 1.6rem;
-}
+.app-search__back  { font-size: 1.4rem; }
+.app-search__close { font-size: 1.6rem; }
 
 .app-search__input-wrap {
   flex: 1 1 auto;
@@ -92,6 +121,7 @@
 }
 
 .app-search__item-title:hover {
+  color: #F9B361;
   text-decoration: underline;
 }
 
@@ -99,9 +129,4 @@
   margin-top: 0.15rem;
   font-size: 0.8rem;
   color: #6b7280;
-}
-
-.md-header .md-search__icon svg {
-  color: #D51A1A;
-  fill: #D51A1A;
 }
