@@ -1,24 +1,24 @@
-/* Custom palette variables */
-[data-md-color-primary="custom"] {
-  --md-primary-fg-color:        #cc2200;
-  --md-primary-fg-color--light: #d44422;
-  --md-primary-fg-color--dark:  #aa1800;
-  --md-primary-bg-color:        #ffffff;
-  --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
-}
+/* Brand tokens — override MkDocs Material defaults globally */
+:root {
+  --md-primary-fg-color:             #D51A1A;
+  --md-primary-fg-color--light:      #E23535;
+  --md-primary-fg-color--dark:       #B51515;
+  --md-primary-bg-color:             #ffffff;
+  --md-primary-bg-color--light:      rgba(255, 255, 255, 0.7);
 
-[data-md-color-accent="custom"] {
-  --md-accent-fg-color:              #d4a520;
-  --md-accent-fg-color--transparent: rgba(212, 165, 32, 0.1);
-  --md-accent-bg-color:              #1a1a1a;
-  --md-accent-bg-color--light:       rgba(26, 26, 26, 0.1);
+  --md-accent-fg-color:              #D51A1A;
+  --md-accent-fg-color--transparent: rgba(213, 26, 26, 0.1);
+  --md-accent-bg-color:              #1A1919;
+  --md-accent-bg-color--light:       rgba(26, 25, 25, 0.1);
+
+  --md-typeset-a-color:              #D51A1A;
 }
 
 .md-header,
 .md-header__inner,
 .md-header-nav,
 .md-header-nav__inner {
-  background-color: #1a1a1a;
+  background-color: #1A1919;
 }
 
 .md-header .md-header__title,

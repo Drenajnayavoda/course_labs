@@ -27,7 +27,7 @@
 
 .md-content h1,
 .md-content h2 {
-  color: #cc2200;
+  color: #D51A1A;
 }
 
 #typewriter-target {
@@ -59,15 +59,15 @@
 
 /* Tasklist */
 .md-typeset .task-list-item [type="checkbox"] {
-  accent-color: #cc2200;
+  accent-color: #D51A1A;
 }
 
 .md-typeset .task-list-control .task-list-indicator::before {
-  background-color: #cc2200;
+  background-color: #D51A1A;
 }
 
 .md-typeset .task-list-item input:checked + .task-list-indicator::before {
-  background-color: #cc2200;
+  background-color: #D51A1A;
   mask-image: var(--md-tasklist-icon--checked);
   -webkit-mask-image: var(--md-tasklist-icon--checked);
 }
@@ -80,45 +80,45 @@
 
 .md-typeset .admonition.danger,
 .md-typeset details.danger {
-  border-color: #cc2200;
+  border-color: #D51A1A;
 }
 
 .md-typeset .admonition.danger > .admonition-title,
 .md-typeset details.danger > summary {
-  background-color: rgba(204, 34, 0, 0.1);
+  background-color: rgba(213, 26, 26, 0.1);
 }
 
 .md-typeset .admonition.danger > .admonition-title::before,
 .md-typeset details.danger > summary::before {
-  background-color: #cc2200;
+  background-color: #D51A1A;
 }
 
 .md-typeset .admonition.warning,
 .md-typeset details.warning {
-  border-color: #d4a520;
+  border-color: #F9B361;
 }
 
 .md-typeset .admonition.warning > .admonition-title,
 .md-typeset details.warning > summary {
-  background-color: rgba(212, 165, 32, 0.12);
+  background-color: rgba(249, 179, 97, 0.12);
 }
 
 .md-typeset .admonition.warning > .admonition-title::before,
 .md-typeset details.warning > summary::before {
-  background-color: #d4a520;
+  background-color: #F9B361;
 }
 
 .md-typeset .admonition.tip,
 .md-typeset details.tip {
-  border-color: #d4a520;
+  border-color: #F9B361;
 }
 
 .md-typeset .admonition.tip > .admonition-title,
 .md-typeset details.tip > summary {
-  background-color: rgba(212, 165, 32, 0.1);
+  background-color: rgba(249, 179, 97, 0.1);
 }
 
 .md-typeset .admonition.tip > .admonition-title::before,
 .md-typeset details.tip > summary::before {
-  background-color: #d4a520;
+  background-color: #F9B361;
 }

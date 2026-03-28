@@ -1,20 +1,20 @@
 .md-sidebar--primary .md-nav,
 .md-sidebar--primary .md-sidebar__inner {
-  font-size: 0.6rem;
+  font-size: 0.65rem;
 }
 
 .md-sidebar--primary .md-nav__item {
   margin: 0;
-  padding: 0.18rem 0;
+  padding: 0.3rem 0;
 }
 
 .md-sidebar--primary .md-nav__link,
 .md-sidebar--primary .md-nav__link:visited,
 .md-sidebar--primary .md-nav__item--active > .md-nav__link,
 .md-sidebar--primary .md-nav__link--active {
-  font-size: 0.7rem;
-  line-height: 1.35;
-  color: #cc2200;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: #D51A1A;
   margin: 0;
   padding-left: 0.6rem;
 }
@@ -24,8 +24,14 @@
   font-weight: 700;
 }
 
+.md-sidebar--primary .md-nav__link:hover,
+.md-sidebar--primary .md-nav__link:focus {
+  color: #B51515;
+  background-color: rgba(213, 26, 26, 0.06);
+}
+
 .md-sidebar--primary .md-nav--primary .md-nav__title {
-  background-color: #1a1a1a;
+  background-color: #1A1919;
   color: #ffffff;
 }
 
@@ -50,5 +56,5 @@
   justify-content: flex-start;
   padding-left: 1rem;
   gap: 0;
-  color: #cc2200;
+  color: #D51A1A;
 }
