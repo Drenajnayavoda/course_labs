@@ -1,20 +1,17 @@
 <div align="center">
 <h1><a id="intro">Лабораторная работа №6</a><br></h1>
 <a href="https://docs.github.com/en"><img src="https://img.shields.io/static/v1?logo=github&logoColor=fff&label=&message=Docs&color=36393f&style=flat" alt="GitHub Docs"></a>
-<a href="https://daringfireball.net/projects/markdown"><img src="https://img.shields.io/static/v1?logo=markdown&logoColor=fff&label=&message=Markdown&color=36393f&style=flat" alt="Markdown"></a>
+<a href="https://daringfireball.net/projects/markdown"><img src="https://img.shields.io/static/v1?logo=markdown&logoColor=fff&label=&message=Markdown&color=36393f&style=flat" alt="Markdown"></a> 
+<a href="https://symbl.cc/en/unicode-table"><img src="https://img.shields.io/static/v1?logo=unicode&logoColor=fff&label=&message=Unicode&color=36393f&style=flat" alt="Unicode"></a> 
 <a href="https://shields.io"><img src="https://img.shields.io/static/v1?logo=shieldsdotio&logoColor=fff&label=&message=Shields&color=36393f&style=flat" alt="Shields"></a>
-<img src="https://img.shields.io/badge/Course-AppSec-D51A1A?style=flat" alt="Course: AppSec">
-<img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker">
-<img src="https://img.shields.io/badge/CIS_Benchmark-D51A1A?style=flat" alt="CIS Benchmark">
-<img src="https://img.shields.io/badge/Trivy-1904DA?style=flat&logo=aquasecurity&logoColor=white" alt="Trivy">
-<img src="https://img.shields.io/badge/Contributor-Шмаков_И._С.-8b9aff?style=flat" alt="Contributor"></div>
+<a href="https://img.shields.io/badge/Risk_Analyze-2448a2"><img src="https://img.shields.io/badge/Course-Risk_Analysis-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/AppSec-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/Contributor-Шмаков_И._С.-8b9aff" alt="Contributor Badge"></a></div>
 
 ***
 
 Салют :wave:,<br>
-Данная лабораторная работа посвящена изучению аудита безопасности `Docker` при использовании `Docker Bench Security`. Мы рассмотрим как с ним работать. Мы разберем как проверить конфигурации безопасности и выявить их не корректность, как произвести чекап с `CIS Docker Benchmark v1.6.0`.
+Данная лабораторная работа посвещена изучению аудита безопасности `Docker` при использовании `Docker Bench Security`. Мы рассмотрим как с ним работать. Мы разберем как проверить конфигурации безопасности и выявить их не корректность, как произвести чекап с `CIS Docker Benchmark v1.6.0`.
 
-Для сдачи данной работы также будет требоваться ответить на дополнительные вопросы по описанным темам.
+Для сдачи данной работы также будет требоваться ответить на дополнительыне вопросы по описанным темам.
 
 ***
 
@@ -34,45 +31,35 @@ lab06
 
 ## Материал
 
-### Docker Bench Security
+- **Docker Bench Security** - официальным инструментом аудита безопасности от Docker, который проверяет наличие практик при развертывания на `CIS Docker Benchmark`
 
-Официальный инструмент аудита безопасности от Docker, который проверяет практики развертывания на соответствие `CIS Docker Benchmark`.
+- Реальный аудит контейнерной безопасности выполняется на Linux‑хосте / WSL2 с нативным Docker Engine», что соответствует методике CIS и практике промышленного Dockerhardening
 
-Реальный аудит контейнерной безопасности выполняется на Linux‑хосте / WSL2 с нативным Docker Engine, что соответствует методике CIS и практике промышленного Docker hardening.
+- **Рассматриваемые вопросы безопасности**
+    - Привилегионные контейнера
+    - Захардкоженные данные учеток
+    - Отключенные профили безопасности (AppArmor, Seccomp)
+    - Прямое монтирования файловой системы
+    - Устаревшие образы и явный запуск сервисов от привелегированного пользователя
+    - Дополнительные сервисы, лишние утилиты
+    - Ррасширенные volume‑маунты
+    - env и SQL‑инициализации
+    - Примеры анти‑паттернов privileged, host‑network, docker.sock, secrets-in-env, outdated images
 
-### Рассматриваемые вопросы безопасности
+-  **Контекст безопасности**
 
-- Привилегированные контейнеры
-- Захардкоженные данные учёток
-- Отключенные профили безопасности (AppArmor, Seccomp)
-- Прямое монтирование файловой системы
-- Устаревшие образы и явный запуск сервисов от привилегированного пользователя
-- Дополнительные сервисы, лишние утилиты
-- Расширенные volume‑маунты
-- env и SQL‑инициализации
-- Примеры анти‑паттернов: privileged, host‑network, docker.sock, secrets-in-env, outdated images
-
-### Контекст безопасности
-
-> Основные принципы безопасности Docker описаны в [Лаб. №5](https://course.geminishkv.tech/labs/basic/lab05/) — здесь фокус на аудите и проверке их выполнения через CIS Benchmark.
-
-### Уровни CIS Docker Benchmark
-
-<div class="lab-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
-<div class="lab-card" style="flex-direction: column; align-items: flex-start; gap: 0.3rem;"><span class="lab-card-num" style="font-size:0.85rem; width:auto;">Level 1</span><div class="lab-card-tags"><span class="lab-tag">Базовый</span><span class="lab-tag">Обязательный</span></div><span style="font-size:0.72rem; color:#555; line-height:1.4;">Минимальный набор проверок, не влияющий на производительность. Подходит для всех окружений.</span></div>
-<div class="lab-card" style="flex-direction: column; align-items: flex-start; gap: 0.3rem;"><span class="lab-card-num" style="font-size:0.85rem; width:auto;">Level 2</span><div class="lab-card-tags"><span class="lab-tag">Расширенный</span><span class="lab-tag">Продвинутый</span></div><span style="font-size:0.72rem; color:#555; line-height:1.4;">Углублённые проверки, могут ограничивать функциональность. Для production и высокого уровня защиты.</span></div>
-</div>
-
-### Категории проверок CIS
-
-<div class="lab-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-<div class="lab-card" style="flex-direction: column; align-items: flex-start; gap: 0.3rem;"><span class="lab-card-num" style="font-size:0.85rem; width:auto;">1. Host Configuration</span><span style="font-size:0.72rem; color:#555; line-height:1.4;">Аудит, файловые разрешения, логирование Docker daemon, настройки ядра хоста</span></div>
-<div class="lab-card" style="flex-direction: column; align-items: flex-start; gap: 0.3rem;"><span class="lab-card-num" style="font-size:0.85rem; width:auto;">2. Docker Daemon</span><span style="font-size:0.72rem; color:#555; line-height:1.4;">TLS, авторизация, сетевой режим, логирование, live restore, user namespace</span></div>
-<div class="lab-card" style="flex-direction: column; align-items: flex-start; gap: 0.3rem;"><span class="lab-card-num" style="font-size:0.85rem; width:auto;">3. Docker Daemon Files</span><span style="font-size:0.72rem; color:#555; line-height:1.4;">Права на docker.sock, конфиги daemon, TLS-сертификаты, /etc/docker</span></div>
-<div class="lab-card" style="flex-direction: column; align-items: flex-start; gap: 0.3rem;"><span class="lab-card-num" style="font-size:0.85rem; width:auto;">4. Container Images</span><span style="font-size:0.72rem; color:#555; line-height:1.4;">Доверенные базовые образы, USER не root, HEALTHCHECK, минимизация пакетов</span></div>
-<div class="lab-card" style="flex-direction: column; align-items: flex-start; gap: 0.3rem;"><span class="lab-card-num" style="font-size:0.85rem; width:auto;">5. Container Runtime</span><span style="font-size:0.72rem; color:#555; line-height:1.4;">AppArmor/seccomp, capabilities, privileges, read-only FS, ресурсные лимиты</span></div>
-<div class="lab-card" style="flex-direction: column; align-items: flex-start; gap: 0.3rem;"><span class="lab-card-num" style="font-size:0.85rem; width:auto;">6. Docker Security Ops</span><span style="font-size:0.72rem; color:#555; line-height:1.4;">Сканирование образов, Content Trust, мониторинг, incident response</span></div>
-</div>
+    - Не задавать пользователей с правами «root» для работы сервисов внутри контейнеров. 
+    - Не запускать контейнеры в привилегированном режиме. 
+    - Не отключать профили безопасности Docker. 
+    - Не допускать запуск контейнеров, использующих тип сети «host»
+    - Не разрешать доступ к docker.socket изнутри контейнера. Не подключать docker socket в контейнер без необходимости, либо с использованием плагинов авторизации. 
+    - Не использовать секреты в открытом виде в Docker-файлах образов. По возможности не использовать переменные окружения и не хранить секреты внутри контейнера. Хранение и управление секретами возложить на сторонний сервис.
+    - Ограничивать и контролировать использование ресурсов контейнерами. Указывать ограничения на уровне самого ПО или на уровне контейнеров для использования ресурсов хоста.
+    - Контролировать качество базовых образов контейнеров. Использовать официальные образы и использовать образы с минимально необходимым набором инструментов.
+    - Сканировать образы на наличие уязвимостей и проверки требований ИБ (Compliance Checks)
+    - Сбрасывание capabilities уменьшает поверхность атаки
+    - Файловые системы только для чтения предотвращают фальсификалирование
+    - Пространства имен пользователя улучшает изоляцию
 
 ***
 
@@ -89,12 +76,12 @@ $ sudo systemctl start docker
 $ docker pull docker/docker-bench-security
 ```
 
-- [ ] 2. Проверьте работу Docker и сделайте скрипт `audit.sh` исполняемым
-- [ ] 3. Разверните уязвимое приложение как отдельные стенды
+- [ ] 2. Проверьте работу докера и сделать скрипт `audit.sh` исполняемым
+- [ ] 3. Развернуть уязвимое приложение как отдельные стенды
 
 ```bash
 $ docker compose up -d # основной web, app, postgres
-$ docker-compose -f vulnerable-app.yml up -d # поверх для vulnerable-web, debug-shell
+$ docker-compose -f dvulnerable-app.yml up -d # поверх для vulnerable-web, debug-shell
     -f # file
     up # создает и поднимает файлы из compose
     -d # фоновый режим
@@ -115,8 +102,8 @@ $ deactivate # или $ deactivate 2>/dev/null || true
 - [ ] 7. Оцените риски ИБ и предложите меры для их снижения: 
 > - Следует разобрать `.yaml` описав, что в них считается не безопасным и почему
 > - Опишите сценарии реализации рисков CR, DL
-> - Предложите исправленные `.yaml`
-- [ ] 8. Сделайте анализ уязвимостей из сгенерированных файлов .odt, .xlsx и опишите их в отчете. Файлы конвертируются в эти директории
+> - Предложили исправленные `.yaml`
+- [ ] 8. Сделайте анализ уязвимостей из сгенерированных файлов .odt, .xslx и опишите их в отчете. Файлы конвертируются в эти директории
 
 ```bash
 "├── json/          (Trivy JSON outputs)"
@@ -126,42 +113,17 @@ $ deactivate # или $ deactivate 2>/dev/null || true
 ```
 
 - [ ] 9. Подготовьте отчет `gist`.
-- [ ] 10. Почистите кеш от `venv`, остановите уязвимое приложение и почистите контейнеры
+- [ ] 10. Почистите кеш от `venv` и остановите уязвимостей приложение, почистите контейнера
 
 ```bash
 $ rm -rf venv
-$ docker-compose -f vulnerable-app.yml down
+$ docker-compose -f demo-vulnerable-app.yml down
 $ docker system prune -f
 ```
  
 ***
 
-## Container Vulnerability Scanning (Trivy)
-
-Помимо аудита конфигурации (CIS Benchmark), важно сканировать сами образы на известные CVE в OS-пакетах и языковых зависимостях.
-
-- [ ] 11. Установите Trivy и просканируйте образы из `docker-compose.yml`
-
-```bash
-# установка (macOS)
-$ brew install aquasecurity/trivy/trivy
-
-# установка (Linux)
-$ curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
-
-# сканирование образа из compose
-$ trivy image --severity HIGH,CRITICAL <image_name>:<tag>
-
-# JSON-отчёт для анализа
-$ trivy image --format json --output audit_reports/json/trivy-report.json <image_name>:<tag>
-```
-
-- [ ] 12. Проанализируйте результаты Trivy: определите, из каких слоёв приходят уязвимости — из базового образа или из установленных зависимостей. Предложите меры снижения: обновление base image, пиннинг версий, multi-stage build
-- [ ] 13. Сравните подходы: CIS Benchmark (конфигурация хоста) vs Trivy (CVE в образах). В каких ситуациях нужен каждый?
-
-***
-
-## Troubleshooting
+## Troobleshooting
 
 - Права для исполнения скрипта
 
@@ -173,23 +135,18 @@ $ chmod +x xxx.sh # разрешение прав при permission denied
 
 ***
 
-## Смотри также
-
-- [Лаб. №5 — Docker](https://course.geminishkv.tech/labs/basic/lab05/) — основы Docker и контекст безопасности
-- [Лаб. №7 — SAST/SCA](https://course.geminishkv.tech/labs/basic/lab07/) — статический анализ кода и зависимостей
-- [CheatSheet: Dockerfile Security](https://course.geminishkv.tech/materials/cheatsheet/CHEATSHEET_DOCKERFILE_SECURITY/) — безопасная сборка образов
-- [Установка AppSec-инструментов](https://course.geminishkv.tech/labs/intro/appsec_tools_setup/) — установка Trivy, Hadolint, Docker Bench
-
-***
-
 ## Links
 
-<div class="lab-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-<a class="lab-card" href="https://docs.docker.com/" target="_blank"><div class="lab-card-body"><div class="lab-card-title">Docker</div><div class="lab-card-tags"><span class="lab-tag">docs.docker.com</span></div></div><div class="lab-card-arrow">→</div></a>
-<a class="lab-card" href="https://docs.docker.com/engine/security/" target="_blank"><div class="lab-card-body"><div class="lab-card-title">Docker Engine security</div><div class="lab-card-tags"><span class="lab-tag">docs.docker.com</span></div></div><div class="lab-card-arrow">→</div></a>
-<a class="lab-card" href="https://github.com/docker/docker-bench-security" target="_blank"><div class="lab-card-body"><div class="lab-card-title">Docker Bench for Security</div><div class="lab-card-tags"><span class="lab-tag">github.com</span></div></div><div class="lab-card-arrow">→</div></a>
-<a class="lab-card" href="https://www.cisecurity.org/benchmark/docker" target="_blank"><div class="lab-card-body"><div class="lab-card-title">CIS Docker Benchmark</div><div class="lab-card-tags"><span class="lab-tag">cisecurity.org</span></div></div><div class="lab-card-arrow">→</div></a>
-<a class="lab-card" href="https://aquasecurity.github.io/trivy/" target="_blank"><div class="lab-card-body"><div class="lab-card-title">Trivy: Container Security Scanner</div><div class="lab-card-tags"><span class="lab-tag">aquasecurity.github.io</span></div></div><div class="lab-card-arrow">→</div></a>
-<a class="lab-card" href="https://gist.github.com" target="_blank"><div class="lab-card-body"><div class="lab-card-title">Gist</div><div class="lab-card-tags"><span class="lab-tag">gist.github.com</span></div></div><div class="lab-card-arrow">→</div></a>
-<a class="lab-card" href="https://cli.github.com" target="_blank"><div class="lab-card-body"><div class="lab-card-title">GitHub CLI</div><div class="lab-card-tags"><span class="lab-tag">cli.github.com</span></div></div><div class="lab-card-arrow">→</div></a>
-</div>
+- [Docker](https://docs.docker.com/)
+- [Docker Engine security](https://docs.docker.com/engine/security/)
+- [Docker Bench for Security](https://github.com/docker/docker-bench-security)
+- [CIS Docker Benchmark](https://www.cisecurity.org/benchmark/docker)
+- [Trivy: Container Security Scanner](https://aquasecurity.github.io/trivy/)
+- [Markdown](https://stackedit.io)
+- [Gist](https://gist.github.com)
+- [GitHub Docs](https://docs.github.com/en)
+- [GitHub CLI](https://cli.github.com)
+
+Copyright (c) 2025 Elijah S Shmakov
+
+![Logo](../../assets/logotype/logo.jpg)

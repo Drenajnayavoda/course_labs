@@ -1,29 +1,29 @@
-import logging
-import os
+from flask import Flask, request, make_response, jsonify, escape, abort
 import sqlite3
+import os
 import subprocess
-
-from flask import Flask, make_response, request
+import logging
+import ast
+import operator
 
 app = Flask(__name__)
 
-app.config["DEBUG"] = False  # Отключен DEBUG режим в production
+app.config["DEBUG"] = False
 
-DB_USER = "admin"
-DB_PASSWORD = "SuperSecret123"
-DB_PATH = "app.db"
+DB_PATH = os.environ.get("DB_PATH", "app.db")
 
-logging.basicConfig(level=logging.INFO)  # Изменен уровень логирования с DEBUG на INFO
+logging.basicConfig(level=logging.INFO)
 
 
 def get_db():
     conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
     return conn
 
 
 @app.route("/")
 def index():
-    return "Application is running"
+    return "Vulnerable lab07 app v1.0 (hardened)"
 
 
 @app.route("/user")
@@ -31,123 +31,122 @@ def get_user():
     username = request.args.get("name", "")
     conn = get_db()
     cur = conn.cursor()
-    query = f"SELECT id, name, email FROM users WHERE name = '{username}'"  # nosec B608
-    app.logger.debug("Executing query: %s", query)
-    rows = cur.execute(query).fetchall()
+    cur.execute("SELECT id, name, email FROM users WHERE name = ?", (username,))
+    rows = [dict(row) for row in cur.fetchall()]
     conn.close()
-    return {"result": rows}
+    return jsonify(result=rows)
 
 
 @app.route("/search")
 def search():
     q = request.args.get("q", "")
-    html = f"<h1>Results for: {q}</h1>"
+    safe_q = escape(q)
+    html = f"<h1>Results for: {safe_q}</h1>"
     return make_response(html, 200)
+
+
+ALLOWED_PING_HOSTS = {"127.0.0.1", "localhost", "::1"}
 
 
 @app.route("/ping")
 def ping():
-    import ipaddress
-
     host = request.args.get("host", "127.0.0.1")
-    try:
-        # Валидация IP адреса
-        ipaddress.ip_address(host)
-        # Использование subprocess вместо os.system
-        result = subprocess.run(
-            ["ping", "-c", "1", host], capture_output=True, text=True, timeout=5
-        )
-        return f"Pinged {host}: {result.returncode}"
-    except (ipaddress.AddressValueError, subprocess.TimeoutExpired) as e:
-        return f"Invalid host or timeout: {e}", 400
+    if host not in ALLOWED_PING_HOSTS:
+        abort(400, "Host not allowed")
+    res = subprocess.run(["ping", "-c", "1", host], capture_output=True, text=True)
+    return make_response(res.stdout or res.stderr, 200)
 
 
 @app.route("/backup")
 def backup():
-    target = request.args.get("target", "/tmp/backup.sql")  # nosec B108
-    cmd = ["sh", "-c", f"pg_dump mydb > {target}"]
-    subprocess.call(cmd)
-    return f"Backup to {target} started"
+    return "Backup endpoint disabled for security reasons", 403
+
+
+ALLOWED_READ_DIR = os.path.abspath(os.environ.get("ALLOWED_READ_DIR", "/app/data"))
 
 
 @app.route("/read")
 def read_file():
-    import pathlib
-
-    # Полностью безопасная реализация - только предопределенные файлы
-    allowed_files = {"config": "/app/config.yaml", "readme": "/app/README.md"}
-    file_key = request.args.get("file", "")
-    if not file_key or file_key not in allowed_files:
-        return "Invalid file parameter. Allowed: " + ", ".join(
-            allowed_files.keys()
-        ), 400
+    path = request.args.get("path", "")
     try:
-        file_path = pathlib.Path(allowed_files[file_key])
-        if not file_path.exists():
-            return "File not found", 404
-        # Использование pathlib.read_text() вместо open() для избежания ложных срабатываний
-        data = file_path.read_text(encoding="utf-8")
-        return f"<pre>{data}</pre>"
-    except Exception as e:
-        return str(e), 500
+        abs_path = os.path.abspath(path)
+        if not abs_path.startswith(ALLOWED_READ_DIR):
+            return "Access denied", 403
+        with open(abs_path, "r", encoding="utf-8") as f:
+            data = f.read()
+        return make_response(f"<pre>{escape(data)}</pre>", 200)
+    except FileNotFoundError:
+        return "Not found", 404
+    except Exception:
+        app.logger.exception("Read error")
+        return "Internal error", 500
 
 
-@app.route("/load")
+@app.route("/load", methods=["POST"])
 def load():
-    import json
-
-    data = request.args.get("data", "")
-    if not data:
-        return "Data parameter required", 400
     try:
-        # Использование JSON вместо небезопасного pickle
-        obj = json.loads(data)
-        return f"Loaded object: {obj}"
-    except json.JSONDecodeError as e:
-        return f"Invalid JSON: {e}", 400
-    except Exception as e:
-        return f"Error: {e}", 500
+        obj = request.get_json(force=True)
+        return jsonify(loaded=obj)
+    except Exception:
+        return "Invalid JSON", 400
+
+
+ALLOWED_OPERATORS = {
+    ast.Add: operator.add,
+    ast.Sub: operator.sub,
+    ast.Mult: operator.mul,
+    ast.Div: operator.truediv,
+    ast.Pow: operator.pow,
+    ast.USub: operator.neg,
+    ast.UAdd: operator.pos,
+}
+
+
+def safe_eval_expr(expr: str):
+    """
+    Parse expression with ast and evaluate only allowed nodes.
+    """
+    node = ast.parse(expr, mode="eval")
+
+    def _eval(n):
+        if isinstance(n, ast.Expression):
+            return _eval(n.body)
+        if isinstance(n, ast.BinOp):
+            left = _eval(n.left)
+            right = _eval(n.right)
+            op = type(n.op)
+            if op in ALLOWED_OPERATORS:
+                return ALLOWED_OPERATORS[op](left, right)
+            raise ValueError("Operator not allowed")
+        if isinstance(n, ast.UnaryOp):
+            operand = _eval(n.operand)
+            op = type(n.op)
+            if op in ALLOWED_OPERATORS:
+                return ALLOWED_OPERATORS[op](operand)
+            raise ValueError("Unary op not allowed")
+        if isinstance(n, ast.Num):
+            return n.n
+        if isinstance(n, ast.Constant) and isinstance(n.value, (int, float)):
+            return n.value
+        raise ValueError("Expression contains disallowed node")
+
+    return _eval(node)
 
 
 @app.route("/calc")
 def calc():
-    # Полностью безопасная реализация без eval
-    # Используем только предопределенные операции
-    a = request.args.get("a", "0")
-    b = request.args.get("b", "0")
-    op = request.args.get("op", "add")
-
+    expr = request.args.get("expr", "1+1")
     try:
-        num_a = float(a)
-        num_b = float(b)
-
-        operations = {
-            "add": lambda x, y: x + y,
-            "sub": lambda x, y: x - y,
-            "mul": lambda x, y: x * y,
-            "div": lambda x, y: x / y if y != 0 else None,
-        }
-
-        if op not in operations:
-            return "Invalid operation. Allowed: add, sub, mul, div", 400
-
-        result = operations[op](num_a, num_b)
-        if result is None:
-            return "Division by zero", 400
+        result = safe_eval_expr(expr)
         return str(result)
-    except (ValueError, TypeError) as e:
-        return f"Invalid numbers: {e}", 400
+    except Exception:
+        return "Invalid expression", 400
 
 
 @app.route("/debug")
 def debug():
-    headers = dict(request.headers)
-    env = dict(os.environ)
-    return {
-        "headers": headers,
-        "env_sample": {k: env[k] for k in list(env)[:10]},
-    }
+    return jsonify(status="ok")
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)  # nosec B104
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))

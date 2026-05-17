@@ -1,62 +1,27 @@
 <div align="center">
 <h1><a id="intro">Лабораторная работа №10</a><br></h1>
 <a href="https://docs.github.com/en"><img src="https://img.shields.io/static/v1?logo=github&logoColor=fff&label=&message=Docs&color=36393f&style=flat" alt="GitHub Docs"></a>
-<a href="https://daringfireball.net/projects/markdown"><img src="https://img.shields.io/static/v1?logo=markdown&logoColor=fff&label=&message=Markdown&color=36393f&style=flat" alt="Markdown"></a>
+<a href="https://daringfireball.net/projects/markdown"><img src="https://img.shields.io/static/v1?logo=markdown&logoColor=fff&label=&message=Markdown&color=36393f&style=flat" alt="Markdown"></a> 
+<a href="https://symbl.cc/en/unicode-table"><img src="https://img.shields.io/static/v1?logo=unicode&logoColor=fff&label=&message=Unicode&color=36393f&style=flat" alt="Unicode"></a> 
 <a href="https://shields.io"><img src="https://img.shields.io/static/v1?logo=shieldsdotio&logoColor=fff&label=&message=Shields&color=36393f&style=flat" alt="Shields"></a>
-<img src="https://img.shields.io/badge/Course-AppSec-D51A1A?style=flat" alt="Course: AppSec">
-<img src="https://img.shields.io/badge/Risk_Analysis-D51A1A?style=flat" alt="Risk Analysis">
-<img src="https://img.shields.io/badge/Contributor-Шмаков_И._С.-8b9aff?style=flat" alt="Contributor"></div>
+<a href="https://img.shields.io/badge/Risk_Analyze-2448a2"><img src="https://img.shields.io/badge/Course-Risk_Analysis-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/AppSec-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/Contributor-Шмаков_И._С.-8b9aff" alt="Contributor Badge"></a></div>
 
 ***
 
 Салют :wave:,<br>
-Данная лабораторная работа посвящена закреплению всех приобретенных навыков, где вам следует использовать все полученные знания за все время обучения.
+Данная лабораторная работа посвещена закреплению всех приобретенных навыков, где вам следует использовать все поулченные знания за все время обучения.
 
-**Эта работа позволит вам:**
+- **Эта работа позволит вам:**
 
-- Проанализировать принципы обеспечения безопасности `CI/CD-конвейера`
-- Выявить недостатки в веб-интерфейсе
-- Исследовать логику возникновения уязвимостей в коде
-- Оценить последствия отсутствия контроля в конвейере поставок ПО, которые позволяют злоумышленнику осуществить кражу конфиденциальных данных, получить несанкционированный доступ за счёт повышения привилегий, скомпрометировать архитектуру системы
+> -  Проанализировать принципы обеспечения безопасности `CI/CD-конвейера`
+> -  Выявить недостатки в веб-интерфейсе
+> -  Исследовать логику возникновения уязвимостей в коде
+> -  Оценить последствия отсутствия контроля в конвейере поставок ПО, которые позволяют злоумышленнику осуществить кражу конфиденциальных данных, получить несанкционированный доступ за счёт повышения привилегий, скомпрометировать архитектуру системы
 
-Ваша задача — на практике отработать классификацию рисков ИБ на базе примеров задач бизнеса, использовать знания по обнаружению уязвимостей, выставлению требований к разработке ПО, какие анализаторы использовать и иное.
+- Ваша задача на практике отработать классификацию рисков ИБ на базе примеров задач бизнеса, использовать знания по обнаружению уязвимостей, выставлению требований к разработке ПО, какие анализаторы использовать и иное 
+- Отработка знаний позволит вам научиться получать и добиваться нужного эффекта от бизнеса, приоритезировать задачи ИБ в продуктовом `RoadMap` и выделять косты бюджета на активности ИБ
 
-Отработка знаний позволит научиться приоритезировать задачи ИБ в продуктовом `RoadMap` и выделять бюджет на активности ИБ.
-
-Для сдачи данной работы также будет требоваться ответить на дополнительные вопросы по описанным темам. После выполнения задания вы получите корректировку ответов и пояснения для развития компетенций в области.
-
-***
-
-## Материал
-
-### Методология оценки рисков
-
-<div class="lab-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-<div class="lab-card" style="flex-direction: column; align-items: flex-start; gap: 0.3rem;"><span class="lab-card-num" style="font-size:0.85rem; width:auto;">1. Инвентаризация</span><span style="font-size:0.72rem; color:#555; line-height:1.4;">Определить активы: ПДн, коммерческие данные, инфраструктура, репутация. Классифицировать по критичности.</span></div>
-<div class="lab-card" style="flex-direction: column; align-items: flex-start; gap: 0.3rem;"><span class="lab-card-num" style="font-size:0.85rem; width:auto;">2. Идентификация угроз</span><span style="font-size:0.72rem; color:#555; line-height:1.4;">Описать сценарии: утечка ПДн, взлом ЛК, подмена данных, DDoS, инъекции, social engineering.</span></div>
-<div class="lab-card" style="flex-direction: column; align-items: flex-start; gap: 0.3rem;"><span class="lab-card-num" style="font-size:0.85rem; width:auto;">3. Оценка рисков</span><span style="font-size:0.72rem; color:#555; line-height:1.4;">Вероятность × Влияние. Качественная (Высокий/Средний/Низкий) или количественная (CVSS, денежная оценка).</span></div>
-<div class="lab-card" style="flex-direction: column; align-items: flex-start; gap: 0.3rem;"><span class="lab-card-num" style="font-size:0.85rem; width:auto;">4. Меры снижения</span><span style="font-size:0.72rem; color:#555; line-height:1.4;">Техническое решение + организационные меры. Баланс стоимости меры и ущерба от реализации риска.</span></div>
-<div class="lab-card" style="flex-direction: column; align-items: flex-start; gap: 0.3rem;"><span class="lab-card-num" style="font-size:0.85rem; width:auto;">5. Остаточный риск</span><span style="font-size:0.72rem; color:#555; line-height:1.4;">Документирование принятых рисков с обоснованием. Мониторинг и пересмотр при изменении контекста.</span></div>
-</div>
-
-### Структура аналитической записки
-
-> 1. **Описание ситуации** — что обнаружено, контекст бизнеса
-> 2. **Классификация рисков** — регуляторные, утечки, киберпреступления
-> 3. **Оценка** — вероятность, влияние, приоритет
-> 4. **Меры снижения** — техническое решение, организационные меры
-> 5. **Заключение** — остаточный риск, принятые риски, контроли
-
-### Инструментарий AppSec для проекта
-
-<div class="lab-grid" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));">
-<div class="lab-card" style="flex-direction: column; align-items: flex-start; gap: 0.3rem;"><div class="lab-card-title" style="font-weight:700;">SAST</div><div class="lab-card-tags"><span class="lab-tag">Semgrep</span><span class="lab-tag">Checkov</span></div></div>
-<div class="lab-card" style="flex-direction: column; align-items: flex-start; gap: 0.3rem;"><div class="lab-card-title" style="font-weight:700;">SCA</div><div class="lab-card-tags"><span class="lab-tag">OWASP DC</span><span class="lab-tag">Trivy</span></div></div>
-<div class="lab-card" style="flex-direction: column; align-items: flex-start; gap: 0.3rem;"><div class="lab-card-title" style="font-weight:700;">DAST</div><div class="lab-card-tags"><span class="lab-tag">OWASP ZAP</span></div></div>
-<div class="lab-card" style="flex-direction: column; align-items: flex-start; gap: 0.3rem;"><div class="lab-card-title" style="font-weight:700;">Secrets</div><div class="lab-card-tags"><span class="lab-tag">Gitleaks</span><span class="lab-tag">TruffleHog</span></div></div>
-<div class="lab-card" style="flex-direction: column; align-items: flex-start; gap: 0.3rem;"><div class="lab-card-title" style="font-weight:700;">CI/CD</div><div class="lab-card-tags"><span class="lab-tag">GitHub Actions</span></div></div>
-<div class="lab-card" style="flex-direction: column; align-items: flex-start; gap: 0.3rem;"><div class="lab-card-title" style="font-weight:700;">Container</div><div class="lab-card-tags"><span class="lab-tag">Trivy</span><span class="lab-tag">CIS Bench</span></div></div>
-</div>
+Для сдачи данной работы также будет требоваться ответить на дополнительыне вопросы по описанным темам. После выполнения задания вы получите корректировку ответов и пояснения для развития компетенций в области.
 
 ***
 
@@ -131,50 +96,25 @@ lab10
 
 > Вам необходимо сформулировать минимальный и достаточный набор требований информационной безопасности для снижения рисков до приемлемого уровня. Сфокусируйтесь на рисках с наиболее простыми векторами реализации и кратчайшим временным циклом атаки. Изложите их на языке, понятном для бизнес-аудитории.
 
-- [ ] 1. Изучите формы авторизации на примере `tripadvisor.com` или аналогичного сервиса отзывов. Опишите: как работает вход в ЛК, восстановление доступа, какие данные хранятся в профиле. Зафиксируйте наблюдения в отчёте
-- [ ] 2. Составьте перечень инструментов **AppSec** для данного проекта: какие SAST, SCA, DAST, Secret Detection инструменты будете использовать и на каком этапе SDLC. Язык программирования не важен — фокус на процессе
-- [ ] 3. Для каждого выявленного риска определите стратегию обработки: **снижение**, **передача**, **принятие** или **избежание**. Для принятых рисков — обоснуйте решение (стоимость реализации vs ущерб) и опишите необходимые компенсирующие контроли
-- [ ] 4. Опишите риски ИБ, связанные с обработкой ПДн клиентов (телефон, ФИО, мессенджер) и авторизацией через ОТП-код. Для каждого риска укажите: вектор атаки, влияние и меру снижения
-- [ ] 5. Определите минимально необходимый объём ПДн по принципу KYC (Know Your Customer). Опишите требования к хранению (шифрование БД, выделенный инстанс), передаче (безопасный канал, API) и отображению (маскирование на UI) данных
-- [ ] 6. Проведите анализ уязвимостей выбранной CMS (1С Битрикс / WordPress / Opencart) на 2025 год. Найдите минимум 3 известные CVE, оцените их критичность и предложите меры устранения. Учтите риски затягивания уязвимых зависимостей при обновлении CMS
-- [ ] 7. Подготовьте аналитическую записку со следующими разделами:
-    - [ ] 7.1 — Типовые ошибки разработчиков при реализации проекта
-    - [ ] 7.2 — Анализ угроз: взлом, утечка, доступность — с классификацией активов по значимости
-    - [ ] 7.3 — Требования ИБ к проекту (функциональные и нефункциональные)
-    - [ ] 7.4 — Матрица рисков: риск → вероятность → влияние → мера → эффективность меры
-    - [ ] 7.5 — Описание 3 уязвимостей со ссылками на CWE: причина, Proof-of-Concept, мера устранения
-    - [ ] 7.6 — Принятые риски с обоснованием (простота реализации vs стоимость решения)
-    - [ ] 7.7 — Перечень контролей ИБ
-    - [ ] 7.8 — Критерии качества кода для разработчиков (Security Gates)
-- [ ] 8. Оформите `README.md` по аналогии и подготовьте отчёт `gist`
+- [ ] 1. Изучите формы авторизации и ознакомьтесь, как происходит вход в личный кабинет, как пример `tripadvisor.ru`. Посмотрите данные в личном кабинете с информацией о вас и разберитесь, как работает логика восстановления доступа к личному кабинету, изменение данных
+- [ ] 2. При разработке ПО, помимо проведения анализа рисков ИБ, определите инструментарий **Application Security**. Нам не важен язык программирования
+- [ ] 3. Учитывайте, что мы можем принять риски ИБ (рассчитайте к чему это приведет, какие меры контроля необходимы), делегировать или же отказаться от риска. В таком случае будет необходимо описать формулировку о способе принятия, что за риск и что дает. Но основная цель - это минимизация рисков ИБ
+- [ ] 4. Рассмотрите случаи, когда будут использоваться идентификационные данные клиентов (номер телефона, полная ФИО, данные о стороннем мессенджере), а также авторизация в личный кабинет будет осуществляться при использовании ОТП-кода (СМС с данными для входа, также со стороны приложения)
+- [ ] 5. Определяйте необходимость работы с ПДн только в рамках KYC Know Your Customer, а также минимально необходимой полноте данных для передачи третьей стороне. Это учитывается и влияет на риск несоответствия регуляторных требований, как пример: защита хранения базы данных, шифрования БД, маскирования данных на web-интерфейсе, а при передаче данных - безопасный канал, хранение на выделенном истансе БД, а также потока данных с сервером приложения
+- [ ] 6. При новых постановках версии CMS требуется доработка разработчиков, время на обновление конфигурации, изменение логики процессов в разработке. Это следует учитывать для случая проверки ПО во внутреннем контуре, адаптацию уже имеющего кода и его коннекторах к CMS, что может повлиять на затягивание уязвимых зависимостей кода
+- [ ] 7. Выполнить следующее
+    - [ ] 7.1  - Описать возможные ошибки, которые могут быть допущены разработчиками при реализации,
+    - [ ] 7.2  - Провести анализ на возможность взлома, утечки, доступности информации и ее категории значимости для компании,
+    - [ ] 7.3  - Описать требования ИБ,
+    - [ ] 7.4  - Описать риски, которые возникают из кейса, меры снижения рисков, описать уровень эффективности мер,
+    - [ ] 7.5  - Описать уязвимости (важно приводить ссылки на CWE и будет достаточно 3-ех таких уязвимостей), их причины возникновения, Proof-of-Concept, что нужно сделать для их контроля, либо устранения,
+    - [ ] 7.6  - Описать принятые риски – использовать логику простоты реализации и дороговизны используемых решений,
+    - [ ] 7.7  - Описать контроли,
+    - [ ] 7.8  - Описать критерии качества для разработчиков
+- [ ] 8. Подготовьте отчет `gist`.
 
 ***
 
-## Смотри также
+Copyright (c) 2025 Elijah S Shmakov
 
-- [Лаб. №4 — Risk Analysis](https://course.geminishkv.tech/labs/basic/lab04/) — первая лаба по анализу рисков ИБ
-- [Лаб. №7 — SAST/SCA](https://course.geminishkv.tech/labs/basic/lab07/) — статический анализ и зависимости
-- [Лаб. №8 — DAST](https://course.geminishkv.tech/labs/basic/lab08/) — динамическое тестирование
-- [Лаб. №9 — CI/CD](https://course.geminishkv.tech/labs/basic/lab09/) — DevSecOps пайплайн
-- [Supply Chain Attacks](https://course.geminishkv.tech/materials/examples/supply_chain_attacks/) — атаки на цепочку поставок
-
-***
-
-## Troubleshooting
-
-Если столкнулись с проблемами — смотрите [Troubleshooting](https://course.geminishkv.tech/troubleshooting/).
-
-***
-
-## Links
-
-<div class="lab-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-<a class="lab-card" href="https://owasp.org/www-community/OWASP_Risk_Rating_Methodology" target="_blank"><div class="lab-card-body"><div class="lab-card-title">OWASP Risk Rating Methodology</div><div class="lab-card-tags"><span class="lab-tag">owasp.org</span></div></div><div class="lab-card-arrow">→</div></a>
-<a class="lab-card" href="https://owasp.org/www-project-top-ten/" target="_blank"><div class="lab-card-body"><div class="lab-card-title">OWASP Top 10</div><div class="lab-card-tags"><span class="lab-tag">owasp.org</span></div></div><div class="lab-card-arrow">→</div></a>
-<a class="lab-card" href="https://csrc.nist.gov/pubs/sp/800/30/r1/final" target="_blank"><div class="lab-card-body"><div class="lab-card-title">NIST SP 800-30 — Risk Assessment</div><div class="lab-card-tags"><span class="lab-tag">csrc.nist.gov</span></div></div><div class="lab-card-arrow">→</div></a>
-<a class="lab-card" href="https://gdpr-info.eu/" target="_blank"><div class="lab-card-body"><div class="lab-card-title">GDPR — General Data Protection Regulation</div><div class="lab-card-tags"><span class="lab-tag">gdpr-info.eu</span></div></div><div class="lab-card-arrow">→</div></a>
-<a class="lab-card" href="https://cwe.mitre.org/" target="_blank"><div class="lab-card-body"><div class="lab-card-title">CWE — Common Weakness Enumeration</div><div class="lab-card-tags"><span class="lab-tag">cwe.mitre.org</span></div></div><div class="lab-card-arrow">→</div></a>
-<a class="lab-card" href="https://github.com/geminishkv/course_labs/blob/develop/artifacts/exmpls/Пример_аналитических_отчетов_по_задачам_ИБ.pdf" target="_blank"><div class="lab-card-body"><div class="lab-card-title">Пример аналитических отчетов</div><div class="lab-card-tags"><span class="lab-tag">github.com</span></div></div><div class="lab-card-arrow">→</div></a>
-<a class="lab-card" href="https://gist.github.com" target="_blank"><div class="lab-card-body"><div class="lab-card-title">Gist</div><div class="lab-card-tags"><span class="lab-tag">gist.github.com</span></div></div><div class="lab-card-arrow">→</div></a>
-<a class="lab-card" href="https://cli.github.com" target="_blank"><div class="lab-card-body"><div class="lab-card-title">GitHub CLI</div><div class="lab-card-tags"><span class="lab-tag">cli.github.com</span></div></div><div class="lab-card-arrow">→</div></a>
-</div>
+![Logo](../../assets/logotype/logo.jpg)
