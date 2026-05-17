@@ -1,4 +1,19 @@
-## intro
+---
+hide:
+  - toc
+title: "PrintNightmare — CVE-2021-34527 | Курс AppSec"
+description: "PrintNightmare (CVE-2021-34527): анализ критической RCE-уязвимости Windows Print Spooler — вектор атаки, эксплуатация и защита."
+keywords: "PrintNightmare, CVE-2021-34527, Windows, Print Spooler, уязвимость, RCE, AppSec, эксплуатация, Remote Code Execution, анализ, Шмаков Илья, Elijah Shmakov, geminishkv, AppSecTA"
+---
+
+<div class="hero-section hero-section--compact">
+  <div class="hero-content">
+    <h1 class="hero-title">PrintNightmare</h1>
+    <p class="hero-sub">Анализ уязвимости Windows Print Spooler (CVE-2021-34527)</p>
+  </div>
+</div>
+
+## Введение
 
 Исследователи из **Sangfor** опубликовали на `GitHub` техническое описание `CVE-2021-1675`, которая вытекает в `CVE-2021-34527` -> `CVE-2021-36958` -> `CVE-2021-1678` и `PoC` в открытом доступе. Ошибку назвали `PrintNightmare`, представляет дырку в диспетчере очереди печати `spoolsv.exe`. По умолчанию `Print Spooler` включен на всех машинах, за исключением `Windows Server Core`.
 
@@ -17,7 +32,7 @@
 - Позволяет использовать «поворотное» устройство для получения привилегий `SYSTEM` на других устройствах, - установив вредоносный драйвер (`LPE`). Появляется Magniber, который удаляет загрузчик `DLL`, который вводится в процесс, а затем распаковывается для локального обхода файлов и шифрования файлов на скомпрометированном устройстве 
 - `TTP` включает удаление резервных копий для предотвращения восстановления зашифрованных систем жертвами и обход средств защиты Windows для кражи учетных данных и повышения привилегий `-Vice Society` (`MITM`).
 
-##  Методология атак 
+## Методология атак
 
 - Использование таких утилит, как `proxychains` и `impacket`; 
 - Таргетинг резервных копий, для предотвращения восстановления системы; 
@@ -40,10 +55,9 @@
 - Оптимальным является отключение защиты от `CVE-2021-1678` до тех пор, пока Microsoft не выпустит новое руководство
 - Обновлением в ОС по умолчанию был активирован ключ реестра: 
 
-```bash
-[HKEY_LOCAL_MACHINE \ System \ CurrentControlSet \ Control \ Print] «RpcAuthnLevelPrivacyEnabled» = двойное слово: 00000001
+```text
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Print]
+"RpcAuthnLevelPrivacyEnabled"=dword:00000001
 ```
 
 Используется для повышения уровня проверки подлинности RPC, используемого для сетевой печати.
-
-![Логотип](../../artifacts/assets/logotypemd.jpg)

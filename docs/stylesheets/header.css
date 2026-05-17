@@ -1,32 +1,36 @@
+/* ══════════════════════════════════════════
+   Header + Tabs + Search + Burger + Logo Glow
+══════════════════════════════════════════ */
+
+/* ── Header ── */
 .md-header,
 .md-header__inner,
 .md-header-nav,
 .md-header-nav__inner {
-  background-color: #1953ff;
+  background-color: var(--brand-dark);
+}
+
+.md-header__inner {
+  display: flex;
+  align-items: center;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .md-header .md-header__title,
-.md-header .md-header__title a,
-.md-header .md-tabs__link {
-  color: #ffffff;
+.md-header .md-header__title a {
+  color: var(--text-inverse);
 }
 
-.md-typeset,
-.md-nav,
 .md-header {
-  font-family:
-    "Montserrat",
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+  font-family: var(--font-body);
 }
 
 .md-header .md-header__title {
   display: flex;
   align-items: center;
   margin-right: auto;
+  position: relative;
 }
 
 .md-header .md-logo {
@@ -35,12 +39,29 @@
   order: 2;
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.md-header__button.md-logo,
+.md-header__button.md-logo:hover,
+.md-header__button.md-logo:focus,
+.md-header__button.md-logo:active {
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+  opacity: 1 !important;
+  -webkit-tap-highlight-color: transparent !important;
 }
 
 .md-header .md-logo img {
   height: 32px;
   width: auto;
   max-width: 32px;
+  position: relative;
+  z-index: 1;
+  border-radius: 50%;
+  background: var(--brand-dark, #1A1919);
 }
 
 .md-header-nav__link,
@@ -51,7 +72,252 @@
 }
 
 .md-header__title .md-header__topic {
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
+/* ── Navigation tabs ── */
+.md-tabs {
+  background-color: var(--brand-dark);
+  border-bottom: 1px solid var(--border-gold);
+}
+
+.md-tabs__link {
+  color: var(--md-primary-bg-color--light);
+  transition: color var(--transition-base);
+}
+
+.md-tabs__link:hover,
+.md-tabs__link:focus {
+  color: var(--brand-gold);
+}
+
+.md-tabs__link--active {
+  color: var(--brand-gold);
+  border-bottom: 2px solid var(--brand-gold);
+}
+
+/* ── Repo source block ── */
+.md-source {
+  background-color: var(--brand-dark);
+  display: flex;
+  align-items: center;
+  align-self: center;
+}
+
+.md-source__fact::before {
+  display: none !important;
+}
+
+.md-source__fact {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.2em;
+}
+
+.md-source__fact svg {
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.md-source__facts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+}
+
+/* ── Header icons ── */
+.md-header__button.md-icon {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.md-header__button.md-icon:hover {
+  color: var(--brand-gold);
+}
+
+/* ── Focus ring ── */
+:focus-visible {
+  outline: 2px solid var(--brand-gold);
+  outline-offset: 2px;
+}
+
+.md-search__form:focus-visible,
+.md-search__input:focus-visible {
+  outline: none;
+}
+
+/* ── Search ── */
+.md-search__form {
+  background-color: var(--surface-page);
+  border-radius: var(--radius-sm);
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.md-search__form:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.md-search__input {
+  color: var(--brand-dark) !important;
+  background-color: transparent !important;
+}
+
+.md-search__input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.md-search__icon svg,
+.md-header .md-search__icon svg {
+  color: rgba(0, 0, 0, 0.45);
+  fill: rgba(0, 0, 0, 0.45);
+}
+
+.md-search__output {
+  background-color: var(--surface-page);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.md-search__scrollwrap {
+  background-color: var(--surface-page);
+}
+
+.md-search-result {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.md-search-result__meta {
+  background-color: #f5f5f5;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.md-search-result__article {
+  background-color: var(--surface-page);
+}
+
+.md-search-result__title {
+  color: var(--brand-dark);
+}
+
+.md-search-result__teaser {
+  color: var(--text-secondary);
+}
+
+.md-search-result__link {
+  color: var(--brand-red);
+}
+
+.md-search-result__link:hover,
+.md-search-result__link:focus {
+  background-color: rgba(249, 179, 97, 0.08);
+}
+
+.md-search-result__article--document .md-search-result__title {
+  color: var(--brand-red);
+}
+
+.md-search-result mark {
+  color: var(--brand-red);
+  background-color: rgba(249, 179, 97, 0.3);
+}
+
+/* ── Burger menu ── */
+.md-header__button.md-icon[for="__drawer"] {
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
+}
+
+.md-header__button.md-icon[for="__drawer"] svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  color: var(--text-inverse);
+  fill: currentColor;
+}
+
+.md-header__button.md-icon[for="__drawer"]:hover {
+  transform: translateY(-3px);
+}
+
+.md-header__button.md-icon[for="__drawer"]:active {
+  transform: translateY(0);
+}
+
+@media screen and (min-width: 3000px) {
+  .md-container {
+    max-width: 3000px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1220px) {
+  .md-header__button.md-icon[for="__drawer"] {
+    display: none;
+  }
+}
+
+/* ── Logo glow ring (header) ── */
+.md-header .md-logo::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background-image: linear-gradient(
+    var(--brand-red, #D51A1A),
+    var(--brand-gold, #F9B361),
+    var(--brand-red, #D51A1A)
+  );
+  animation: logo-ring-rotate 2.4s linear infinite;
+  z-index: 0;
+}
+
+.md-header .md-logo::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background-image: linear-gradient(
+    var(--brand-red, #D51A1A),
+    var(--brand-gold, #F9B361),
+    var(--brand-red, #D51A1A)
+  );
+  animation: logo-ring-rotate 2.4s linear infinite;
+  filter: blur(6px);
+  opacity: 0.5;
+  z-index: 0;
+}
+
+@keyframes logo-ring-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-header .md-logo::before,
+  .md-header .md-logo::after {
+    animation: none;
+  }
+}
+
+/* ── Responsive (≤480px) ── */
+@media screen and (max-width: 480px) {
+  .md-source__repository {
+    font-size: 0.6rem;
+  }
+
+  .md-source__fact svg {
+    width: 11px;
+    height: 11px;
+  }
+}

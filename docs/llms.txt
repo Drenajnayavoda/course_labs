@@ -1,0 +1,45 @@
+# Application Security & DevSecOps Course
+# https://course.geminishkv.tech
+# Author: Elijah S Shmakov (geminishkv) — Application Security Teamlead
+# Language: Russian
+
+## About
+This is a practical Application Security (AppSec) and DevSecOps course created by Elijah S Shmakov for BMSTU (Bauman Moscow State Technical University) and MIPT (Moscow Institute of Physics and Technology). The course covers the full secure development lifecycle: from Git basics to CI/CD pipeline security.
+
+## Structure
+- 7 introductory guides (VirtualBox setup, Git/GPG, Gistup reports, Networking/TCP-IP, Docker basics, CI/CD intro, AppSec tools installation)
+- 10 lab works (Git, Linux, Nmap, Risk Analysis, Docker, CIS Benchmark, SAST/SCA/Secret Detection, DAST, DevSecOps CI/CD, Final Risk Analysis)
+- 1 pet-project (full AppSec/DevSecOps stack)
+- 7 tests (5 basic variants + 2 Fintech lecture variants)
+- Reference materials: OWASP Top 10, CheatSheets, examples, lectures
+
+## Topics Covered
+- Git, GitHub, GPG signing, SSH keys
+- Linux permissions, SUID, SGID, Sticky bit, POSIX ACL
+- Network scanning with Nmap, NSE scripts
+- Risk analysis methodology (ISO 27005, NIST SP 800-30, OWASP Risk Rating)
+- Docker containerization, Dockerfile security, Docker Compose
+- CIS Docker Benchmark, Docker Bench Security, Trivy
+- SAST: Semgrep, Checkov, Bandit
+- SCA: OWASP Dependency-Check
+- Secret Detection: Gitleaks, TruffleHog, pre-commit hooks
+- DAST: OWASP ZAP (baseline + active scan)
+- DevSecOps CI/CD: GitHub Actions pipelines with Quality Gates
+- Compliance: GDPR, 152-FZ, 115-FZ (AML), PCI DSS, GOST 57580
+
+## Author
+- Name: Elijah S Shmakov
+- Handle: geminishkv
+- Role: Application Security Teamlead
+- Website: https://geminishkv.tech
+- Course: https://course.geminishkv.tech
+- GitHub: https://github.com/geminishkv
+- Telegram: https://t.me/shmakovis_appsec
+- LinkedIn: https://www.linkedin.com/in/geminishkvdev
+
+## Key URLs
+- Homepage: https://course.geminishkv.tech/
+- Lab 07 (SAST/SCA): https://course.geminishkv.tech/labs/basic/lab07/
+- Lab 09 (CI/CD): https://course.geminishkv.tech/labs/basic/lab09/
+- Fintech lecture: https://course.geminishkv.tech/materials/lectures/fintech_ru/
+- Sitemap: https://course.geminishkv.tech/sitemap.xml

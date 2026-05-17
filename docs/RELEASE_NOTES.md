@@ -1,10 +1,19 @@
 ---
-title: RELEASE NOTES
-description: Описание изменений для проекта и структуры Лабораторных Работ для AppSec и анализа рисков ИБ.
+render_macros: false
+title: "Release Notes — история изменений курса AppSec"
+description: "Release Notes курса AppSec: полная история обновлений лабораторных работ, материалов по OWASP, DevSecOps и анализу рисков ИБ."
+keywords: "release notes, changelog, AppSec, лабораторные работы, обновления, DevSecOps, история изменений, версии, Шмаков Илья, Elijah Shmakov, geminishkv, AppSecTA"
 ---
+
+<div class="hero-section hero-section--compact">
+  <div class="hero-content">
+    <h1 class="hero-title">Официальные релизы</h1>
+    <p class="hero-sub">История изменений курса и лабораторных работ</p>
+  </div>
+</div>
+
+<div class="no-section-nums" markdown="1">
 
 {% include-markdown  "../RELEASE_NOTES.md" %}
 
-***
-
-![Логотип](artifacts/assets/logotypemd.jpg)
+</div>

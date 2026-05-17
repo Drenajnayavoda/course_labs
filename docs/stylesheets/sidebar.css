@@ -1,47 +1,132 @@
+/* ── Primary sidebar (navigation) ── */
 .md-sidebar--primary .md-nav,
 .md-sidebar--primary .md-sidebar__inner {
-  font-size: 0.6rem;
+  font-size: var(--text-sm);
+}
+
+.md-sidebar--primary .md-nav__item {
+  margin: 0;
+  padding: 0;
 }
 
 .md-sidebar--primary .md-nav__link,
-.md-sidebar--primary .md-nav__link:visited {
-  font-size: 0.7rem;
-  color: #1953ff;
-  margin: 0.35rem 0;
+.md-sidebar--primary .md-nav__link:visited,
+.md-sidebar--primary .md-nav__item--active > .md-nav__link,
+.md-sidebar--primary .md-nav__link--active {
+  font-size: var(--text-sm);
+  line-height: 1.25;
+  color: var(--brand-red);
+  margin: 0;
+  padding: 0.2rem 0.6rem;
+  white-space: normal;
 }
 
 .md-sidebar--primary .md-nav__item--active > .md-nav__link,
 .md-sidebar--primary .md-nav__link--active {
   font-weight: 700;
-  color: #1953ff;
-  margin: 0.15rem 0;
+}
+
+/* Разделитель между корневыми группами */
+.md-sidebar--primary .md-nav--primary > .md-nav__list > .md-nav__item + .md-nav__item {
+  margin-top: 0.2rem;
+}
+
+/* Вложенные списки — компактные, без лишних отступов */
+.md-sidebar--primary .md-nav__item .md-nav {
+  margin: 0;
+  padding: 0;
+}
+
+.md-sidebar--primary .md-nav__item .md-nav .md-nav__link {
+  padding: 0.15rem 0.6rem;
+}
+
+.md-sidebar--primary .md-nav__link:hover,
+.md-sidebar--primary .md-nav__link:focus {
+  color: var(--brand-gold);
+  background-color: rgba(249, 179, 97, 0.08);
 }
 
 .md-sidebar--primary .md-nav--primary .md-nav__title {
-  background-color: #1953ff;
-  color: #ffffff;
+  background-color: transparent;
+  line-height: 1.5;
+  margin-bottom: 0.4rem;
 }
 
 .md-sidebar--primary .md-sidebar__inner .md-header-nav {
   display: flex;
   align-items: center;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+  padding-top: var(--space-1);
+  padding-bottom: var(--space-1);
 }
 
 .md-sidebar--primary .md-sidebar__title {
-  color: #ffffff;
-  padding: 0.75rem 1rem;
+  color: var(--text-inverse);
+  padding: var(--space-3) var(--space-4);
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: var(--space-3);
 }
 
 .md-sidebar--primary .md-nav__title {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding-left: 1rem;
+  padding-left: var(--space-4);
   gap: 0;
-  color: #1953ff;
+  color: var(--brand-red);
+  position: static;
+}
+
+/* ── Secondary sidebar (TOC) ── */
+.md-sidebar--secondary .md-nav__link,
+.md-sidebar--secondary .md-nav__link:visited {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.3;
+  padding: 0.15rem 0.6rem;
+}
+
+.md-sidebar--secondary .md-nav__link:hover,
+.md-sidebar--secondary .md-nav__link:focus {
+  color: var(--brand-red);
+}
+
+.md-sidebar--secondary .md-nav__link--active,
+.md-sidebar--secondary .md-nav__item--active > .md-nav__link {
+  color: var(--brand-red);
+  font-weight: 600;
+  border-left: 2px solid var(--brand-red);
+  padding-left: 0.4rem;
+}
+
+/* ── Repo source in sidebar drawer — transparent bg ── */
+.md-sidebar--primary .md-source {
+  background-color: transparent;
+}
+
+/* ── Hide logo in sidebar on tablet ── */
+@media screen and (max-width: 1220px) {
+  .md-sidebar--primary .md-logo,
+  .md-sidebar--primary .md-logo img {
+    display: none !important;
+  }
+}
+
+/* ── Scrollbar ── */
+.md-sidebar__inner::-webkit-scrollbar {
+  width: 4px;
+}
+
+.md-sidebar__inner::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.md-sidebar__inner::-webkit-scrollbar-thumb {
+  background: rgba(213, 26, 26, 0.3);
+  border-radius: 2px;
+}
+
+.md-sidebar__inner::-webkit-scrollbar-thumb:hover {
+  background: rgba(213, 26, 26, 0.6);
 }

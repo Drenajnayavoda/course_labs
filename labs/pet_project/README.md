@@ -1,50 +1,41 @@
 <div align="center">
-<h1><a id="intro">Лабораторная работа №8</a><br></h1>
+<h1><a id="intro">Pet Project</a><br></h1>
 <a href="https://docs.github.com/en"><img src="https://img.shields.io/static/v1?logo=github&logoColor=fff&label=&message=Docs&color=36393f&style=flat" alt="GitHub Docs"></a>
-<a href="https://daringfireball.net/projects/markdown"><img src="https://img.shields.io/static/v1?logo=markdown&logoColor=fff&label=&message=Markdown&color=36393f&style=flat" alt="Markdown"></a> 
-<a href="https://symbl.cc/en/unicode-table"><img src="https://img.shields.io/static/v1?logo=unicode&logoColor=fff&label=&message=Unicode&color=36393f&style=flat" alt="Unicode"></a> 
+<a href="https://daringfireball.net/projects/markdown"><img src="https://img.shields.io/static/v1?logo=markdown&logoColor=fff&label=&message=Markdown&color=36393f&style=flat" alt="Markdown"></a>
 <a href="https://shields.io"><img src="https://img.shields.io/static/v1?logo=shieldsdotio&logoColor=fff&label=&message=Shields&color=36393f&style=flat" alt="Shields"></a>
-<a href="https://img.shields.io/badge/Risk_Analyze-2448a2"><img src="https://img.shields.io/badge/Course-Risk_Analysis-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/AppSec-2448a2" alt= "RA"></a> <img src="https://img.shields.io/badge/Contributor-Шмаков_И._С.-8b9aff" alt="Contributor Badge"></a></div>
+<img src="https://img.shields.io/badge/Course-AppSec-D51A1A?style=flat" alt="Course: AppSec">
+<img src="https://img.shields.io/badge/Full_Stack-D51A1A?style=flat" alt="Full Stack">
+<img src="https://img.shields.io/badge/AppSec-333333?style=flat" alt="AppSec">
+<img src="https://img.shields.io/badge/DevSecOps-333333?style=flat" alt="DevSecOps">
+<img src="https://img.shields.io/badge/Contributor-Шмаков_И._С.-8b9aff?style=flat" alt="Contributor"></div>
 
 ***
 
 Салют :wave:,<br>
-Данная лабораторная работа посвещена 
-
-Для сдачи данной работы также будет требоваться ответить на дополнительыне вопросы по описанным темам.
-
-***
-
-## Структура репозитория лабораторной работы
-
-```bash
-lab08
-```
-
-***
-
-## Материал
-
-- 
+Pet Project — это финальная самостоятельная работа курса. Вы выбираете индивидуальный проект совместно с преподавателем
+и применяете весь стек изученных инструментов и практик AppSec/DevSecOps к реальному или учебному приложению.
 
 ***
 
 ## Задание
 
-- [ ] 1. 
+- [ ] 1. Свяжитесь с преподавателем для согласования темы и области применения индивидуального проекта
+- [ ] 2. Согласуйте с преподавателем объём работ, критерии приёмки и срок сдачи
+- [ ] 3. Приступайте к работе по согласованному плану
+
+!!! info "Контакт с преподавателем"
+    Для выбора темы и уточнения деталей обратитесь к преподавателю лично или через установленный канал связи курса.
 
 ***
 
+## Troubleshooting
+
+Если столкнулись с проблемами — смотрите [Troubleshooting](https://course.geminishkv.tech/troubleshooting/).
+
 ## Links
 
-- [Docker](https://docs.docker.com/)
-- [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/)
-- [Semgrep CLI](https://semgrep.dev/docs/getting-started/cli) 
-- [Checkov](https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html) 
-- [Markdown](https://stackedit.io)
-- [Gist](https://gist.github.com)
-- [GitHub CLI](https://cli.github.com)
-
-Copyright (c) 2025 Elijah S Shmakov
-
-![Logo](../../assets/logotype/logo.jpg)
+<div class="lab-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+<a class="lab-card" href="https://stackedit.io" target="_blank"><div class="lab-card-body"><div class="lab-card-title">Markdown</div><div class="lab-card-tags"><span class="lab-tag">stackedit.io</span></div></div><div class="lab-card-arrow">→</div></a>
+<a class="lab-card" href="https://gist.github.com" target="_blank"><div class="lab-card-body"><div class="lab-card-title">Gist</div><div class="lab-card-tags"><span class="lab-tag">gist.github.com</span></div></div><div class="lab-card-arrow">→</div></a>
+<a class="lab-card" href="https://cli.github.com" target="_blank"><div class="lab-card-body"><div class="lab-card-title">GitHub CLI</div><div class="lab-card-tags"><span class="lab-tag">cli.github.com</span></div></div><div class="lab-card-arrow">→</div></a>
+</div>

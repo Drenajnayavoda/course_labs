@@ -1,16 +1,20 @@
 ---
-site_name: AppSecCource
-site_url: "https://geminishkv.github.io/course_labs/"
+site_name: Application Security & DevSecOps
+site_url: "https://course.geminishkv.tech/"
 site_description: >
   Практический курс по прикладной безопасности приложений: лабораторные работы и аннотационные материалы
   для прокачки навыков в ИБ (информационной безопасности), а также чеклисты и методички по AppSec, DevSecOps
   и OWASP Top 10.
 site_author: "Илья Шмаков"
+repo_url: https://github.com/geminishkv/course_labs
+repo_name: geminishkv/course_labs
+edit_uri: edit/develop/docs/
 
 theme:
   name: material
   language: ru
-  logo: artifacts/assets/logo.png
+  custom_dir: docs/overrides
+  logo: artifacts/assets/logo_white.svg
   icon:
     menu: fontawesome/solid/bars-staggered
     top: fontawesome/solid/angles-up
@@ -19,9 +23,7 @@ theme:
     next: fontawesome/solid/angles-right
     close: fontawesome/solid/xmark
   favicon: artifacts/assets/favicon.ico
-  font:
-    text: Montserrat
-    code: Segoe UI
+  font: false
   features:
     - navigation.indexes
     - search.highlight
@@ -29,21 +31,40 @@ theme:
     - navigation.top
     - search.share
     - search.suggest
-    - analytics
-    - content.tables
     - content.code.copy
     - content.code.select
     - content.code.annotate
     - content.action.view
     - navigation.instant
     - navigation.instant.prefetch
-    - content.lazy
+    - toc.follow
 
 plugins:
   - search
+  - social:
+      cards: true
+      cards_layout_options:
+        background_color: "#1A1919"
+        color: "#ffffff"
+        font_family: Roboto
   - meta-descriptions
   - macros
   - mkdocs-pdf
+  - minify:
+      minify_html: true
+      minify_css: true
+      minify_js: true
+      htmlmin_opts:
+        remove_comments: true
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: auto
+      height: auto
+      zoomable: true
+      draggable: true
   - include-markdown:
       heading_offset: 0
       preserve_includer_indent: false
@@ -57,48 +78,64 @@ markdown_extensions:
   - admonition
   - pymdownx.highlight:
       anchor_linenums: true
-      line_spans: __span
+      linenums: true
+      linenums_style: pymdownx-inline
       pygments_lang_class: true
       use_pygments: true
-  - pymdownx.superfences
+      pygments_style: monokai
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.inlinehilite
   - toc:
       permalink: false
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - abbr
   - pymdownx.snippets:
+      auto_append:
+        - docs/glossary.md
       check_paths: true
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.details
-  - pymdownx.tasklist
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: false
   - pymdownx.magiclink
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
   - pymdownx.smartsymbols
 
+hooks:
+  - hooks.py
+
 watch:
   - docs
 
 extra_css:
+  - stylesheets/tokens.css
   - stylesheets/header.css
-  - stylesheets/footer.css
-  - stylesheets/search.css
   - stylesheets/sidebar.css
   - stylesheets/typeset.css
-  - stylesheets/tools-overlay.css
-  - stylesheets/burger.css
-  - stylesheets/mobile-logo.css
   - stylesheets/layout.css
-  - stylesheets/clipboard.css
+  - stylesheets/banners.css
 
 extra_javascript:
-  - javascripts/custom-title.js
+  - javascripts/header.js
   - javascripts/typewriter-target.js
+  - javascripts/banners.js
+  - javascripts/effects.js
 
 extra:
+  twitter_handle: "@geminishkv"
+  yandex_verification: "a0cf47e5e3a22cfc"
+  # Вставить код после верификации в Google Search Console:
+  # google_verification: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/geminishkv
@@ -114,53 +151,80 @@ extra:
       link: https://www.linkedin.com/in/geminishkvdev
     - icon: fontawesome/regular/envelope-open
       link: mailto:shmakovis@inbox.ru
-    - icon: fontawesome/solid/rss
-      link: https://geminishkv.github.io/course_labs/feed.xml
 #  analytics:
 #    provider: google
 #    property: G-XXXXXXXXXX
 
 nav:
+  - "geminishkv.tech": "https://geminishkv.tech/"
   - "Главная страница": index.md
   - "Лабораторные работы":
-      - "Лабораторная работа №1": labs/lab01.md
-      - "Лабораторная работа №2": labs/lab02.md
-      - "Лабораторная работа №3": labs/lab03.md
-      - "Лабораторная работа №4": labs/lab04.md
-      - "Лабораторная работа №5": labs/lab05.md
-      - "Лабораторная работа №6": labs/lab06.md
-      - "Лабораторная работа №7": labs/lab07.md
-      - "Лабораторная работа №8": labs/lab08.md
-      - "Лабораторная работа №9": labs/lab09.md
-      - "Лабораторная работа №10": labs/lab10.md
+      - "Подготовка рабочего окружения": labs/intro/vmbox_tutorial.md
+      - "Настройка GitSCM": labs/intro/git_setup.md
+      - "Оформление отчётов Gistup": labs/intro/gistup_guide.md
+      - "Введение в сети и TCP/IP": labs/intro/networking_basics.md
+      - "Основы Docker": labs/intro/docker_basics.md
+      - "Введение в CI/CD": labs/intro/cicd_basics.md
+      - "Установка AppSec-инструментов": labs/intro/appsec_tools_setup.md
+      - "Базовое ознакомление":
+          - "Лабораторная работа №1": labs/basic/lab01.md
+          - "Лабораторная работа №2": labs/basic/lab02.md
+          - "Лабораторная работа №3": labs/basic/lab03.md
+          - "Лабораторная работа №4": labs/basic/lab04.md
+          - "Лабораторная работа №5": labs/basic/lab05.md
+          - "Лабораторная работа №6": labs/basic/lab06.md
+          - "Лабораторная работа №7": labs/basic/lab07.md
+          - "Лабораторная работа №8": labs/basic/lab08.md
+          - "Лабораторная работа №9": labs/basic/lab09.md
+          - "Лабораторная работа №10": labs/basic/lab10.md
       - "pet_project": labs/pet_project.md
+  - "Тесты":
+      - "Лекционные тесты":
+          - "Fintech по-русски":
+              - "Вариант 1": labs/tests/lectures/test_fintech.md
+              - "Вариант 2": labs/tests/lectures/test_fintech_v2.md
+      - "Базовое ознакомление":
+          - "Вариант №1": labs/tests/basic/test01.md
+          - "Вариант №2": labs/tests/basic/test02.md
+          - "Вариант №3": labs/tests/basic/test03.md
+          - "Вариант №4": labs/tests/basic/test04.md
+          - "Вариант №5": labs/tests/basic/test05.md
   - "Материалы":
+      - "Лекции":
+          - "Fintech по-русски": materials/lectures/fintech_ru.md
       - "Примеры":
-          - "Аналитические кейсы": materials/examples/exmpl.md
-          - "Использование MultiSiq": materials/examples/Multisignature.md
+          - "Cases": materials/examples/exmpl.md
+          - "MultiSiq": materials/examples/Multisignature.md
           - "PrintNightmare": materials/examples/PrintNightmare.md
           - "Risk Analysis": materials/examples/RA.md
-      - "Лицензии ПО": licenses.md
-      - "Классификация инструментов": appsec_tt.md
+          - "Supply Chain Attacks": materials/examples/supply_chain_attacks.md
+      - "Порты и протоколы": materials/ports.md
+      - "Лицензии ПО": materials/licenses.md
+      - "Классификация инструментов": materials/appsec_tt.md
       - "OWASP TOP 10":
           - "CI/CD Risks": materials/OWASPTOP10/OWASP_Top_10_CICD_Risks.md
           - "Authorization": materials/OWASPTOP10/Authorization.md
           - "Authentication": materials/OWASPTOP10/Authentication.md
-          - "Client-side Attacks": materials/OWASPTOP10/Client-side Attacks.md
-          - "Command Execution": materials/OWASPTOP10/Command Execution.md
-          - "Logical Attacks": materials/OWASPTOP10/Logical Attacks.md
-          - "Information Disclosure": materials/OWASPTOP10/Information Disclosure.md
-  - "CheatSheet":
-      - "GitHub CLI": artifacts/cheatsheet/CHEATSHEET_GH_CLI.md
-      - "GitSCM": artifacts/cheatsheet/CHEATSHEET_GIT.md
-      - "Docker": artifacts/cheatsheet/CHEATSHEET_DOCKER.md
-      - ".dockerignore": artifacts/cheatsheet/CHEATSHEET_DOCKERIGNORE.md
-      - ".gitignore": artifacts/cheatsheet/CHEATSHEET_GITIGNORE.md
-  - "Приложение": APPENDIX.md
-  - "Блог": channel.md
+          - "Client-side Attacks": materials/OWASPTOP10/client-side-attacks.md
+          - "Command Execution": materials/OWASPTOP10/command-execution.md
+          - "Logical Attacks": materials/OWASPTOP10/logical-attacks.md
+          - "Information Disclosure": materials/OWASPTOP10/information-disclosure.md
+      - "CheatSheet":
+          - "GitHub CLI": materials/cheatsheet/CHEATSHEET_GH_CLI.md
+          - "GitSCM": materials/cheatsheet/CHEATSHEET_GIT.md
+          - "Docker": materials/cheatsheet/CHEATSHEET_DOCKER.md
+          - ".dockerignore": materials/cheatsheet/CHEATSHEET_DOCKERIGNORE.md
+          - ".gitignore": materials/cheatsheet/CHEATSHEET_GITIGNORE.md
+          - "YAML": materials/cheatsheet/CHEATSHEET_YAML.md
+          - "HTTP Security Headers": materials/cheatsheet/CHEATSHEET_HTTP_HEADERS.md
+          - "Dockerfile Security": materials/cheatsheet/CHEATSHEET_DOCKERFILE_SECURITY.md
+          - "GitHub Actions Security": materials/cheatsheet/CHEATSHEET_GH_ACTIONS_SECURITY.md
+      - "Приложение": materials/APPENDIX.md
+      - "Troubleshooting": materials/troubleshooting.md
   - "О проекте": about.md
   - "Релизы": RELEASE_NOTES.md
   - "Политика безопасности": Security.md
-  - "AppSec Toolchain Map": "https://geminishkv.github.io/oss_toolchainmap/research-notes/"
+  - "Политика конфиденциальности": privacy.md
+  - "Application Security Toolchain Map": "https://findevsecops.github.io/oss_toolchainmap/pdf_table/tools-map.pdf"
   - "FinDevSecOps": "https://findevsecops.ru/"
   - "АО ЛАНИТ": "https://www.lanit.ru"

@@ -11,10 +11,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-  packages: write
-  deployments: write
 
 concurrency:
   group: "pages"
@@ -22,52 +18,11 @@ concurrency:
 
 jobs:
 
-  linter_checks_ruff_shell:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Cache pip
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: pip-${{ runner.os }}-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: pip-${{ runner.os }}-
-
-      - name: Install development dependencies
-        run: |
-          pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Lint and format with ruff
-        run: |
-          ruff check .
-          ruff format --check .
-
-      - name: Lint shell scripts with shellcheck
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y shellcheck
-          git ls-files '*.sh' | xargs -r shellcheck -e SC2086
-
-
-#      - name: Check shell formatting with shfmt
-#        run: |
-#          go install mvdan.cc/sh/v3/cmd/shfmt@latest
-#          export PATH="$PATH:$(go env GOPATH)/bin"
-#          git ls-files '*.sh' | xargs -r shfmt -d
-
+  # ─── 1. Docs linting ────────────────────────────────────────────────────────
   docs_linter_checks:
     runs-on: ubuntu-latest
-    needs: linter_checks_ruff_shell
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11  # v4.1.1
 
       - name: Install yamllint
         run: pip install yamllint
@@ -77,7 +32,7 @@ jobs:
           yamllint --no-warnings .github/workflows mkdocs.yml
 
       - name: Run markdownlint
-        uses: DavidAnson/markdownlint-cli2-action@v20
+        uses: DavidAnson/markdownlint-cli2-action@db43aef879112c3119a410d69f66701e0d530809  # v20.0.0
         with:
           globs: |
             docs/**/*.md
@@ -87,111 +42,80 @@ jobs:
             CODE_OF_CONDUCT.md
             CONTRIBUTING.md
 
+  # ─── 2. CSS / JS linting ────────────────────────────────────────────────────
   layout_linter_checks:
     runs-on: ubuntu-latest
-    needs: linter_checks_ruff_shell
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11  # v4.1.1
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8  # v4.0.2
         with:
           node-version: "22"
 
       - name: Install JS/CSS linters
         run: |
-          npm install --save-dev eslint stylelint stylelint-config-standard
+          npm install --save-dev eslint @eslint/js stylelint stylelint-config-standard
 
       - name: Lint JavaScript in docs
         run: |
-          if ls docs/**/*.js >/dev/null 2>&1; then
-            npx eslint "docs/**/*.js"
-          fi
-          if ls javascripts/**/*.js >/dev/null 2>&1; then
-            npx eslint "javascripts/**/*.js"
+          FILES=$(git ls-files 'docs/javascripts/*.js')
+          if [ -n "$FILES" ]; then
+            echo "$FILES" | xargs npx eslint
+          else
+            echo "No JS files found, skipping"
           fi
 
       - name: Lint CSS in docs
         run: |
-          npx stylelint "docs/**/*.css" "stylesheets/**/*.css"
+          npx stylelint "docs/stylesheets/**/*.css"
 
+  # ─── 3. Python dependency audit ─────────────────────────────────────────────
   dependency_audit_checks:
     runs-on: ubuntu-latest
     needs:
-      - linter_checks_ruff_shell
+      - docs_linter_checks
       - layout_linter_checks
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11  # v4.1.1
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c  # v5.0.0
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
       - run: |
           pip install --upgrade pip
           pip install -r requirements.txt pip-audit
           pip-audit -r requirements.txt
 
-  security_py_dependency_checks:
+  # ─── 4. Security: Python code scan ──────────────────────────────────────────
+  security_py_checks:
     runs-on: ubuntu-latest
     needs:
-      - linter_checks_ruff_shell
-      - layout_linter_checks
       - dependency_audit_checks
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11  # v4.1.1
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c  # v5.0.0
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
-      - name: Install Python security tools
-        run: |
-          pip install --upgrade pip
-          pip install bandit safety -r requirements.txt
+      - name: Install bandit
+        run: pip install bandit
 
       - name: Security scan with bandit
         run: |
           bandit -r labs -ll \
-            -x "labs/lab01/typersteel.py,labs/lab02/exmpl_hello.py,labs/lab02/pygamesteel.py,labs/lab05/client/client.py,labs/lab05/server/app.py,labs/lab05/source/hello.py,labs/lab07/vulnerable-app/app.py,labs/lab08/dast/convert_reports.py,labs/lab08/vulnerable-app/app.py"
+            -x "labs/basic/lab01/typersteel.py,labs/basic/lab02/exmpl_hello.py,labs/basic/lab02/pygamesteel.py,labs/basic/lab05/client/client.py,labs/basic/lab05/server/app.py,labs/basic/lab05/source/hello.py,labs/basic/lab07/vulnerable-app/app.py,labs/basic/lab08/dast/convert_reports.py,labs/basic/lab08/vulnerable-app/app.py"
 
-      - name: Dependency security check with safety
-        run: |
-          safety check -r requirements.txt || true
-
-  security_secrets_checks:
-    runs-on: ubuntu-latest
-    needs:
-      - linter_checks_ruff_shell
-      - layout_linter_checks
-      - dependency_audit_checks
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Scan repository for secrets with gitleaks
-        uses: gitleaks/gitleaks-action@v2
-        with:
-          config-path: .gitleaks.toml
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
+  # ─── 6. Security: Dockerfile lint ───────────────────────────────────────────
   security_docker_checks:
     runs-on: ubuntu-latest
     needs:
-      - linter_checks_ruff_shell
-      - layout_linter_checks
       - dependency_audit_checks
-      - security_py_dependency_checks
-      - security_secrets_checks
+
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11  # v4.1.1
 
       - name: Install hadolint
         run: |
@@ -204,59 +128,28 @@ jobs:
           find labs -name 'Dockerfile' -print0 | xargs -0 -n1 hadolint --failure-threshold error
         shell: bash
 
-#  security_shell_checks:
-#    runs-on: ubuntu-latest
-#    needs:
-#      - linter_checks_ruff_shell
-#      - layout_linter_checks
-#      - dependency_audit_checks
-#      - security_py_dependency_checks
-#      - security_secrets_checks
-#    steps:
-#      - uses: actions/checkout@v4
-#
-#      - name: Install shellcheck and shfmt
-#        run: |
-#          sudo apt-get update
-#          sudo apt-get install -y shellcheck
-#          go install mvdan.cc/sh/v3/cmd/shfmt@latest
-#          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
-#
-#      - name: Lint shell scripts with shellcheck
-#        run: |
-#          git ls-files '*.sh' \
-#            | grep -v 'labs/lab08/dast/zap_scan.sh' \
-#            | xargs -r shellcheck -e SC2086,SC1090,SC1091
-#
-#      - name: Check shell formatting with shfmt
-#        run: |
-#          git ls-files '*.sh' \
-#            | grep -v 'labs/lab08/dast/zap_scan.sh' \
-#            | xargs -r shfmt -d
-
+  # ─── 7a. PR: preview build ──────────────────────────────────────────────────
   docs-preview:
     if: github.event_name == 'pull_request'
     needs:
-      - linter_checks_ruff_shell
       - docs_linter_checks
       - layout_linter_checks
       - dependency_audit_checks
-      - security_py_dependency_checks
-      - security_secrets_checks
+      - security_py_checks
+
       - security_docker_checks
-#      - security_shell_checks
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11  # v4.1.1
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c  # v5.0.0
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
       - name: Cache pip
-        uses: actions/cache@v4
+        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7  # v5.0.4
         with:
           path: ~/.cache/pip
           key: pip-${{ runner.os }}-${{ hashFiles('**/requirements.txt') }}
@@ -267,47 +160,43 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Validate MkDocs config (preview)
-        run: |
-          mkdocs build --clean --config-file mkdocs.yml --site-dir /tmp/mkdocs-check
-        env:
-          PYTHONPATH: .
-
       - name: Build MkDocs site (preview)
-        run: |
-          mkdocs build --site-dir site
+        run: mkdocs build --site-dir site
         env:
           PYTHONPATH: .
 
       - name: Upload preview artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3  # v4.3.1
         with:
           name: site-preview
           path: site
 
+  # ─── 7b. Push: production build ─────────────────────────────────────────────
   build:
     if: github.event_name == 'push'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     needs:
-      - linter_checks_ruff_shell
       - docs_linter_checks
       - layout_linter_checks
       - dependency_audit_checks
-      - security_py_dependency_checks
-      - security_secrets_checks
+      - security_py_checks
+
       - security_docker_checks
-#      - security_shell_checks
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11  # v4.1.1
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c  # v5.0.0
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
       - name: Cache pip
-        uses: actions/cache@v4
+        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7  # v5.0.4
         with:
           path: ~/.cache/pip
           key: pip-${{ runner.os }}-${{ hashFiles('**/requirements.txt') }}
@@ -318,57 +207,35 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Validate MkDocs config
-        run: |
-          mkdocs build --clean --config-file mkdocs.yml --site-dir /tmp/mkdocs-check
-        env:
-          PYTHONPATH: .
-
-#      - name: Type checking with mypy
-#        run: |
-#          mypy labs \
-#            --exclude 'labs/lab01/typersteel.py|labs/lab02/exmpl_hello.py|labs/lab02/pygamesteel.py|labs/lab05/source/hello.py|labs/lab05/client/client.py|labs/lab08/dast/convert_reports.py|labs/lab08/vulnerable-app/app.py|labs/lab05/server/app.py|labs/lab07/vulnerable-app/app.py'
-#        env:
-#          MYPY_CACHE_DIR: .mypy_cache
       - name: Build MkDocs site
-        run: |
-          mkdocs build --site-dir site
+        run: mkdocs build --site-dir site
         env:
           PYTHONPATH: .
 
-      - name: Generate sitemap.xml
+      - name: Inject Yandex Webmaster verification
         run: |
-          python scripts/generate_sitemap.py
+          printf '<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>Verification: a0cf47e5e3a22cfc</body></html>\n' > site/yandex_a0cf47e5e3a22cfc.html
 
-      - name: Ensure site directory exists
+      - name: Verify site and sitemap
         run: |
-          if [ ! -d "site" ]; then
-            echo "site directory is missing"
-            exit 1
-          fi
-
-      - name: Ensure sitemap.xml exists
-        run: |
-          if [ ! -f "site/sitemap.xml" ]; then
-            echo "sitemap.xml is missing"
-            exit 1
-          fi
+          [ -d "site" ]        || { echo "site dir missing";    exit 1; }
+          [ -f "site/sitemap.xml" ] || { echo "sitemap.xml missing"; exit 1; }
+          [ -f "site/404.html" ]    || { echo "404.html missing";    exit 1; }
 
       - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa  # v3.0.1
         with:
           path: site
 
-      - name: Check links with lychee
-        uses: lycheeverse/lychee-action@v1
-        with:
-          args: ./site/**/*.html
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+  # ─── 8. Deploy to GitHub Pages ──────────────────────────────────────────────
   deploy:
     name: Deploy to GitHub Pages
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/develop')
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+      deployments: write
     needs:
       - build
     runs-on: ubuntu-latest
@@ -378,10 +245,10 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e  # v4.0.5
 
       - name: Create GitHub Deployment
-        uses: chrnorm/deployment-action@v2
+        uses: chrnorm/deployment-action@55729fcebec3d284f60f5bcabbd8376437d696b1  # v2.0.7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment: production

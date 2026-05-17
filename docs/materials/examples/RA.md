@@ -1,9 +1,19 @@
 ---
 hide:
   - toc
+title: "Risk Analysis — пример отчёта | Курс AppSec"
+description: "Анализ рисков ИБ: практический пример оценки уязвимостей HIGH/MEDIUM/LOW — вероятность угроз и меры устранения в AppSec."
+keywords: "анализ рисков, risk analysis, ИБ, уязвимости, оценка угроз, информационная безопасность, AppSec, HIGH, MEDIUM, LOW, матрица рисков, Шмаков Илья, Elijah Shmakov, geminishkv, AppSecTA"
 ---
 
-<div style="text-align:center;"><img src="../../../artifacts/exmpls/risk-analysis.png" alt="table1"></div>
+<div class="hero-section hero-section--compact">
+  <div class="hero-content">
+    <h1 class="hero-title">Risk Analysis</h1>
+    <p class="hero-sub">Оценка и управление рисками информационной безопасности</p>
+  </div>
+</div>
+
+<div style="text-align:center;"><img src="/artifacts/exmpls/risk-analysis.png" alt="risk-analysis"></div>
 
 ## Vulnerability Description NC (HIGH): 
 Нарушение требований к защите КИИ (к применяемым программным средствам, к информационному взаимодействию с иными информационными системами, информационно-телекоммуникационными сетями и т.д.) в следствии нотификаций инфраструктурных логов в telegram чат - незащищенный канал передачи данных, который не контролируется средствами и методами СЗИ.
@@ -53,5 +63,3 @@ hide:
   <summary>Scenario Impact Description</summary>
 Реализация путем социальной инженерии, отсутствие САВЗ на личных устройствах, утери оборудования, потери права владения УЗ в месенджере/почте/номера телефона (отсутствие PIN на сим-карте), etc., что приводит к компрометации инфраструктурных данных и к возможности реализации расширенного вектора атак на ОКИИ: применение шифровальщиков, реализации 0-day уязвимостей ПО, подмены конфигурации, исследованию работ приложений банка, etc., что вследствии может привести к утечке данных, DoS, негативным репутационным последствиям.
 </details>
-
-![Логотип](../../artifacts/assets/logotypemd.jpg)
