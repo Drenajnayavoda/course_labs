@@ -1,0 +1,97 @@
+rules:
+  - id: py-sql-injection-concat
+    message: >-
+      SQL Injection: SQL-запрос собран конкатенацией строк с пользовательским
+      вводом. Используйте параметризованные запросы (cur.execute(sql, params)).
+    severity: ERROR
+    languages: [python]
+    metadata:
+      category: security
+      cwe: "CWE-89: SQL Injection"
+      owasp: "A03:2021 Injection"
+    pattern-either:
+      - pattern: |
+          $CUR.execute("..." + $X)
+      - pattern: |
+          $SQL = "..." + $X
+          ...
+          $CUR.execute($SQL)
+      - pattern: |
+          $CUR.execute(f"...{$X}...")
+
+  - id: py-hardcoded-secret
+    message: >-
+      Hardcoded secret. Перенесите значение в переменные окружения,
+      vault или GitHub secrets.
+    severity: ERROR
+    languages: [python]
+    metadata:
+      category: security
+      cwe: "CWE-798: Use of Hard-coded Credentials"
+      owasp: "A07:2021 Identification and Authentication Failures"
+    pattern-either:
+      - pattern-regex: '(?i)(api[_-]?token|api[_-]?key|secret[_-]?key|password|passwd|pwd)\s*=\s*["''](?!os\.environ)[A-Za-z0-9_@!#\$%\^&\*\-\+]{8,}["'']'
+
+  - id: py-eval-user-input
+    message: >-
+      eval() с пользовательским вводом — RCE. Используйте ast.literal_eval
+      или explicit-парсер выражений.
+    severity: ERROR
+    languages: [python]
+    metadata:
+      category: security
+      cwe: "CWE-95: Eval Injection"
+      owasp: "A03:2021 Injection"
+    pattern-either:
+      - pattern: eval(request.args.get(...))
+      - pattern: |
+          $X = request.args.get(...)
+          ...
+          eval($X)
+      - pattern: |
+          $X = request.form.get(...)
+          ...
+          eval($X)
+
+  - id: py-subprocess-shell-injection
+    message: >-
+      Command Injection: subprocess вызван с shell=True и пользовательским
+      вводом в командной строке.
+    severity: ERROR
+    languages: [python]
+    metadata:
+      category: security
+      cwe: "CWE-78: OS Command Injection"
+      owasp: "A03:2021 Injection"
+    pattern-either:
+      - pattern: subprocess.check_output(f"...{$X}...", shell=True, ...)
+      - pattern: subprocess.run(f"...{$X}...", shell=True, ...)
+      - pattern: subprocess.Popen(f"...{$X}...", shell=True, ...)
+      - pattern: os.system(f"...{$X}...")
+
+  - id: py-flask-debug-true
+    message: >-
+      Flask debug=True в production: раскрывает interactive debugger
+      с возможностью RCE. Выключите debug.
+    severity: WARNING
+    languages: [python]
+    metadata:
+      category: security
+      cwe: "CWE-489: Active Debug Code"
+    pattern-either:
+      - pattern: app.run(..., debug=True, ...)
+      - pattern: app.config["DEBUG"] = True
+      - pattern: app.config['DEBUG'] = True
+
+  - id: py-debug-endpoint-exposes-env
+    message: >-
+      Endpoint возвращает os.environ / заголовки запроса — раскрытие
+      внутренней информации и секретов.
+    severity: WARNING
+    languages: [python]
+    metadata:
+      category: security
+      cwe: "CWE-200: Information Exposure"
+    pattern-either:
+      - pattern: jsonify(env=dict(os.environ), ...)
+      - pattern: jsonify(..., env=dict(os.environ))

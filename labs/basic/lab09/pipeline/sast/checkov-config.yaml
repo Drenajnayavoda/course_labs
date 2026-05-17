@@ -1,0 +1,14 @@
+framework:
+  - dockerfile
+  - docker_compose
+
+soft-fail: true
+
+quiet: false
+compact: true
+
+output: json
+output-file-path: pipeline/sast/checkov-report.json
+
+skip-check:
+  - CKV_DOCKER_4
