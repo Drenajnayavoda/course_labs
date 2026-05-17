@@ -168,23 +168,33 @@ jobs:
         with:
           target: "http://localhost:${{ env.APP_PORT }}"
           rules_file_name: "labs/basic/lab09/pipeline/dast/zap-baseline.conf"
-          cmd_options: "-J zap-report.json -r zap-report.html -I"
           fail_action: false
           allow_issue_writing: false
-          artifact_name: dast-reports-raw
 
       - name: Stop application
         if: always()
         working-directory: labs/basic/lab09
         run: docker compose down || true
 
+      - name: Collect ZAP reports
+        if: always()
+        run: |
+          mkdir -p dast-out
+          for src in report_json.json report_html.html report_md.md; do
+            [ -f "$src" ] && cp -v "$src" "dast-out/$(echo $src | sed 's/^report_/zap-report./;s/\.\(json\|html\|md\)\(\.json\|\.html\|\.md\)/\1\2/')" || true
+          done
+          # fallback simpler naming
+          [ -f report_json.json ] && cp -v report_json.json dast-out/zap-report.json
+          [ -f report_html.html ] && cp -v report_html.html dast-out/zap-report.html
+          [ -f report_md.md ]     && cp -v report_md.md     dast-out/zap-report.md
+          echo "--- dast-out contents ---"
+          ls -la dast-out/ || true
+
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: dast-reports
-          path: |
-            zap-report.json
-            zap-report.html
+          path: dast-out/
 
   report:
     name: "Unified Report"
