@@ -1,12 +1,12 @@
+version: "3.9"
 services:
   app:
-    build:
-      context: ./app
-      dockerfile: Dockerfile
+    build: ./app
     image: lab09-app:latest
     container_name: lab09-app
     ports:
       - "8080:8080"
     environment:
-      - DB_PATH=/tmp/app.db
-    restart: unless-stopped
+      - FLASK_ENV=development
+      - DEBUG=true
+      - DB_PASSWORD=SuperSecret123

@@ -1,7 +1,7 @@
 rules:
   - id: py-sql-injection-concat
     message: >-
-      SQL Injection: SQL-запрос собран конкатенацией строк с пользовательским
+      SQL Injection: SQL-запрос собран конкатенацией / f-string с пользовательским
       вводом. Используйте параметризованные запросы (cur.execute(sql, params)).
     severity: ERROR
     languages: [python]
@@ -18,6 +18,10 @@ rules:
           $CUR.execute($SQL)
       - pattern: |
           $CUR.execute(f"...{$X}...")
+      - pattern: |
+          $SQL = f"...{$X}..."
+          ...
+          $CUR.execute($SQL)
 
   - id: py-hardcoded-secret
     message: >-
@@ -30,7 +34,7 @@ rules:
       cwe: "CWE-798: Use of Hard-coded Credentials"
       owasp: "A07:2021 Identification and Authentication Failures"
     pattern-either:
-      - pattern-regex: '(?i)(api[_-]?token|api[_-]?key|secret[_-]?key|password|passwd|pwd)\s*=\s*["''](?!os\.environ)[A-Za-z0-9_@!#\$%\^&\*\-\+]{8,}["'']'
+      - pattern-regex: '(?i)(api[_-]?token|api[_-]?key|secret[_-]?key|db[_-]?password|password|passwd|pwd|jwt[_-]?secret)\s*=\s*["''](?!os\.environ)[A-Za-z0-9_@!#\$%\^&\*\-\+]{8,}["'']'
 
   - id: py-eval-user-input
     message: >-
@@ -55,8 +59,8 @@ rules:
 
   - id: py-subprocess-shell-injection
     message: >-
-      Command Injection: subprocess вызван с shell=True и пользовательским
-      вводом в командной строке.
+      Command Injection: subprocess вызван с shell=True или sh -c и пользовательским
+      вводом в командной строке. Передавайте аргументы списком и без shell=True.
     severity: ERROR
     languages: [python]
     metadata:
@@ -67,7 +71,15 @@ rules:
       - pattern: subprocess.check_output(f"...{$X}...", shell=True, ...)
       - pattern: subprocess.run(f"...{$X}...", shell=True, ...)
       - pattern: subprocess.Popen(f"...{$X}...", shell=True, ...)
+      - pattern: subprocess.call(f"...{$X}...", shell=True, ...)
       - pattern: os.system(f"...{$X}...")
+      - pattern: subprocess.call(["sh", "-c", f"...{$X}..."], ...)
+      - pattern: subprocess.run(["sh", "-c", f"...{$X}..."], ...)
+      - pattern: subprocess.Popen(["sh", "-c", f"...{$X}..."], ...)
+      - pattern: |
+          $CMD = ["sh", "-c", f"...{$X}..."]
+          ...
+          subprocess.$F($CMD, ...)
 
   - id: py-flask-debug-true
     message: >-
@@ -83,6 +95,33 @@ rules:
       - pattern: app.config["DEBUG"] = True
       - pattern: app.config['DEBUG'] = True
 
+  - id: py-reflected-xss-fstring-response
+    message: >-
+      Reflected XSS: пользовательский ввод вставлен в HTML через f-string
+      и возвращён как ответ. Экранируйте через markupsafe.escape() или
+      используйте шаблоны Jinja с автоэкранированием.
+    severity: ERROR
+    languages: [python]
+    metadata:
+      category: security
+      cwe: "CWE-79: Cross-site Scripting"
+      owasp: "A03:2021 Injection"
+    pattern-either:
+      - pattern: |
+          $X = request.args.get(...)
+          ...
+          $HTML = f"...{$X}..."
+          ...
+          return make_response($HTML, ...)
+      - pattern: |
+          $X = request.args.get(...)
+          ...
+          return make_response(f"...{$X}...", ...)
+      - pattern: |
+          $X = request.args.get(...)
+          ...
+          return f"<...{$X}..."
+
   - id: py-debug-endpoint-exposes-env
     message: >-
       Endpoint возвращает os.environ / заголовки запроса — раскрытие
@@ -95,3 +134,16 @@ rules:
     pattern-either:
       - pattern: jsonify(env=dict(os.environ), ...)
       - pattern: jsonify(..., env=dict(os.environ))
+      - pattern: |
+          $E = dict(os.environ)
+          ...
+          return {..., $K: $E, ...}
+      - pattern: |
+          $E = dict(os.environ)
+          ...
+          return {..., $K: {$K2: $E[$Y] for $Y in ...}, ...}
+      - pattern: |
+          $H = dict(request.headers)
+          $E = dict(os.environ)
+          ...
+          return {...}

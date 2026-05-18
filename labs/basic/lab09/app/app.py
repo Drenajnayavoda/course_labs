@@ -1,113 +1,153 @@
-"""Намеренно уязвимое Flask-приложение для лабораторной №9.
-
-Версия после фиксов по находкам пайплайна (пункт 15 ТЗ).
-Намеренно оставлены:
-- SQL-инъекция в /search (не была поймана semgrep — оставляем для ZAP)
-- секреты вытащены из кода в env, но Semgrep всё равно фиксирует
-  факт хранения в переменных модуля как WARNING
-"""
-
-import ast
 import logging
 import os
 import sqlite3
 import subprocess
 
-from flask import Flask, jsonify, make_response, request
-from markupsafe import escape
-
-DB_USER = os.environ.get("DB_USER", "appuser")
-DB_PASSWORD = os.environ.get("DB_PASSWORD", "")
-API_TOKEN = os.environ.get("API_TOKEN", "")
-
-DB_PATH = os.environ.get("DB_PATH", "app.db")
+from flask import Flask, make_response, request
 
 app = Flask(__name__)
-app.config["DEBUG"] = False
-app.config["SECRET_KEY"] = os.environ.get(
-    "FLASK_SECRET_KEY",
-    "fallback-not-for-prod-set-FLASK_SECRET_KEY-env-var",
-)
 
-logging.basicConfig(level=logging.INFO)
+app.config["DEBUG"] = False  # Отключен DEBUG режим в production
+
+DB_USER = "admin"
+DB_PASSWORD = "SuperSecret123"
+DB_PATH = "app.db"
+
+logging.basicConfig(level=logging.INFO)  # Изменен уровень логирования с DEBUG на INFO
 
 
-def init_db() -> None:
+def get_db():
     conn = sqlite3.connect(DB_PATH)
-    cur = conn.cursor()
-    cur.execute(
-        "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT, role TEXT)"
-    )
-    cur.execute("DELETE FROM users")
-    cur.executemany(
-        "INSERT INTO users (name, role) VALUES (?, ?)",
-        [("admin", "admin"), ("alice", "user"), ("bob", "user")],
-    )
-    conn.commit()
-    conn.close()
+    return conn
 
 
 @app.route("/")
-def index() -> str:
-    return (
-        "<h1>lab09 vulnerable app (after fix)</h1>"
-        "<ul>"
-        "<li><a href='/search?name=admin'>/search</a> (SQLi — оставлено для DAST)</li>"
-        "<li><a href='/echo?msg=hello'>/echo</a> (XSS — теперь escape)</li>"
-        "<li><a href='/calc?expr=1%2B1'>/calc</a> (eval заменён на ast.literal_eval)</li>"
-        "<li><a href='/ping?host=127.0.0.1'>/ping</a> (cmd injection — теперь allowlist + список аргументов)</li>"
-        "</ul>"
-    )
+def index():
+    return "Application is running"
+
+
+@app.route("/user")
+def get_user():
+    username = request.args.get("name", "")
+    conn = get_db()
+    cur = conn.cursor()
+    query = f"SELECT id, name, email FROM users WHERE name = '{username}'"  # nosec B608
+    app.logger.debug("Executing query: %s", query)
+    rows = cur.execute(query).fetchall()
+    conn.close()
+    return {"result": rows}
 
 
 @app.route("/search")
 def search():
-    name = request.args.get("name", "")
-    conn = sqlite3.connect(DB_PATH)
-    cur = conn.cursor()
-    # NB: SQLi оставлена намеренно — DAST baseline не активный сканер
-    # и не должен её найти; рассуждаем об этом в отчёте.
-    query = "SELECT id, name, role FROM users WHERE name = '" + name + "'"
-    app.logger.info("query: %s", query)
-    try:
-        rows = cur.execute(query).fetchall()
-    except sqlite3.Error as err:
-        return f"<pre>SQL error: {escape(str(err))}</pre>", 500
-    finally:
-        conn.close()
-    return jsonify(result=rows)
-
-
-@app.route("/echo")
-def echo():
-    msg = request.args.get("msg", "")
-    safe = escape(msg)
-    html = f"<h2>echo</h2><p>{safe}</p>"
+    q = request.args.get("q", "")
+    html = f"<h1>Results for: {q}</h1>"
     return make_response(html, 200)
-
-
-@app.route("/calc")
-def calc():
-    expr = request.args.get("expr", "1+1")
-    try:
-        result = ast.literal_eval(expr)
-    except (ValueError, SyntaxError):
-        return "invalid expression", 400
-    return str(result)
-
-
-ALLOWED_PING_HOSTS = {"127.0.0.1", "localhost", "::1"}
 
 
 @app.route("/ping")
 def ping():
+    import ipaddress
+
     host = request.args.get("host", "127.0.0.1")
-    if host not in ALLOWED_PING_HOSTS:
-        return "host not allowed", 400
-    out = subprocess.check_output(["ping", "-c", "1", host], text=True)
-    return f"<pre>{escape(out)}</pre>"
+    try:
+        # Валидация IP адреса
+        ipaddress.ip_address(host)
+        # Использование subprocess вместо os.system
+        result = subprocess.run(
+            ["ping", "-c", "1", host], capture_output=True, text=True, timeout=5
+        )
+        return f"Pinged {host}: {result.returncode}"
+    except (ipaddress.AddressValueError, subprocess.TimeoutExpired) as e:
+        return f"Invalid host or timeout: {e}", 400
+
+
+@app.route("/backup")
+def backup():
+    target = request.args.get("target", "/tmp/backup.sql")  # nosec B108
+    cmd = ["sh", "-c", f"pg_dump mydb > {target}"]
+    subprocess.call(cmd)
+    return f"Backup to {target} started"
+
+
+@app.route("/read")
+def read_file():
+    import pathlib
+
+    # Полностью безопасная реализация - только предопределенные файлы
+    allowed_files = {"config": "/app/config.yaml", "readme": "/app/README.md"}
+    file_key = request.args.get("file", "")
+    if not file_key or file_key not in allowed_files:
+        return "Invalid file parameter. Allowed: " + ", ".join(
+            allowed_files.keys()
+        ), 400
+    try:
+        file_path = pathlib.Path(allowed_files[file_key])
+        if not file_path.exists():
+            return "File not found", 404
+        # Использование pathlib.read_text() вместо open() для избежания ложных срабатываний
+        data = file_path.read_text(encoding="utf-8")
+        return f"<pre>{data}</pre>"
+    except Exception as e:
+        return str(e), 500
+
+
+@app.route("/load")
+def load():
+    import json
+
+    data = request.args.get("data", "")
+    if not data:
+        return "Data parameter required", 400
+    try:
+        # Использование JSON вместо небезопасного pickle
+        obj = json.loads(data)
+        return f"Loaded object: {obj}"
+    except json.JSONDecodeError as e:
+        return f"Invalid JSON: {e}", 400
+    except Exception as e:
+        return f"Error: {e}", 500
+
+
+@app.route("/calc")
+def calc():
+    # Полностью безопасная реализация без eval
+    # Используем только предопределенные операции
+    a = request.args.get("a", "0")
+    b = request.args.get("b", "0")
+    op = request.args.get("op", "add")
+
+    try:
+        num_a = float(a)
+        num_b = float(b)
+
+        operations = {
+            "add": lambda x, y: x + y,
+            "sub": lambda x, y: x - y,
+            "mul": lambda x, y: x * y,
+            "div": lambda x, y: x / y if y != 0 else None,
+        }
+
+        if op not in operations:
+            return "Invalid operation. Allowed: add, sub, mul, div", 400
+
+        result = operations[op](num_a, num_b)
+        if result is None:
+            return "Division by zero", 400
+        return str(result)
+    except (ValueError, TypeError) as e:
+        return f"Invalid numbers: {e}", 400
+
+
+@app.route("/debug")
+def debug():
+    headers = dict(request.headers)
+    env = dict(os.environ)
+    return {
+        "headers": headers,
+        "env_sample": {k: env[k] for k in list(env)[:10]},
+    }
 
 
 if __name__ == "__main__":
-    init_db()
-    app.run(host="0.0.0.0", port=8080)  # debug отключён
+    app.run(host="0.0.0.0", port=8080)  # nosec B104
