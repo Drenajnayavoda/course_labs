@@ -4,16 +4,17 @@ import sqlite3
 import subprocess
 
 from flask import Flask, make_response, request
+from markupsafe import escape
 
 app = Flask(__name__)
 
-app.config["DEBUG"] = False  # Отключен DEBUG режим в production
+app.config["DEBUG"] = False
 
-DB_USER = "admin"
-DB_PASSWORD = "SuperSecret123"
-DB_PATH = "app.db"
+DB_USER = os.environ.get("DB_USER", "app")
+DB_PASSWORD = os.environ.get("DB_PASSWORD")
+DB_PATH = os.environ.get("DB_PATH", "app.db")
 
-logging.basicConfig(level=logging.INFO)  # Изменен уровень логирования с DEBUG на INFO
+logging.basicConfig(level=logging.INFO)
 
 
 def get_db():
@@ -31,9 +32,9 @@ def get_user():
     username = request.args.get("name", "")
     conn = get_db()
     cur = conn.cursor()
-    query = f"SELECT id, name, email FROM users WHERE name = '{username}'"  # nosec B608
-    app.logger.debug("Executing query: %s", query)
-    rows = cur.execute(query).fetchall()
+    rows = cur.execute(
+        "SELECT id, name, email FROM users WHERE name = ?", (username,)
+    ).fetchall()
     conn.close()
     return {"result": rows}
 
@@ -41,7 +42,8 @@ def get_user():
 @app.route("/search")
 def search():
     q = request.args.get("q", "")
-    html = f"<h1>Results for: {q}</h1>"
+    safe_q = escape(q)
+    html = f"<h1>Results for: {safe_q}</h1>"
     return make_response(html, 200)
 
 
@@ -51,30 +53,33 @@ def ping():
 
     host = request.args.get("host", "127.0.0.1")
     try:
-        # Валидация IP адреса
         ipaddress.ip_address(host)
-        # Использование subprocess вместо os.system
         result = subprocess.run(
             ["ping", "-c", "1", host], capture_output=True, text=True, timeout=5
         )
-        return f"Pinged {host}: {result.returncode}"
-    except (ipaddress.AddressValueError, subprocess.TimeoutExpired) as e:
-        return f"Invalid host or timeout: {e}", 400
+        return f"Pinged {escape(host)}: {result.returncode}"
+    except (ValueError, subprocess.TimeoutExpired) as e:
+        return f"Invalid host or timeout: {escape(str(e))}", 400
 
 
 @app.route("/backup")
 def backup():
-    target = request.args.get("target", "/tmp/backup.sql")  # nosec B108
-    cmd = ["sh", "-c", f"pg_dump mydb > {target}"]
-    subprocess.call(cmd)
-    return f"Backup to {target} started"
+    target_key = request.args.get("target", "default")
+    allowed_targets = {
+        "default": "/tmp/backup.sql",  # nosec B108
+        "nightly": "/tmp/backup-nightly.sql",  # nosec B108
+    }
+    if target_key not in allowed_targets:
+        return "Invalid target. Allowed: " + ", ".join(allowed_targets.keys()), 400
+    target = allowed_targets[target_key]
+    subprocess.run(["pg_dump", "mydb", "-f", target], check=False)
+    return f"Backup to {escape(target)} started"
 
 
 @app.route("/read")
 def read_file():
     import pathlib
 
-    # Полностью безопасная реализация - только предопределенные файлы
     allowed_files = {"config": "/app/config.yaml", "readme": "/app/README.md"}
     file_key = request.args.get("file", "")
     if not file_key or file_key not in allowed_files:
@@ -85,9 +90,8 @@ def read_file():
         file_path = pathlib.Path(allowed_files[file_key])
         if not file_path.exists():
             return "File not found", 404
-        # Использование pathlib.read_text() вместо open() для избежания ложных срабатываний
         data = file_path.read_text(encoding="utf-8")
-        return f"<pre>{data}</pre>"
+        return f"<pre>{escape(data)}</pre>"
     except Exception as e:
         return str(e), 500
 
@@ -100,19 +104,14 @@ def load():
     if not data:
         return "Data parameter required", 400
     try:
-        # Использование JSON вместо небезопасного pickle
         obj = json.loads(data)
-        return f"Loaded object: {obj}"
+        return f"Loaded object: {escape(str(obj))}"
     except json.JSONDecodeError as e:
-        return f"Invalid JSON: {e}", 400
-    except Exception as e:
-        return f"Error: {e}", 500
+        return f"Invalid JSON: {escape(str(e))}", 400
 
 
 @app.route("/calc")
 def calc():
-    # Полностью безопасная реализация без eval
-    # Используем только предопределенные операции
     a = request.args.get("a", "0")
     b = request.args.get("b", "0")
     op = request.args.get("op", "add")
@@ -136,17 +135,20 @@ def calc():
             return "Division by zero", 400
         return str(result)
     except (ValueError, TypeError) as e:
-        return f"Invalid numbers: {e}", 400
+        return f"Invalid numbers: {escape(str(e))}", 400
 
 
-@app.route("/debug")
-def debug():
-    headers = dict(request.headers)
-    env = dict(os.environ)
-    return {
-        "headers": headers,
-        "env_sample": {k: env[k] for k in list(env)[:10]},
-    }
+@app.after_request
+def set_security_headers(response):
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "DENY"
+    response.headers["Content-Security-Policy"] = "default-src 'self'"
+    response.headers["Permissions-Policy"] = "geolocation=(), microphone=(), camera=()"
+    response.headers["Cross-Origin-Opener-Policy"] = "same-origin"
+    response.headers["Cross-Origin-Embedder-Policy"] = "require-corp"
+    response.headers["Cross-Origin-Resource-Policy"] = "same-origin"
+    response.headers["Server"] = "WebServer"
+    return response
 
 
 if __name__ == "__main__":
